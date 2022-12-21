@@ -1,0 +1,5 @@
+vim.keymap.set('n', 'H', '0', { silent = true })
+vim.keymap.set('n', 'L', '$', { silent = true })
+vim.keymap.set('v', '<', '<gv', { silent = true })
+vim.keymap.set('v', '>', '>gv', { silent = true })
+vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
