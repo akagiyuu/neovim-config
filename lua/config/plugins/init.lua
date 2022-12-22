@@ -7,9 +7,7 @@ return {
     --#endregion
 
     --#region Themes
-    {
-        'rebelot/kanagawa.nvim',
-    },
+    { 'rebelot/kanagawa.nvim' },
     --#endregion
 
     { 'kyazdani42/nvim-web-devicons' },
@@ -34,7 +32,10 @@ return {
         event = 'VeryLazy',
         config = function() require('gitsigns').setup {} end,
     },
-    { 'sindrets/diffview.nvim', event = 'VeryLazy' },
+    {
+        'sindrets/diffview.nvim',
+        cmd = 'DiffviewOpen'
+    },
     --#endregion
 
     --#region Lsp
@@ -44,12 +45,12 @@ return {
     },
     {
         'smjonas/inc-rename.nvim',
-        event = 'VeryLazy',
+        cmd = 'IncRename',
         config = function() require('inc_rename').setup() end,
     },
     {
         'adoyle-h/lsp-toggle.nvim',
-        event = 'VeryLazy',
+        cmd = { 'ToggleLSP', 'ToggleNullLSP' },
         config = function() require('lsp-toggle').setup {} end,
     },
     {
@@ -60,20 +61,23 @@ return {
     --#endregion
 
     {
-        'rafamadriz/friendly-snippets',
-        lazy = false,
+        'xorid/asciitree.nvim',
+        cmd = { 'AsciiTree', 'AsciiTreeUndo' }
     },
-
-    { 'xorid/asciitree.nvim', event = 'VeryLazy' },
-
     --#region Comment
     {
         'numToStr/Comment.nvim',
         event = 'VeryLazy',
         config = function() require('Comment').setup {} end,
     },
-    { 'LudoPinelli/comment-box.nvim', event = 'VeryLazy' },
-    { 'superhawk610/ascii-blocks.nvim', event = 'VeryLazy' },
+    {
+        'LudoPinelli/comment-box.nvim',
+        event = 'VeryLazy',
+    },
+    {
+        'superhawk610/ascii-blocks.nvim',
+        cmd = 'AsciiBlockify'
+    },
     --#endregion
 
     {
@@ -82,19 +86,30 @@ return {
         config = function() require('trouble').setup {} end,
     },
     --#region Misc
-    { 'kevinhwang91/nvim-bqf', event = 'VeryLazy' },
-    { 'ggandor/lightspeed.nvim', event = 'VeryLazy' },
-    { 'krady21/compiler-explorer.nvim', event = 'VeryLazy' },
-    { 'samjwill/nvim-unception', event = 'VeryLazy' },
-    -- {
-    --     '0x100101/lab.nvim',
-    --     build = 'cd js && npm ci',
-    --     lazy = true,
-    --     config = function() require('lab').setup {} end,
-    -- },
+    {
+        'kevinhwang91/nvim-bqf',
+        event = 'VeryLazy',
+    },
+    {
+        'ggandor/lightspeed.nvim',
+        event = 'VeryLazy',
+    },
+    {
+        'krady21/compiler-explorer.nvim',
+        cmd = 'CECompile'
+    },
+    {
+        'samjwill/nvim-unception',
+        event = 'VeryLazy',
+    },
+    {
+        '0x100101/lab.nvim',
+        build = 'cd js && npm ci',
+        config = function() require('lab').setup {} end,
+    },
     {
         'max397574/colortils.nvim',
-        event = 'VeryLazy',
+        cmd = 'Colortils',
         config = function() require('colortils').setup {} end,
     },
     {
@@ -117,10 +132,12 @@ return {
         event = 'VeryLazy',
         config = function() require('numb').setup {} end,
     },
-    { 'dstein64/vim-startuptime', event = 'VeryLazy' },
+    {
+        'dstein64/vim-startuptime',
+        cmd = 'StartupTime'
+    },
     {
         'narutoxy/silicon.lua',
-        event = 'VeryLazy',
         config = function() require('silicon').setup {} end,
     },
     --#endregion
@@ -129,12 +146,12 @@ return {
     { 'Hoffs/omnisharp-extended-lsp.nvim' },
     {
         'AckslD/nvim-FeMaco.lua',
-        event = 'VeryLazy',
+        ft = 'markdown',
         config = function() require('femaco').setup() end,
     },
     {
         'toppair/peek.nvim',
-        event = 'VeryLazy',
+        ft = 'markdown',
         build = 'deno task --quiet build:fast',
         config = function() require('peek').setup() end,
     },

@@ -1,9 +1,11 @@
-return {
+local M = {
     'monaqa/dial.nvim',
     event = 'VeryLazy',
-    config = function()
-        local augend = require('dial.augend')
-        require('dial.config').augends:register_group {
+}
+
+M.config = function()
+    local augend = require('dial.augend')
+    require('dial.config').augends:register_group {
             -- default augends used when no group name is specified
             default = {
                 augend.integer.alias.decimal_int,
@@ -38,13 +40,14 @@ return {
                     'SCREAMING_SNAKE_CASE',
                     'snake_case',
                     'PascalCase',
-                } },
+                                  } },
             },
-        }
+    }
 
-        vim.keymap.set('n', '<C-a>', require('dial.map').inc_normal())
-        vim.keymap.set('n', '<C-x>', require('dial.map').dec_normal())
-        vim.keymap.set('v', '<C-a>', require('dial.map').inc_visual('visual'))
-        vim.keymap.set('v', '<C-x>', require('dial.map').dec_visual('visual'))
-    end,
-}
+    vim.keymap.set('n', '<C-a>', require('dial.map').inc_normal())
+    vim.keymap.set('n', '<C-x>', require('dial.map').dec_normal())
+    vim.keymap.set('v', '<C-a>', require('dial.map').inc_visual('visual'))
+    vim.keymap.set('v', '<C-x>', require('dial.map').dec_visual('visual'))
+end
+
+return M
