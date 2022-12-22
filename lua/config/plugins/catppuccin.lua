@@ -202,8 +202,6 @@ return {
             custom_highlights = {
                 LspFloatWinNormal       = { bg = 'NONE' },
                 TreesitterContextBottom = { underline = true, sp = '#6E6C7E', }
-                -- LspEnumMember          = { fg = '#005500' }
-                -- LspProperty        = { fg = '#005500' }
             },
         }
         vim.g.catppuccin_flavour = 'mocha'

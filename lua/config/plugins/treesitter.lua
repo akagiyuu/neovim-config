@@ -3,7 +3,7 @@ return {
     build = ':TSUpdate',
     lazy = false,
     dependencies = {
-        'nvim-treesitter/nvim-treesitter-textobjects',
+        { 'nvim-treesitter/nvim-treesitter-textobjects', event = 'VeryLazy' },
         { 'windwp/nvim-ts-autotag', event = 'InsertCharPre' },
         { 'RRethy/nvim-treesitter-endwise', event = 'InsertCharPre' }
     },
