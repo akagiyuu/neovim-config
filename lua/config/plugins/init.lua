@@ -156,4 +156,9 @@ return {
         config = function() require('peek').setup() end,
     },
     --#endregion
+    -- {
+    --     'tamton-aquib/flirt.nvim',
+    --     event = 'VeryLazy',
+    --     config = function() require("flirt").setup() end
+    -- }
 }

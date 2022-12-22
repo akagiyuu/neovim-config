@@ -4,12 +4,7 @@ return {
     sumneko_lua = {
         settings = {
             Lua = {
-                diagnostics = {
-                    globals = { 'vim' },
-                    neededFileStatus = {
-                        ['codestyle-check'] = 'Any',
-                    },
-                },
+                diagnostics = { neededFileStatus = { ['codestyle-check'] = 'Any' } },
                 workspace = {
                     library = {
                         [vim.fn.expand '$VIMRUNTIME/lua'] = true,
