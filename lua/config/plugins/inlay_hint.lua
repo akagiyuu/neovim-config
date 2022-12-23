@@ -13,5 +13,5 @@ return {
             end,
         })
     end,
-    config = function() require('lsp-inlayhints').setup() end,
+    config = true
 }

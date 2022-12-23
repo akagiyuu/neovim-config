@@ -1,9 +1,7 @@
 local M = {
     'NvChad/nvim-colorizer.lua',
     event = 'VeryLazy',
-}
-M.config = function()
-    require 'colorizer'.setup {
+    config = {
         user_default_options = {
             RGB = true, -- #RGB hex codes
             RRGGBB = true, -- #RRGGBB hex codes
@@ -18,6 +16,6 @@ M.config = function()
             mode = 'background', -- Set the display mode.
         },
     }
-end
+}
 
 return M

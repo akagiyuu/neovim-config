@@ -1,44 +1,25 @@
 return {
-    --#region Library
     { 'nvim-lua/plenary.nvim' },
     { 'MunifTanjim/nui.nvim' },
     { 'kevinhwang91/promise-async' },
     { 'ii14/emmylua-nvim' },
-    --#endregion
-
-    --#region Themes
     { 'rebelot/kanagawa.nvim' },
-    --#endregion
-
     { 'kyazdani42/nvim-web-devicons' },
-
-    --#region Sidebar
-    --#endregion
-
-    --#region Treesitter
     { 'nvim-treesitter/playground' },
-    --#endregion
-
-    --#region Text object
     {
         'kylechui/nvim-surround',
         event = 'VeryLazy',
-        config = function() require('nvim-surround').setup {} end,
+        config = true
     },
-    --#endregion
-    --#region Git
     {
         'lewis6991/gitsigns.nvim',
         event = 'VeryLazy',
-        config = function() require('gitsigns').setup {} end,
+        config = true
     },
     {
         'sindrets/diffview.nvim',
         cmd = 'DiffviewOpen'
     },
-    --#endregion
-
-    --#region Lsp
     {
         'hrsh7th/cmp-nvim-lsp',
         lazy = false
@@ -46,29 +27,26 @@ return {
     {
         'smjonas/inc-rename.nvim',
         cmd = 'IncRename',
-        config = function() require('inc_rename').setup() end,
+        config = true
     },
     {
         'adoyle-h/lsp-toggle.nvim',
         cmd = { 'ToggleLSP', 'ToggleNullLSP' },
-        config = function() require('lsp-toggle').setup {} end,
+        config = true
     },
     {
         'Maan2003/lsp_lines.nvim',
         event = 'VeryLazy',
-        config = function() require('lsp_lines').setup() end,
+        config = true
     },
-    --#endregion
-
     {
         'xorid/asciitree.nvim',
         cmd = { 'AsciiTree', 'AsciiTreeUndo' }
     },
-    --#region Comment
     {
         'numToStr/Comment.nvim',
         event = 'VeryLazy',
-        config = function() require('Comment').setup {} end,
+        config = true
     },
     {
         'LudoPinelli/comment-box.nvim',
@@ -78,14 +56,11 @@ return {
         'superhawk610/ascii-blocks.nvim',
         cmd = 'AsciiBlockify'
     },
-    --#endregion
-
     {
         'folke/trouble.nvim',
         event = 'VeryLazy',
-        config = function() require('trouble').setup {} end,
+        config = true
     },
-    --#region Misc
     {
         'kevinhwang91/nvim-bqf',
         event = 'VeryLazy',
@@ -105,32 +80,32 @@ return {
     {
         '0x100101/lab.nvim',
         build = 'cd js && npm ci',
-        config = function() require('lab').setup {} end,
+        config = true
     },
     {
         'max397574/colortils.nvim',
         cmd = 'Colortils',
-        config = function() require('colortils').setup {} end,
+        config = true
     },
     {
         'levouh/tint.nvim',
         event = 'VeryLazy',
-        config = function() require('tint').setup {} end,
+        config = true,
     },
     {
         'Pocco81/true-zen.nvim',
         event = 'VeryLazy',
-        config = function() require('true-zen').setup {} end
+        config = true
     },
     {
         'nvim-zh/colorful-winsep.nvim',
         event = 'VeryLazy',
-        config = function() require('colorful-winsep').setup {} end,
+        config = true
     },
     {
         'nacro90/numb.nvim',
         event = 'VeryLazy',
-        config = function() require('numb').setup {} end,
+        config = true
     },
     {
         'dstein64/vim-startuptime',
@@ -138,24 +113,20 @@ return {
     },
     {
         'narutoxy/silicon.lua',
-        config = function() require('silicon').setup {} end,
+        config = true
     },
-    --#endregion
-
-    --#region Language specific
     { 'Hoffs/omnisharp-extended-lsp.nvim' },
     {
         'AckslD/nvim-FeMaco.lua',
         ft = 'markdown',
-        config = function() require('femaco').setup() end,
+        config = true
     },
     {
         'toppair/peek.nvim',
         ft = 'markdown',
         build = 'deno task --quiet build:fast',
-        config = function() require('peek').setup() end,
+        config = true
     },
-    --#endregion
     -- {
     --     'tamton-aquib/flirt.nvim',
     --     event = 'VeryLazy',

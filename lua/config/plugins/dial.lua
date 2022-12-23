@@ -48,11 +48,6 @@ M.config = function()
                                   } },
             },
     }
-
-    vim.keymap.set('n', '<C-a>', require('dial.map').inc_normal())
-    vim.keymap.set('n', '<C-x>', require('dial.map').dec_normal())
-    vim.keymap.set('v', '<C-a>', require('dial.map').inc_visual('visual'))
-    vim.keymap.set('v', '<C-x>', require('dial.map').dec_visual('visual'))
 end
 
 return M

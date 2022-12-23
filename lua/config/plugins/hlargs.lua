@@ -1,9 +1,7 @@
 return {
     'm-demare/hlargs.nvim',
     event = 'VeryLazy',
-    config = function()
-        require('hlargs').setup {
-            use_colorpalette = true,
-        }
-    end
+    config = {
+        use_colorpalette = true,
+    }
 }

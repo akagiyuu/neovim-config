@@ -1,10 +1,7 @@
-local M = {
+return {
     'kyazdani42/nvim-tree.lua',
-    keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', silent = true } }
-}
-
-M.config = function()
-    require('nvim-tree').setup {
+    keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', silent = true } },
+    config = {
         hijack_cursor = true,
         filesystem_watchers = {
             enable = true,
@@ -23,6 +20,4 @@ M.config = function()
         },
         actions = { open_file = { resize_window = true } },
     }
-end
-
-return M
+}

@@ -1,9 +1,7 @@
-local M = {
+return {
     'lukas-reineke/indent-blankline.nvim',
     lazy = false,
-}
-M.config = function()
-    require('indent_blankline').setup {
+    config = {
         char = '▏',
         -- char_blankline = ' ',
         -- context_char = '▏',
@@ -55,6 +53,4 @@ M.config = function()
         --     'IndentBlanklineIndent6',
         -- },
     }
-end
-
-return M
+}

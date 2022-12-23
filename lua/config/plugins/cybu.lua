@@ -1,13 +1,10 @@
-local M = {
+return {
     'ghillb/cybu.nvim',
     keys = {
         { ']b', '<cmd>CybuNext<cr>', desc = 'Go to next buffer', silent = true },
         { '[b', '<cmd>CybuPre<cr>', desc = 'Go to previous buffer', silent = true }
-    }
-}
-
-M.config = function()
-    require('cybu').setup {
+    },
+    config = {
         -- behavior = { -- set behavior for different modes
         --     show_on_autocmd = 'BufEnter', -- event to trigger cybu (eg. "BufEnter")
         -- },
@@ -17,6 +14,4 @@ M.config = function()
             border = 'rounded', -- single, double, rounded, none
         }
     }
-end
-
-return M
+}

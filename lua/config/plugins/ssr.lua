@@ -1,4 +1,4 @@
-local M = {
+return {
     'cshuaimin/ssr.nvim',
     keys = {
         {
@@ -7,11 +7,8 @@ local M = {
             { 'n', 'x' },
             desc = 'Structure search and replace',
         },
-    }
-}
-
-M.config = function()
-    require('ssr').setup {
+    },
+    config = {
         min_width = 50,
         min_height = 5,
         keymaps = {
@@ -21,6 +18,4 @@ M.config = function()
             replace_all = '<leader><cr>',
         },
     }
-end
-
-return M
+}

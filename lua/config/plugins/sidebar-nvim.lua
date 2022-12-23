@@ -1,10 +1,7 @@
-local M = {
+return {
     'sidebar-nvim/sidebar.nvim',
-    keys = { { '<leader>sb', '<cmd>SidebarNvimToggle<CR>', silent = true } }
-}
-
-M.config = function()
-    require('sidebar-nvim').setup {
+    keys = { { '<leader>sb', '<cmd>SidebarNvimToggle<CR>', silent = true } },
+    config = {
         sections = {
             'git',
             'diagnostics',
@@ -18,6 +15,4 @@ M.config = function()
             initially_closed = false,
         },
     }
-end
-
-return M
+}
