@@ -1,6 +1,6 @@
 return {
     'danymat/neogen',
-    event = 'VeryLazy',
+    cmd = 'Neogen',
     config = function()
         require('neogen').setup {
             snippet_engine = 'luasnip',

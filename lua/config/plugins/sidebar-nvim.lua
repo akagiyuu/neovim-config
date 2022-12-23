@@ -1,6 +1,6 @@
 local M = {
     'sidebar-nvim/sidebar.nvim',
-    event = 'VeryLazy',
+    keys = { { '<leader>sb', '<cmd>SidebarNvimToggle<CR>', silent = true } }
 }
 
 M.config = function()
@@ -18,7 +18,6 @@ M.config = function()
             initially_closed = false,
         },
     }
-    vim.keymap.set('n', '<leader>sb', '<cmd>SidebarNvimToggle<CR>', { silent = true })
 end
 
 return M

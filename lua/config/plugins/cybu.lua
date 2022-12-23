@@ -1,6 +1,9 @@
 local M = {
     'ghillb/cybu.nvim',
-    event = 'VeryLazy',
+    keys = {
+        { ']b', '<cmd>CybuNext<cr>', desc = 'Go to next buffer', silent = true },
+        { '[b', '<cmd>CybuPre<cr>', desc = 'Go to previous buffer', silent = true }
+    }
 }
 
 M.config = function()
@@ -14,8 +17,6 @@ M.config = function()
             border = 'rounded', -- single, double, rounded, none
         }
     }
-    vim.keymap.set('n', ']b', '<cmd>CybuNext<cr>', { desc = 'Go to next buffer', silent = true })
-    vim.keymap.set('n', '[b', '<cmd>CybuPre<cr>', { desc = 'Go to previous buffer', silent = true })
 end
 
 return M

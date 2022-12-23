@@ -5,7 +5,6 @@ local M = {
     lazy = false,
     enabled = true,
 }
-
 M.config = function()
     require('catppuccin').setup {
         flavour = 'mocha',

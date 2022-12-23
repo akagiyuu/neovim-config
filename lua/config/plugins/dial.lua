@@ -1,6 +1,11 @@
 local M = {
     'monaqa/dial.nvim',
-    event = 'VeryLazy',
+    keys = {
+        { '<C-a>', function() require('dial.map').inc_normal() end },
+        { '<C-x>', function() require('dial.map').dec_normal() end },
+        { '<C-a>', function() require('dial.map').inc_visual('visual') end, 'v' },
+        { '<C-x>', function() require('dial.map').dec_visual('visual') end, 'v' }
+    }
 }
 
 M.config = function()

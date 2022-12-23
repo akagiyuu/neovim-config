@@ -1,6 +1,13 @@
 local M = {
     'cshuaimin/ssr.nvim',
-    event = 'VeryLazy',
+    keys = {
+        {
+            '<leader>sr',
+            function() require('ssr').open() end,
+            { 'n', 'x' },
+            desc = 'Structure search and replace',
+        },
+    }
 }
 
 M.config = function()

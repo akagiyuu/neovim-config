@@ -1,6 +1,9 @@
 local M = {
     'cbochs/portal.nvim',
-    event = 'VeryLazy',
+    keys = {
+        { '<leader>o', function() require('portal').jump_backward() end, desc = 'Jump backward' },
+        { '<leader>i', function() require('portal').jump_forward() end, desc = 'Jump forward' }
+    }
 }
 
 M.config = function()
@@ -20,13 +23,6 @@ M.config = function()
             },
         },
     }
-
-    vim.keymap.set('n', '<leader>o', require('portal').jump_backward, {
-        desc = 'Jump backward'
-    })
-    vim.keymap.set('n', '<leader>i', require('portal').jump_forward, {
-        desc = 'Jump forward'
-    })
 end
 
 return M

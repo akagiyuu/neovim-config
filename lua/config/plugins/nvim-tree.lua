@@ -1,6 +1,6 @@
 local M = {
     'kyazdani42/nvim-tree.lua',
-    event = 'VeryLazy',
+    keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', silent = true } }
 }
 
 M.config = function()
@@ -23,8 +23,6 @@ M.config = function()
         },
         actions = { open_file = { resize_window = true } },
     }
-
-    vim.keymap.set('n', '<leader>nt', '<cmd>NvimTreeToggle<CR>', { silent = true })
 end
 
 return M
