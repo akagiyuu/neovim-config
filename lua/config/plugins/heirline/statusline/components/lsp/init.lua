@@ -1,15 +1,11 @@
 local conditions = require('heirline.conditions')
+local clients_name = require(... .. '.util').clients_name
+
 local lsp = {}
 
 lsp.name = {
     condition = conditions.lsp_attached,
-    provider = require('config.plugins.heirline.generate.utils.lsp').lsp_client_names,
-    on_click = {
-        callback = function()
-            vim.defer_fn(function() vim.cmd.LspInfo() end, 100)
-        end,
-        name = 'heirline_LSP',
-    },
+    provider = clients_name,
     hl = { fg = 'nord_blue', bold = true },
     update = { 'LspAttach', 'LspDetach' },
 }

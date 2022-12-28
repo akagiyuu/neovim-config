@@ -1,9 +1,10 @@
-local misc = require('config.plugins.heirline.generate.utils.misc')
-local M = {}
+local misc = {
+    search_result = require(... .. '.util')
+}
 
 local null = { provider = '' }
 
-M.fold_method = {
+misc.fold_method = {
     flexible = 2,
     {
         condition = function() return vim.wo.foldenable end,
@@ -17,13 +18,13 @@ M.fold_method = {
     null
 }
 
-M.spell_check = {
+misc.spell_check = {
     provider = ' 暈',
     condition = function() return vim.wo.spell end,
     hl = { fg = 'yellow', bold = true },
 }
 
-M.help_file_name = {
+misc.help_file_name = {
     condition = function() return vim.bo.filetype == 'help' end,
     provider = function()
         local filename = vim.api.nvim_buf_get_name(0)
@@ -32,6 +33,6 @@ M.help_file_name = {
     hl = { fg = 'blue' },
 }
 
-M.search_result = { provider = misc.search_results }
+misc.search_result = { provider = misc.search_results }
 
-return M
+return misc

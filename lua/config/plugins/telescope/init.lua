@@ -6,24 +6,14 @@ local M = {
             build = 'make',
             config = function() require('telescope').load_extension('fzf') end,
         },
-        {
-            'nvim-telescope/telescope-file-browser.nvim',
-            config = function() require('telescope').load_extension('file_browser') end,
-        },
+        'nvim-telescope/telescope-file-browser.nvim',
     },
     event = 'VeryLazy',
 }
+
 M.config = function()
     local telescope = require('telescope')
     local action_layout = require('telescope.actions.layout')
-
-    -- local vertical = {
-    --     layout_strategies = 'vertical',
-    --     layout_config = {
-    --         prompt_position = 'top',
-    --         anchor = 'N',
-    --     },
-    -- }
 
     telescope.setup {
         defaults = {
@@ -35,7 +25,7 @@ M.config = function()
                 width = 0.8,
                 prompt_position = 'top'
             },
-            -- winblend = 10,
+            winblend = vim.g.neovide and 60 or 0,
             dynamic_preview_title = true,
             file_ignore_patterns = { '__pycache__/', 'node_modules/', '%.lock', 'obj/', 'bin/', 'target/' },
 
@@ -47,19 +37,14 @@ M.config = function()
                     ['<Esc>'] = 'close',
                 },
             },
-            preview = {
-                timeout = 1000,
+        },
+        extensions = {
+            file_browser = {
+                grouped = true,
+                -- auto_depth = true,
             },
         },
-        -- pickers = {
-        --     commands = vertical,
-        --     keymaps = vertical,
-        --     lsp_references = {
-        --         theme = 'cursor',
-        --     },
-        -- },
     }
-
     require('config.plugins.telescope.keymap')
 end
 

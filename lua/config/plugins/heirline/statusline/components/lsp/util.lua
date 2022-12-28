@@ -1,6 +1,6 @@
-local M = {}
+local lsp = {}
 
-M.lsp_client_names = function()
+lsp.clients_name = function()
     local names = {}
     for _, client in pairs(vim.lsp.buf_get_clients(0)) do
         table.insert(names, client.name)
@@ -9,4 +9,4 @@ M.lsp_client_names = function()
     return '   [' .. table.concat(names, ', ') .. ']'
 end
 
-return M
+return lsp

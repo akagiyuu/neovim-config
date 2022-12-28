@@ -1,6 +1,6 @@
-local M = {}
+local misc = {}
 
-M.search_results = function()
+misc.search_results = function()
     local lines = vim.api.nvim_buf_line_count(0)
     if lines > 50000 then return '' end
 
@@ -24,14 +24,4 @@ M.search_results = function()
     return '/' .. query .. '[' .. count.current .. '/' .. count.total .. ']'
 end
 
-M.locallist_count = function()
-    local ll = vim.fn.getloclist(vim.fn.winnr(), {
-        idx = 0,
-        size = 0,
-    })
-    local count = ll.size
-    local current = ll.idx
-    return ('  %d/%d '):format(current, count)
-end
-
-return M
+return misc

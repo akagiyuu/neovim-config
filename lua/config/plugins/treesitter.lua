@@ -5,7 +5,8 @@ local M = {
     dependencies = {
         { 'nvim-treesitter/nvim-treesitter-textobjects', event = 'VeryLazy' },
         { 'windwp/nvim-ts-autotag', event = 'InsertCharPre' },
-        { 'RRethy/nvim-treesitter-endwise', event = 'InsertCharPre' }
+        { 'RRethy/nvim-treesitter-endwise', event = 'InsertCharPre' },
+        { 'JoosepAlviste/nvim-ts-context-commentstring', event = 'VeryLazy' }
     },
 }
 
@@ -15,6 +16,10 @@ M.config = function()
         indent = { enable = true },
         autotag = { enable = true },
         endwise = { enable = true },
+        context_commentstring = {
+            enable = true,
+            enable_autocmd = false,
+        },
         textobjects = {
             select = {
                 enable = true,

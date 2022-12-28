@@ -1,7 +1,7 @@
-local separators = require('icons.heirline')
+local icons = require('config.plugins.heirline.statusline.icon')
 return {
     static = {
-        mode_name = {
+        name = {
             n      = 'Normal',
             no     = 'Op·Pending',
             nov    = 'Op·Pending',
@@ -32,7 +32,7 @@ return {
             t      = 'Terminal',
             ['']   = 'Empty',
         },
-        mode_icon = {
+        icon = {
             n      = '',
             no     = '',
             nov    = '',
@@ -78,10 +78,10 @@ return {
                 bold = true,
             }
         end,
-        provider = function(self) return ' ' .. self.mode_icon[self.mode] .. ' ' end,
+        provider = function(self) return ' ' .. self.icon[self.mode] .. ' ' end,
     },
     {
-        provider = function(self) return separators.right_filled .. '  %2(' .. self.mode_name[self.mode] .. '%) ' end,
+        provider = function(self) return icons.right_filled .. '  %2(' .. self.name[self.mode] .. '%) ' end,
     },
     update = { 'ModeChanged' }
 }

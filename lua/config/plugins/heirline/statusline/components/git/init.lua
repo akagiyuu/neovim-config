@@ -1,6 +1,6 @@
 local conditions = require('heirline.conditions')
 
-local git_count = require('config.plugins.heirline.generate.utils.git').git_count
+local git_count = require(... .. '.util').git_count
 local null = { provider = '' }
 
 local added   = git_count('added', 'git_add', '  ')

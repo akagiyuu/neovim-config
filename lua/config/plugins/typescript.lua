@@ -30,8 +30,8 @@ M.config = function()
             --          },
             --      },
             -- },
-            capabilities = require('plugins.config.lspconfig.capabilities'),
-            on_attach = require('plugins.config.lspconfig.on_attach')
+            capabilities = require('config.plugins.lspconfig.capabilities'),
+            on_attach = require('config.plugins.lspconfig.on_attach')
         },
     }
 end

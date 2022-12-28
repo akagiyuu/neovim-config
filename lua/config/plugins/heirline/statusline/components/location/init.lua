@@ -1,7 +1,7 @@
 local location = {}
 
 location.locallist = {
-    provider = require('config.plugins.heirline.generate.utils.misc').locallist_count,
+    provider = require(... .. '.util').locallist_count,
     condition = function() return #vim.fn.getloclist(0) > 0 end,
     hl = { fg = 'purple' },
 }

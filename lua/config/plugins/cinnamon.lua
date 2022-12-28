@@ -1,6 +1,6 @@
 local M = {
     'declancm/cinnamon.nvim',
-    enabled = function() return not vim.g.neovide end,
+    cond = function() return not vim.g.neovide end,
     event = 'VeryLazy',
 }
 
