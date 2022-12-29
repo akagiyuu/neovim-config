@@ -2,6 +2,7 @@ local M = {
     'neovim/nvim-lspconfig',
     lazy = false,
 }
+
 M.config = function()
     local lspconfig = require('lspconfig')
     local capabilities = require('config.plugins.lspconfig.capabilities')
@@ -33,7 +34,6 @@ M.config = function()
         lspconfig[lsp].setup(server_config)
     end
 
-    -- Borders for LspInfo window
     require('lspconfig.ui.windows').default_options.border = 'single'
 end
 

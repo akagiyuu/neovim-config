@@ -10,6 +10,7 @@ M.config = function()
 
     npairs.setup {
         check_ts = true,
+        disable_in_visualblock = true,
         fast_wrap = {
             map = '<M-e>',
             chars = { '{', '[', '(', '"', "'" },

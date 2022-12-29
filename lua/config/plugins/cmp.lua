@@ -5,13 +5,11 @@ local M = {
         'hrsh7th/cmp-cmdline',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
-
-        { 'saadparwaiz1/cmp_luasnip', event = 'InsertCharPre' },
-        { 'lukas-reineke/cmp-rg', event = 'InsertCharPre' },
-        { 'hrsh7th/cmp-nvim-lsp-signature-help', event = 'InsertCharPre' },
-        { 'hrsh7th/cmp-calc', event = 'InsertCharPre' },
+        'saadparwaiz1/cmp_luasnip',
+        'lukas-reineke/cmp-rg',
+        'hrsh7th/cmp-nvim-lsp-signature-help',
+        'hrsh7th/cmp-calc',
         'rcarriga/cmp-dap'
-
     },
 }
 M.config = function()
@@ -44,7 +42,7 @@ M.config = function()
             ['<CR>']      = cmp.mapping.confirm { select = false },
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-d>']     = cmp.mapping.scroll_docs(5),
-            ['<C-f>']     = cmp.mapping.scroll_docs(-5),
+            ['<C-u>']     = cmp.mapping.scroll_docs(-5),
             ['<Tab>']     = cmp.mapping(function(fallback)
                 if  cmp.visible() then
                     cmp.select_next_item()

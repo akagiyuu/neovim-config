@@ -59,7 +59,7 @@ M.config = function()
             program = function()
                 local cwd = vim.fn.getcwd()
                 local file_name = vim.fn.fnamemodify(cwd, ':t')
-                return vim.fn.input('Path to dll: ', cwd .. '/bin/Debug/net6.0/' .. file_name .. '.dll', 'file')
+                return vim.fn.input('Path to dll: ', cwd .. '/bin/Debug/net7.0/' .. file_name .. '.dll', 'file')
             end,
         },
     }
@@ -70,10 +70,7 @@ M.config = function()
     sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
     sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = '', numhl = '' })
 
-    dap.listeners.before['event_initialized'].ui = function()
-        vim.api.nvim_exec_autocmds('User', { pattern = 'DebugStart' })
-        require('dapui').open()
-    end
+    dap.listeners.before['event_initialized'].ui = function() require('dapui').open() end
     dap.listeners.before.event_terminated['dapui_config'] = function() require('dapui').close() end
     dap.listeners.before.event_exited['dapui_config'] = function() require('dapui').close() end
 end

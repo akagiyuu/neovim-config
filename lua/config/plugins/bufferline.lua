@@ -36,12 +36,6 @@ M.config = function()
             show_close_icon = false,
             persist_buffer_sort = true,
             always_show_bufferline = false,
-            hover = {
-                enabled = true,
-                delay = 200,
-                reveal = { 'close' }
-            }
-
             -- enforce_regular_tabs = true,
             -- always_show_bufferline = false,
         },
