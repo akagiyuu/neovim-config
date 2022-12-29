@@ -1,4 +1,4 @@
-local M = {
+return {
     'NvChad/nvim-colorizer.lua',
     event = 'VeryLazy',
     config = {
@@ -17,5 +17,3 @@ local M = {
         },
     }
 }
-
-return M

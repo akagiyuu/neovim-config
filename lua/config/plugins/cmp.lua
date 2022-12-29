@@ -63,19 +63,22 @@ M.config = function()
                 end
             end, { 'i', 's', 'c' }),
         },
-        sources    = cmp.config.sources({
-            { name = 'luasnip', max_item_count = 2 },
-            { name = 'nvim_lsp' },
-            { name = 'neorg' },
-            -- { name = 'lab.quick_data', keyword_length = 4 },
-            { name = 'crates' },
-            { name = 'nvim_lsp_signature_help' },
-            { name = 'calc' },
-        }, {
+        sources    = cmp.config.sources(
+            {
+                { name = 'luasnip', max_item_count = 2 },
+                { name = 'nvim_lsp' },
+                { name = 'neorg' },
+                -- { name = 'lab.quick_data', keyword_length = 4 },
+                { name = 'crates' },
+                { name = 'nvim_lsp_signature_help' },
+                { name = 'calc' },
+            },
+            {
                 { name = 'buffer' },
                 { name = 'path' },
                 { name = 'rg', keyword_length = 4 },
-            }),
+            }
+        ),
 
         -- completion = {
         --     completeopt = 'menu,menuone',

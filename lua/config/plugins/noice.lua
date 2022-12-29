@@ -2,10 +2,7 @@ local M = {
     'folke/noice.nvim',
     cond = function() return not vim.g.neovide end,
     event = 'VeryLazy',
-}
-
-M.config = function()
-    require('noice').setup {
+    config = {
         cmdline = {
             view = 'cmdline',
             format = {
@@ -91,6 +88,6 @@ M.config = function()
             },
         },
     }
-end
+}
 
 return M

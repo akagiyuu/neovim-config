@@ -1,6 +1,6 @@
 return {
     'lukas-reineke/indent-blankline.nvim',
-    lazy = false,
+    event = 'VeryLazy',
     config = {
         char = '▏',
         -- char_blankline = ' ',

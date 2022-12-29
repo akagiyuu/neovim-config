@@ -52,6 +52,7 @@ return {
             }
         end
     },
+    { 'JoosepAlviste/nvim-ts-context-commentstring' },
     {
         'LudoPinelli/comment-box.nvim',
         event = 'VeryLazy',
@@ -119,7 +120,7 @@ return {
         'narutoxy/silicon.lua',
         config = true
     },
-    { 'Hoffs/omnisharp-extended-lsp.nvim' },
+    'Hoffs/omnisharp-extended-lsp.nvim',
     {
         'AckslD/nvim-FeMaco.lua',
         ft = 'markdown',

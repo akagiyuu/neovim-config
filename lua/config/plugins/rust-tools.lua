@@ -6,9 +6,7 @@ local M = {
 M.config = function()
     require('rust-tools').setup {
         tools = { inlay_hints = { auto = false }, },
-        server = {
-            on_attach = require('config.plugins.lspconfig.on_attach')
-        }
+        server = { on_attach = require('config.plugins.lspconfig.on_attach') }
     }
 end
 

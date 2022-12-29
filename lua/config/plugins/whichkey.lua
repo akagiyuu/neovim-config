@@ -26,28 +26,13 @@ M.config = function()
     }
 
     which_key.register({
-        f = {
-            name = 'Telescope',
-            g = 'Git',
-        },
-        l = {
-            name = 'Language Server Protocol'
-        },
-        r = {
-            name = 'Refactor'
-        }
+        f = { name = 'Telescope', g = 'Git' },
+        l = { name = 'Lsp' },
+        r = { name = 'Refactor' }
         -- d = {
         --     name = 'Diagnostic/Debug'
         -- }
     }, { prefix = '<leader>' })
-
-    which_key.register({
-        ['<c-w>'] = { name = ' Windows' },
-        ["'"] = { name = ' Marks' },
-        ['"'] = { name = ' Registers' },
-        ['z'] = { name = 'ﬡ Folds/View/Spelling' },
-        ['g'] = { name = ' Miscellaneous' },
-    }, { prefix = '' })
 end
 
 return M

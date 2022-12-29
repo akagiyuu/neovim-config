@@ -14,10 +14,9 @@ local M = {
                 }
             end
         },
-
-
     },
 }
+
 M.config = function()
     local dap = require('dap')
     dap.defaults.fallback.external_terminal = {

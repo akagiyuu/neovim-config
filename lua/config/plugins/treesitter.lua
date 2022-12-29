@@ -3,10 +3,9 @@ local M = {
     build = ':TSUpdate',
     lazy = false,
     dependencies = {
-        { 'nvim-treesitter/nvim-treesitter-textobjects', event = 'VeryLazy' },
-        { 'windwp/nvim-ts-autotag', event = 'InsertCharPre' },
-        { 'RRethy/nvim-treesitter-endwise', event = 'InsertCharPre' },
-        { 'JoosepAlviste/nvim-ts-context-commentstring', event = 'VeryLazy' }
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        'windwp/nvim-ts-autotag',
+        'RRethy/nvim-treesitter-endwise',
     },
 }
 

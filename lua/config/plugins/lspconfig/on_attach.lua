@@ -32,7 +32,7 @@ local on_attach = function(_, bufnr)
         buffer = bufnr
     })
 
-    vim.keymap.set('n', 'gqq', function() require('util').lsp.format() end, {
+    vim.keymap.set({ 'n', 'v' }, '<leader>fm', function() require('util').lsp.format() end, {
         desc = 'Format',
         buffer = bufnr
     })
