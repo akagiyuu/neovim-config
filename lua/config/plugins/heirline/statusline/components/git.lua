@@ -1,7 +1,19 @@
 local conditions = require('heirline.conditions')
 
-local git_count = require(... .. '.util').git_count
 local null = { provider = '' }
+
+local git_count = function(property, color, icon)
+    return {
+        condition = function(self) return self.git_status[property] and self.git_status[property] > 0 end,
+        {
+            provider = icon,
+            hl = { fg = color },
+        },
+        {
+            provider = function(self) return self.git_status[property] end,
+        },
+    }
+end
 
 local added   = git_count('added', 'git_add', '  ')
 local removed = git_count('removed', 'git_del', '  ')

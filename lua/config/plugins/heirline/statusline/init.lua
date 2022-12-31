@@ -22,10 +22,6 @@ local disabled_buffers = {
 
 require('heirline').setup {
     init = function(self)
-        self.filename = vim.api.nvim_buf_get_name(0)
-        local extension = vim.fn.fnamemodify(self.filename, ':e')
-        self.icon, self.icon_color = require('nvim-web-devicons').get_icon_color(self.filename, extension,
-            { default = true })
         self.mode = vim.fn.mode(1)
     end,
     static = {
@@ -57,4 +53,3 @@ require('heirline').setup {
     require(... .. '.active'),
     require(... .. '.inactive')
 }
-

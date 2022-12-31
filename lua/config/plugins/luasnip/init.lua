@@ -1,10 +1,8 @@
-local M = {
+local _luasnip = {
     'L3MON4D3/LuaSnip',
     build = 'make install_jsregexp',
-    denpendencies = { { 'rafamadriz/friendly-snippets', lazy = false } },
-    event = 'VeryLazy',
 }
-M.config = function()
+_luasnip.config = function()
     local luasnip = require('luasnip')
     local types = require('luasnip.util.types')
 
@@ -29,4 +27,8 @@ M.config = function()
     end)
 end
 
-return M
+return {
+    'rafamadriz/friendly-snippets',
+    dependencies = { _luasnip },
+    event = 'VeryLazy',
+}

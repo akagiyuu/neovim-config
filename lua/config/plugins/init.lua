@@ -21,19 +21,15 @@ return {
         cmd = 'DiffviewOpen'
     },
     {
-        'hrsh7th/cmp-nvim-lsp',
-        lazy = false
-    },
-    {
         'smjonas/inc-rename.nvim',
         cmd = 'IncRename',
         config = true
     },
-    {
-        'adoyle-h/lsp-toggle.nvim',
-        cmd = { 'ToggleLSP', 'ToggleNullLSP' },
-        config = true
-    },
+    -- {
+    --     'adoyle-h/lsp-toggle.nvim',
+    --     cmd = { 'ToggleLSP', 'ToggleNullLSP' },
+    --     config = true
+    -- },
     {
         'Maan2003/lsp_lines.nvim',
         event = 'VeryLazy',
@@ -92,21 +88,26 @@ return {
         cmd = 'Colortils',
         config = true
     },
-    {
-        'levouh/tint.nvim',
-        event = 'VeryLazy',
-        config = true,
-    },
-    {
-        'Pocco81/true-zen.nvim',
-        event = 'VeryLazy',
-        config = true
-    },
-    {
-        'nvim-zh/colorful-winsep.nvim',
-        event = 'VeryLazy',
-        config = true
-    },
+    -- {
+    --     'levouh/tint.nvim',
+    --     event = 'VeryLazy',
+    --     config = true,
+    -- },
+    -- {
+    --     'Pocco81/true-zen.nvim',
+    --     cmd = {
+    --         'TZFocus',
+    --         'TZNarrow',
+    --         'TZAtaraxis',
+    --         'TZMinimalist'
+    --     },
+    --     config = true
+    -- },
+    -- {
+    --     'nvim-zh/colorful-winsep.nvim',
+    --     event = 'VeryLazy',
+    --     config = true
+    -- },
     {
         'nacro90/numb.nvim',
         event = 'VeryLazy',

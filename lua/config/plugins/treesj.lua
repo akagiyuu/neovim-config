@@ -1,5 +1,14 @@
 return {
     'Wansmer/treesj',
-    event = 'VeryLazy',
-    config = { max_join_length = 300 }
+    keys = {
+        {
+            '<space>m',
+            function() require('treesj').toggle() end,
+            desc = 'Split or Join code block with autodetect',
+        },
+    },
+    config = {
+        use_default_keymaps = true,
+        max_join_length = 300,
+    }
 }

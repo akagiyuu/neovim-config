@@ -12,7 +12,7 @@ local left_segment = {
 
 local middle_segment = {
     condition = function() return vim.fn.expand('%:t') ~= '' end,
-    utils.surround({ ' ', ' ' }, 'statusline_bg', components.file.info),
+    utils.surround({ ' ', ' ' }, 'statusline_bg', components.file),
 }
 
 local right_segment = {
@@ -20,9 +20,6 @@ local right_segment = {
     hl = { fg = 'grey' },
     components.lsp.name,
     components.lsp.diagnostic,
-    components.misc.spell_check,
-    components.file.type,
-    components.space,
     components.misc.search_result,
     {
         hl = function(self)
@@ -34,10 +31,7 @@ local right_segment = {
                 return { fg = self:mode_color(), bg = 'statusline_bg' }
             end,
         },
-        { provider = '' },
-        components.space,
-        components.location.locallist,
-        components.location.cursor,
+        components.misc.ruler,
     },
 }
 

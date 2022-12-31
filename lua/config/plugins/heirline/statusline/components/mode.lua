@@ -32,38 +32,16 @@ return {
             t      = 'Terminal',
             ['']   = 'Empty',
         },
-        icon = {
-            n      = '',
-            no     = '',
-            nov    = '',
-            noV    = '',
-            niI    = '',
-            niR    = '',
-            niV    = '',
-            nt     = '',
-            v      = '',
-            V      = '',
-            ['']  = '',
-            s      = '',
-            S      = '',
-            ['']  = '',
-            i      = '',
-            ic     = 'C',
-            ix     = 'X',
-            R      = '',
-            Rv     = '',
-            Rx     = '',
-            c      = '',
-            cv     = 'Q',
-            ce     = '-',
-            r      = '-',
-            rm     = '-',
-            ['r?'] = '-',
-            ['!']  = '',
-            t      = '',
-            ['']   = '-',
-        },
     },
+    init = function(self)
+        if not self.once then
+            vim.api.nvim_create_autocmd('ModeChanged', {
+                pattern = '*:*o',
+                command = 'redrawstatus'
+            })
+            self.once = true
+        end
+    end,
     hl = function(self)
         return {
             fg = self:mode_color(),
@@ -78,10 +56,10 @@ return {
                 bold = true,
             }
         end,
-        provider = function(self) return ' ' .. self.icon[self.mode] .. ' ' end,
+        provider = function(self) return '   %2(' .. self.name[self.mode] .. '%) ' end,
     },
     {
-        provider = function(self) return icons.right_filled .. '  %2(' .. self.name[self.mode] .. '%) ' end,
+        provider = function() return icons.right_filled end,
     },
     update = { 'ModeChanged' }
 }

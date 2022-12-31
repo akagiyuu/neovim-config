@@ -1,12 +1,7 @@
-local M = {
+return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
-}
-
-M.config = function()
-    local which_key = require('which-key')
-
-    which_key.setup {
+    config = {
         popup_mappings = {
             scroll_down = '<Down>',
             scroll_up = '<Up>',
@@ -24,15 +19,4 @@ M.config = function()
         show_help = false,
         show_keys = false
     }
-
-    which_key.register({
-        f = { name = 'Telescope', g = 'Git' },
-        l = { name = 'Lsp' },
-        r = { name = 'Refactor' }
-        -- d = {
-        --     name = 'Diagnostic/Debug'
-        -- }
-    }, { prefix = '<leader>' })
-end
-
-return M
+}

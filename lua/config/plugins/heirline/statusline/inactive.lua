@@ -20,11 +20,7 @@ local right_segment = {
             provider = icons.slant_left,
             hl = { fg = 'green_pale', bg = 'short_bg', },
         },
-        {
-            provider = '',
-        },
-        components.location.locallist,
-        components.location.cursor,
+        components.misc.ruler,
     },
 }
 
@@ -44,7 +40,7 @@ return {
         hl = {
             bg = 'mid_bg',
         },
-        components.file.info,
+        components.file,
         components.space,
         right_slant,
     },

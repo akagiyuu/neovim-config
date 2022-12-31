@@ -207,7 +207,6 @@ M.config = function()
             TreesitterContextBottom = { underline = true, sp = '#6E6C7E', }
         },
     }
-    vim.g.catppuccin_flavour = 'mocha'
     vim.cmd.colorscheme('catppuccin')
 end
 

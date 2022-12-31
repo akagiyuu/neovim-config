@@ -2,14 +2,13 @@ local M = {
     'hrsh7th/nvim-cmp',
     event = 'VeryLazy',
     dependencies = {
+        'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-cmdline',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'saadparwaiz1/cmp_luasnip',
         'lukas-reineke/cmp-rg',
         'hrsh7th/cmp-nvim-lsp-signature-help',
-        'hrsh7th/cmp-calc',
-        'rcarriga/cmp-dap'
     },
 }
 M.config = function()
@@ -63,22 +62,17 @@ M.config = function()
                 end
             end, { 'i', 's', 'c' }),
         },
-        sources    = cmp.config.sources(
-            {
-                { name = 'luasnip', max_item_count = 2 },
-                { name = 'nvim_lsp' },
-                { name = 'neorg' },
-                -- { name = 'lab.quick_data', keyword_length = 4 },
-                { name = 'crates' },
-                { name = 'nvim_lsp_signature_help' },
-                { name = 'calc' },
-            },
-            {
-                { name = 'buffer' },
-                { name = 'path' },
-                { name = 'rg', keyword_length = 4 },
-            }
-        ),
+        sources    = cmp.config.sources {
+            { name = 'luasnip', max_item_count = 2 },
+            { name = 'nvim_lsp' },
+            { name = 'neorg' },
+            -- { name = 'lab.quick_data', keyword_length = 4 },
+            { name = 'crates' },
+            { name = 'buffer' },
+            { name = 'path' },
+            { name = 'rg', keyword_length = 4 },
+            { name = 'nvim_lsp_signature_help' },
+        },
 
         -- completion = {
         --     completeopt = 'menu,menuone',
@@ -114,10 +108,6 @@ M.config = function()
             { name = 'cmdline' },
             { name = 'path' },
         },
-    })
-
-    cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
-        sources = { { name = 'dap' } },
     })
 end
 

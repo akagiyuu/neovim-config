@@ -1,7 +1,4 @@
-local file = {}
-
 local space = { provider = ' ' }
-local null = { provider = '' }
 
 local size = {
     provider = function(self)
@@ -24,7 +21,7 @@ local size = {
 
 local lock_info = {
     {
-        provider  = ' ',
+        provider  = ' [+]',
         condition = function() return vim.bo.modified end,
         hl        = { fg = 'green' },
     },
@@ -48,46 +45,22 @@ local name = {
 }
 
 local icon = {
-    provider = function(self) return self.icon and (self.icon .. ' ') end,
-    hl = function(self) return { fg = self.icon_color }
+    init = function(self)
+        local extension = vim.fn.fnamemodify(self.filename, ':e')
+        self.icon, self.icon_color = require('nvim-web-devicons').get_icon_color(
+            self.filename,
+            extension,
+            { default = true }
+        )
     end,
+    provider = function(self) return (self.icon or '') .. ' ' end,
+    hl = function(self) return { fg = self.icon_color } end,
 }
 
--- local folder = function(utils, conditions)
---     return {
---         condition = function() return conditions.is_git_repo() end,
---         {
---             provider = ' ',
---             hl = { fg = utils.get_highlight('Directory').fg },
---         },
---         {
---             provider = require('plugins.config.heirline.utils.git').git_root,
---         },
---         space,
---     }
--- end
-
-local file_name = name
-local file_lock_info = lock_info
-local file_size = size
-file.info = {
+return {
+    init = function(self) self.filename = vim.api.nvim_buf_get_name(0) end,
     flexible = 3,
-    { --[[ file_folder_name, --]] icon, file_name, file_lock_info, space, file_size },
-    { --[[ file_folder_name, --]] icon, file_name, file_lock_info },
-    -- { file_folder_name, file_name },
-    { file_name }
+    { icon, name, lock_info, space, size },
+    { icon, name, lock_info },
+    { name }
 }
-
-file.type = {
-    flexible = 2,
-    {
-        hl = function(self) return { fg = self.icon_color, bold = true } end,
-        space,
-        { provider = function(self) return self.icon or '' end },
-        space,
-        { provider = function() return vim.bo.filetype end },
-    },
-    null
-}
-
-return file
