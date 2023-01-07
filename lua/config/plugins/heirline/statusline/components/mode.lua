@@ -33,15 +33,6 @@ return {
             ['']   = 'Empty',
         },
     },
-    init = function(self)
-        if not self.once then
-            vim.api.nvim_create_autocmd('ModeChanged', {
-                pattern = '*:*o',
-                command = 'redrawstatus'
-            })
-            self.once = true
-        end
-    end,
     hl = function(self)
         return {
             fg = self:mode_color(),

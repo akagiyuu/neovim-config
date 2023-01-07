@@ -4,7 +4,10 @@ return {
     { 'kevinhwang91/promise-async' },
     { 'ii14/emmylua-nvim' },
     { 'rebelot/kanagawa.nvim' },
-    { 'kyazdani42/nvim-web-devicons' },
+    {
+        'kyazdani42/nvim-web-devicons',
+        lazy = false,
+    },
     { 'nvim-treesitter/playground' },
     {
         'kylechui/nvim-surround',
@@ -133,6 +136,12 @@ return {
         build = 'deno task --quiet build:fast',
         config = true
     },
+    {
+        'barrett-ruth/import-cost.nvim',
+        build = 'sh install.sh yarn',
+        event = 'VeryLazy',
+        config = true
+    }
     -- {
     --     'tamton-aquib/flirt.nvim',
     --     event = 'VeryLazy',
