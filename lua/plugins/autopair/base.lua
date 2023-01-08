@@ -58,11 +58,4 @@ _autopairs.config = function()
     cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done { map_char = { tex = '' } })
 end
 
-return {
-    _autopairs,
-    {
-        'windwp/nvim-ts-autotag',
-        ft = { 'html', 'typescriptreact', 'javascriptreact' },
-        config = true
-    }
-}
+return _autopairs

@@ -5,7 +5,6 @@ vim.defer_fn(function()
     require('config.gui')
     require('config.diagnostic')
     require('config.keymap')
-    require('icons.nonicons')
     require('config.autocmd')
 
     vim.cmd.rshada()

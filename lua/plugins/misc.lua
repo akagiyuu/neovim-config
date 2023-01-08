@@ -1,23 +1,4 @@
 return {
-    {
-        'kyazdani42/nvim-web-devicons',
-        lazy = false,
-    },
-    { 'nvim-treesitter/playground' },
-    {
-        'kylechui/nvim-surround',
-        event = 'VeryLazy',
-        config = true
-    },
-    {
-        'lewis6991/gitsigns.nvim',
-        event = 'VeryLazy',
-        config = true
-    },
-    {
-        'sindrets/diffview.nvim',
-        cmd = 'DiffviewOpen'
-    },
     -- {
     --     'adoyle-h/lsp-toggle.nvim',
     --     cmd = { 'ToggleLSP', 'ToggleNullLSP' },
@@ -37,7 +18,6 @@ return {
             }
         end
     },
-    { 'JoosepAlviste/nvim-ts-context-commentstring' },
     {
         'LudoPinelli/comment-box.nvim',
         event = 'VeryLazy',
@@ -45,15 +25,6 @@ return {
     {
         'superhawk610/ascii-blocks.nvim',
         cmd = 'AsciiBlockify'
-    },
-    {
-        'folke/trouble.nvim',
-        event = 'VeryLazy',
-        config = true
-    },
-    {
-        'ggandor/lightspeed.nvim',
-        event = 'VeryLazy',
     },
     {
         'krady21/compiler-explorer.nvim',
@@ -66,11 +37,6 @@ return {
     {
         '0x100101/lab.nvim',
         build = 'cd js && npm ci',
-        config = true
-    },
-    {
-        'max397574/colortils.nvim',
-        cmd = 'Colortils',
         config = true
     },
     -- {

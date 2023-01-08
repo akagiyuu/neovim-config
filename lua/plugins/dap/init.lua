@@ -1,19 +1,8 @@
 local M = {
     'mfussenegger/nvim-dap',
     dependencies = {
-        {
-            'rcarriga/nvim-dap-ui',
-            config = function() require('dapui').setup {} end,
-        },
-        {
-            'theHamsta/nvim-dap-virtual-text',
-            config = function()
-                require('nvim-dap-virtual-text').setup {
-                    highlight_new_as_changed = true,
-                    commented = true,
-                }
-            end
-        },
+        require(... .. '.ui'),
+        require(... .. '.virtual_text'),
     },
 }
 
