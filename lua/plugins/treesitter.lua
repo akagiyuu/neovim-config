@@ -4,7 +4,6 @@ local M = {
     lazy = false,
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        'windwp/nvim-ts-autotag',
         'RRethy/nvim-treesitter-endwise',
     },
 }

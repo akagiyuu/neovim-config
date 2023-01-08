@@ -17,8 +17,8 @@ _luasnip.config = function()
         },
     }
 
-    require('config.plugins.luasnip.lua')
-    require('config.plugins.luasnip.python')
+    require('plugins.luasnip.lua')
+    require('plugins.luasnip.python')
     require('luasnip.loaders.from_vscode').lazy_load()
 
 

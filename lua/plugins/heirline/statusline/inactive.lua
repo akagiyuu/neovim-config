@@ -1,6 +1,6 @@
 local conditions = require('heirline.conditions')
-local icons = require('config.plugins.heirline.statusline.icon')
-local components = require('config.plugins.heirline.statusline.components')
+local icons = require('plugins.heirline.statusline.icon')
+local components = require('plugins.heirline.statusline.components')
 
 local left_slant = {
     provider = icons.slant_right_2,

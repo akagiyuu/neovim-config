@@ -45,7 +45,7 @@ M.config = function()
             },
         },
     }
-    require('config.plugins.telescope.keymap')
+    require('plugins.telescope.keymap')
 end
 
 return M

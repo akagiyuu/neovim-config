@@ -5,9 +5,9 @@ local M = {
 
 M.config = function()
     local lspconfig = require('lspconfig')
-    local capabilities = require('config.plugins.lspconfig.capabilities')
-    local on_attach = require('config.plugins.lspconfig.on_attach')
-    local option = require('config.plugins.lspconfig.option')
+    local capabilities = require('plugins.lspconfig.capabilities')
+    local on_attach = require('plugins.lspconfig.on_attach')
+    local option = require('plugins.lspconfig.option')
 
 
     local servers = {

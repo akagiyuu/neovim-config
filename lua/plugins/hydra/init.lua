@@ -4,7 +4,7 @@ return {
     config = function()
         local Hydra = require('hydra')
 
-        Hydra(require('config.plugins.hydra.window'))
-        Hydra(require('config.plugins.hydra.debug'))
+        Hydra(require('plugins.hydra.window'))
+        Hydra(require('plugins.hydra.debug'))
     end,
 }

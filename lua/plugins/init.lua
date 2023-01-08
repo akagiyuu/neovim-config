@@ -66,10 +66,6 @@ return {
         config = true
     },
     {
-        'kevinhwang91/nvim-bqf',
-        event = 'VeryLazy',
-    },
-    {
         'ggandor/lightspeed.nvim',
         event = 'VeryLazy',
     },
@@ -122,18 +118,6 @@ return {
     },
     {
         'narutoxy/silicon.lua',
-        config = true
-    },
-    'Hoffs/omnisharp-extended-lsp.nvim',
-    {
-        'AckslD/nvim-FeMaco.lua',
-        ft = 'markdown',
-        config = true
-    },
-    {
-        'toppair/peek.nvim',
-        ft = 'markdown',
-        build = 'deno task --quiet build:fast',
         config = true
     },
     {
