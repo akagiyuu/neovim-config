@@ -6,5 +6,6 @@ return {
     require(... .. '.noice'),
     require(... .. '.dressing'),
     require(... .. '.notify'),
-    require(... .. '.indent-blankline')
+    require(... .. '.indent-blankline'),
+    require(... .. '.cinnamon')
 }
