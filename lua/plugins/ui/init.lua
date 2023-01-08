@@ -6,4 +6,5 @@ return {
     require(... .. '.noice'),
     require(... .. '.dressing'),
     require(... .. '.notify'),
+    require(... .. '.indent-blankline')
 }

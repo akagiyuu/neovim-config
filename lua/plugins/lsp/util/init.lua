@@ -2,7 +2,9 @@ return {
     require(... .. '.inlayhint'),
     require(... .. '.kind'),
     require(... .. '.lspsaga'),
+    require(... .. '.ufo'),
     require(... .. '.refactoring'),
+    require(... .. '.null-ls'),
     {
         'Maan2003/lsp_lines.nvim',
         event = 'VeryLazy',
@@ -18,4 +20,9 @@ return {
         event = 'VeryLazy',
         config = true
     },
+    -- {
+    --     'adoyle-h/lsp-toggle.nvim',
+    --     cmd = { 'ToggleLSP', 'ToggleNullLSP' },
+    --     config = true
+    -- },
 }
