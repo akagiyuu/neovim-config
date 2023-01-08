@@ -1,9 +1,9 @@
-local M = {
+local _treesitter_unit = {
     'David-Kunz/treesitter-unit',
     event = 'VeryLazy',
 }
 
-M.config = function()
+_treesitter_unit.config = function()
     require('treesitter-unit').setup {}
     vim.keymap.set('x', 'iu', ':lua require"treesitter-unit".select()<CR>', {
         noremap = true,
@@ -23,4 +23,4 @@ M.config = function()
     })
 end
 
-return M
+return _treesitter_unit

@@ -1,9 +1,4 @@
 return {
-    { 'nvim-lua/plenary.nvim' },
-    { 'MunifTanjim/nui.nvim' },
-    { 'kevinhwang91/promise-async' },
-    { 'ii14/emmylua-nvim' },
-    { 'rebelot/kanagawa.nvim' },
     {
         'kyazdani42/nvim-web-devicons',
         lazy = false,
@@ -23,21 +18,12 @@ return {
         'sindrets/diffview.nvim',
         cmd = 'DiffviewOpen'
     },
-    {
-        'smjonas/inc-rename.nvim',
-        cmd = 'IncRename',
-        config = true
-    },
     -- {
     --     'adoyle-h/lsp-toggle.nvim',
     --     cmd = { 'ToggleLSP', 'ToggleNullLSP' },
     --     config = true
     -- },
-    {
-        'Maan2003/lsp_lines.nvim',
-        event = 'VeryLazy',
-        config = true
-    },
+
     {
         'xorid/asciitree.nvim',
         cmd = { 'AsciiTree', 'AsciiTreeUndo' }

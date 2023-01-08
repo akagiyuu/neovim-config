@@ -1,9 +1,9 @@
-local M = {
+local _syntax_tree_surfer = {
     'ziontee113/syntax-tree-surfer',
     event = 'VeryLazy',
 }
 
-M.config = function()
+_syntax_tree_surfer.config = function()
     require('syntax-tree-surfer').setup {}
     vim.keymap.set('n', 'vU', function()
         vim.opt.opfunc = 'v:lua.STSSwapUpNormal_Dot'
@@ -34,4 +34,4 @@ M.config = function()
     vim.keymap.set('x', 'L', '<cmd>STSSelectChildNode<cr>', opts)
 end
 
-return M
+return _syntax_tree_surfer

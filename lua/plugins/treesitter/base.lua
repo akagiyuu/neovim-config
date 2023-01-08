@@ -1,14 +1,15 @@
-local M = {
+local _treesitter = {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     lazy = false,
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
+        'windwp/nvim-ts-autotag',
         'RRethy/nvim-treesitter-endwise',
     },
 }
 
-M.config = function()
+_treesitter.config = function()
     require('nvim-treesitter.configs').setup {
         highlight = { enable = true },
         indent = { enable = true },
@@ -96,4 +97,4 @@ M.config = function()
     }
 end
 
-return M
+return _treesitter
