@@ -53,7 +53,10 @@ _misc.search_result = {
 _misc.ruler = {
     { provider = ' ' },
     {
-        provider = '%l/%L|%c ',
+        provider = function()
+            local line = vim.fn.line('.')
+            return string.format('%d/%%L|%%c ', line)
+        end,
         hl = { bold = true, },
     },
     {

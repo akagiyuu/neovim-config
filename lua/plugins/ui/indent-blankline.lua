@@ -9,7 +9,6 @@ return {
         show_current_context = true,
         show_current_context_start = true,
         use_treesitter = true,
-        -- use_treesitter_scope = true,
         filetype_exclude = {
             'help',
             'lspinfo',
@@ -43,14 +42,5 @@ return {
             'return_statement',
             'statement_block',
         },
-
-        -- char_highlight_list = {
-        --     'IndentBlanklineIndent1',
-        --     'IndentBlanklineIndent2',
-        --     'IndentBlanklineIndent3',
-        --     'IndentBlanklineIndent4',
-        --     'IndentBlanklineIndent5',
-        --     'IndentBlanklineIndent6',
-        -- },
     }
 }

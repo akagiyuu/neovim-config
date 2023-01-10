@@ -37,7 +37,10 @@ _bufferline.config = function()
             persist_buffer_sort = true,
             always_show_bufferline = false,
             -- enforce_regular_tabs = true,
-            -- always_show_bufferline = false,
+            indicator = {
+                style = 'underline',
+            },
+            themable = true,
         },
     }
     vim.keymap.set('n', '<C-Tab>', '<cmd>BufferLinePick<CR>', { desc = 'Pick a buffer' })

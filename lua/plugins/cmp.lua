@@ -25,11 +25,11 @@ M.config = function()
         snippet    = { expand = function(args) require('luasnip').lsp_expand(args.body) end },
         window     = {
             completion = cmp.config.window.bordered {
-                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
+                winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None',
                 scrolloff    = 2,
             },
             documentation = cmp.config.window.bordered {
-                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
+                winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None',
                 scrolloff    = 2,
             },
         },
@@ -94,7 +94,7 @@ M.config = function()
                     rg = '[rg]',
                     calc = '[calc]',
                 },
-                before = function(entry, vim_item)
+                before = function(_, vim_item)
                     vim_item.abbr = ' ' .. vim_item.abbr
                     return vim_item
                 end

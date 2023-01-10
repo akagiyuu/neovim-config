@@ -105,6 +105,12 @@ _catppuccin.config = function()
         highlight_overrides = {
             mocha = function(cp)
                 return {
+                    TabLineSel = { bg = cp.pink },
+				    NvimTreeNormal = { bg = cp.none },
+				    CmpBorder = { fg = cp.surface2 },
+				    Pmenu = { bg = cp.none },
+				    NormalFloat = { bg = cp.none },
+				    TelescopeBorder = { link = "FloatBorder" },
                     Keyword = { fg = cp.pink },
                     Type = { fg = cp.blue },
                     Typedef = { fg = cp.yellow },
