@@ -46,7 +46,10 @@ return {
         config = function()
             require('rust-tools').setup {
                 tools = { inlay_hints = { auto = false }, },
-                server = { on_attach = on_attach }
+                server = {
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                }
             }
         end
     },
