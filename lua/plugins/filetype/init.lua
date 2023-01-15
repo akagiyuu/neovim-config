@@ -15,5 +15,11 @@ return {
         build = 'deno task --quiet build:fast',
         config = true
     },
+    {
+        'barrett-ruth/import-cost.nvim',
+        build = 'sh install.sh yarn',
+        ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+        config = true
+    },
     require(... .. '.neorg')
 }

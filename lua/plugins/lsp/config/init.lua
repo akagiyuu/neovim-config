@@ -10,7 +10,6 @@ local option = require(... .. '.option')
 _lspconfig.config = function()
     local lspconfig = require('lspconfig')
 
-
     local servers = {
         'sumneko_lua',
         'clangd',
@@ -30,11 +29,18 @@ _lspconfig.config = function()
     for _, lsp in ipairs(servers) do
         local server_config = option[lsp] and option[lsp] or {}
         server_config.capabilities = capabilities
-        server_config.on_attach = on_attach
 
         lspconfig[lsp].setup(server_config)
     end
 
+    vim.api.nvim_create_autocmd('LspAttach', {
+        desc = 'Global lsp on attach',
+        callback = function(event)
+            local bufnr = event.buf
+
+            on_attach(nil, bufnr)
+        end
+    })
     require('lspconfig.ui.windows').default_options.border = 'single'
 end
 
@@ -48,7 +54,16 @@ return {
                 tools = { inlay_hints = { auto = false }, },
                 server = {
                     capabilities = capabilities,
-                    on_attach = on_attach,
+                    settings = {
+                        ['rust-analyzer'] = {
+                            checkOnSave = {
+                                command = 'clippy',
+                            },
+                            diagnostics = {
+                                experimental = { enable = true }
+                            }
+                        }
+                    }
                 }
             }
         end
@@ -60,7 +75,6 @@ return {
             require('typescript').setup {
                 server = {
                     capabilities = capabilities,
-                    on_attach = on_attach
                 },
             }
         end

@@ -101,6 +101,10 @@ _catppuccin.config = function()
                 },
             },
             noice = true,
+            navic = {
+                enabled = true,
+                custom_bg = "NONE",
+            },
         },
         highlight_overrides = {
             mocha = function(cp)

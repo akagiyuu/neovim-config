@@ -1,29 +1,52 @@
 return {
     'glepnir/lspsaga.nvim',
     event = 'VeryLazy',
-    config = function()
-        require('lspsaga').init_lsp_saga {
-            move_in_saga = {
-                prev = '<Up>',
-                next = '<Down>',
+    config = {
+        lightbulb = {
+            virtual_text = false,
+        },
+        rename_action_quit = '<Esc>',
+        border_style = 'rounded',
+        rename = {
+            quit = 'q',
+            exec = '<CR>',
+            in_select = false,
+        },
+        symbol_in_winbar = {
+            enable = false,
+            separator = '   ',
+            show_file = true,
+        },
+        ui = {
+            -- currently only round theme
+            theme = 'round',
+            -- border type can be single,double,rounded,solid,shadow.
+            border = 'rounded',
+            winblend = vim.g.neovide and 60 or 0,
+            expand = '',
+            collaspe = '',
+            preview = ' ',
+            code_action = '💡',
+            diagnostic = '🐞',
+            incoming = ' ',
+            outgoing = ' ',
+            colors = {
+                --float window normal bakcground color
+                normal_bg = 'NONE',
+                --title background color
+                title_bg = '#afd700',
+                red = '#e95678',
+                magenta = '#b33076',
+                orange = '#FF8700',
+                yellow = '#f7bb3b',
+                green = '#afd700',
+                cyan = '#36d0e0',
+                blue = '#61afef',
+                purple = '#CBA6F7',
+                white = '#d1d4cf',
+                black = '#1c1c19',
             },
-            code_action_keys = {
-                quit = 'q',
-                exec = '<CR>',
-            },
-            code_action_lightbulb = {
-                virtual_text = false,
-            },
-            rename_action_quit = '<Esc>',
-            border_style = 'rounded',
-            rename_in_select = false,
-
-            symbol_in_winbar = {
-                in_custom = false,
-                enable = not vim.g.started_by_firenvim,
-                separator = '   ',
-                show_file = true,
-            },
-        }
-    end
+            kind = {},
+        },
+    }
 }

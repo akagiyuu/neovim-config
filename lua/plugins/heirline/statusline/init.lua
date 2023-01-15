@@ -20,7 +20,7 @@ local disabled_buffers = {
     provider = ' ',
 }
 
-require('heirline').setup {
+return {
     init = function(self)
         self.mode = vim.fn.mode(1)
     end,

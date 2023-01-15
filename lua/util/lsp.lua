@@ -26,6 +26,7 @@ Lsp.hover = function()
     end
 end
 Lsp.toggle_virtual_lines = function()
+    require('lsp_lines')
     local virtual_lines_enable = not vim.diagnostic.config().virtual_lines
     vim.diagnostic.config {
         virtual_lines = virtual_lines_enable,

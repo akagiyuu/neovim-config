@@ -8,10 +8,6 @@ return {
         cmd = 'CECompile'
     },
     {
-        'samjwill/nvim-unception',
-        event = 'VeryLazy',
-    },
-    {
         '0x100101/lab.nvim',
         build = 'cd js && npm ci',
         config = true
@@ -27,12 +23,6 @@ return {
     },
     {
         'narutoxy/silicon.lua',
-        config = true
-    },
-    {
-        'barrett-ruth/import-cost.nvim',
-        build = 'sh install.sh yarn',
-        event = 'VeryLazy',
         config = true
     },
     {
@@ -84,9 +74,10 @@ return {
             },
         }
     },
-    {
-        'akinsho/toggleterm.nvim',
-        keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
-        config = true
-    },
+    --     {
+    --         'JosefLitos/reform.nvim',
+    --         event = 'VeryLazy',
+    --         config = true,
+    --         build = 'make docfmt',
+    --     }
 }

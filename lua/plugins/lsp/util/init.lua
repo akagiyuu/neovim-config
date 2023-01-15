@@ -5,9 +5,9 @@ return {
     require(... .. '.ufo'),
     require(... .. '.refactoring'),
     require(... .. '.null-ls'),
+    require(... .. '.barbecue'),
     {
         'Maan2003/lsp_lines.nvim',
-        event = 'VeryLazy',
         config = true
     },
     {
@@ -17,7 +17,7 @@ return {
     },
     {
         'folke/trouble.nvim',
-        event = 'VeryLazy',
+        cmd = 'Touble',
         config = true
     },
     -- {

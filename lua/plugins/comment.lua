@@ -10,7 +10,8 @@ return {
     },
     {
         'LudoPinelli/comment-box.nvim',
-        event = 'VeryLazy',
+        disabled = true,
+        -- event = 'VeryLazy',
     },
     {
         'superhawk610/ascii-blocks.nvim',

@@ -20,7 +20,7 @@ return {
 
     },
     {
-        'max397574/colortils.nvim',
+        'nvim-colortils/colortils.nvim',
         cmd = 'Colortils',
         config = true
     },
