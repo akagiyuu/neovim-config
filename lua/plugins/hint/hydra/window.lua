@@ -17,6 +17,7 @@ local window = {
         hint = {
             border = 'rounded',
             position = 'bottom',
+            offset = -1
         },
     },
     mode = 'n',
@@ -41,7 +42,6 @@ local window = {
         -- { '<C-l>', function() splits.resize_right(2) end },
         -- { '=', '<C-w>=', { desc = 'equalize' } },
 
-        -- { 'b', '<Cmd>BufExplorer<CR>', { exit = true, desc = 'choose buffer' } },
         {
             'q',
             [[<Cmd>try | close | catch /^Vim\%((\a\+)\)\=:E444:/ | endtry<CR>]],

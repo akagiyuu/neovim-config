@@ -1,4 +1,4 @@
-local icons = require('plugins.heirline.statusline.icon')
+local icons = require('plugins.line.status.icon')
 return {
     static = {
         name = {

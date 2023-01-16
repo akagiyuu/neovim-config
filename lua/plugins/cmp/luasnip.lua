@@ -1,6 +1,7 @@
 local _luasnip = {
     'L3MON4D3/LuaSnip',
     build = 'make install_jsregexp',
+    dependencies = { 'rafamadriz/friendly-snippets' }
 }
 _luasnip.config = function()
     local luasnip = require('luasnip')
@@ -17,8 +18,6 @@ _luasnip.config = function()
         },
     }
 
-    require('plugins.luasnip.lua')
-    require('plugins.luasnip.python')
     require('luasnip.loaders.from_vscode').lazy_load()
 
 
@@ -27,8 +26,4 @@ _luasnip.config = function()
     end)
 end
 
-return {
-    'rafamadriz/friendly-snippets',
-    dependencies = { _luasnip },
-    event = 'VeryLazy',
-}
+return _luasnip

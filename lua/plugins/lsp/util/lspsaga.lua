@@ -2,16 +2,9 @@ return {
     'glepnir/lspsaga.nvim',
     event = 'VeryLazy',
     config = {
-        lightbulb = {
-            virtual_text = false,
-        },
-        rename_action_quit = '<Esc>',
+        lightbulb = { virtual_text = false },
         border_style = 'rounded',
-        rename = {
-            quit = 'q',
-            exec = '<CR>',
-            in_select = false,
-        },
+        rename = { in_select = false },
         symbol_in_winbar = {
             enable = false,
             separator = '   ',
@@ -30,23 +23,7 @@ return {
             diagnostic = '🐞',
             incoming = ' ',
             outgoing = ' ',
-            colors = {
-                --float window normal bakcground color
-                normal_bg = 'NONE',
-                --title background color
-                title_bg = '#afd700',
-                red = '#e95678',
-                magenta = '#b33076',
-                orange = '#FF8700',
-                yellow = '#f7bb3b',
-                green = '#afd700',
-                cyan = '#36d0e0',
-                blue = '#61afef',
-                purple = '#CBA6F7',
-                white = '#d1d4cf',
-                black = '#1c1c19',
-            },
-            kind = {},
+            colors = { normal_bg = 'NONE' },
         },
     }
 }

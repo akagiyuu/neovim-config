@@ -35,10 +35,15 @@ _lspconfig.config = function()
 
     vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'Global lsp on attach',
-        callback = function(event)
-            local bufnr = event.buf
+        callback = function(args)
+            if not (args.data and args.data.client_id) then
+                return
+            end
 
-            on_attach(nil, bufnr)
+            local bufnr = args.buf
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+            on_attach(client, bufnr)
         end
     })
     require('lspconfig.ui.windows').default_options.border = 'single'

@@ -5,7 +5,7 @@ return {
     require(... .. '.ufo'),
     require(... .. '.refactoring'),
     require(... .. '.null-ls'),
-    require(... .. '.barbecue'),
+    require(... .. '.mason'),
     {
         'Maan2003/lsp_lines.nvim',
         config = true

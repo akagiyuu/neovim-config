@@ -34,7 +34,6 @@ M.config = function()
             --         diagnostic.severity = vim.diagnostic.severity['WARN']
             --     end,
             -- },
-            -- diagnostics.cppcheck
             null_ls.builtins.hover.dictionary,
         },
     }

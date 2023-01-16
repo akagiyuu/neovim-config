@@ -1,4 +1,3 @@
-local window = require(... .. '.window')
 local debug = require(... .. '.debug')
 
 return {
@@ -7,7 +6,6 @@ return {
     config = function()
         local Hydra = require('hydra')
 
-        Hydra(window)
         Hydra(debug)
     end,
 }

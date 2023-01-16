@@ -1,4 +1,6 @@
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
+    require('lsp-inlayhints').on_attach(client, bufnr)
+
     vim.keymap.set('n', '<leader>lf', '<cmd>Lspsaga lsp_finder<CR>', {
         desc = '[l]sp [f]inder',
         buffer = bufnr

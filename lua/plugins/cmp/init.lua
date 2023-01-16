@@ -1,4 +1,4 @@
-local M = {
+local _cmp = {
     'hrsh7th/nvim-cmp',
     event = 'VeryLazy',
     dependencies = {
@@ -9,9 +9,10 @@ local M = {
         'saadparwaiz1/cmp_luasnip',
         'lukas-reineke/cmp-rg',
         'hrsh7th/cmp-nvim-lsp-signature-help',
+        require(... .. '.luasnip')
     },
 }
-M.config = function()
+_cmp.config = function()
     local cmp = require('cmp')
 
     cmp.setup {
@@ -115,4 +116,4 @@ M.config = function()
     })
 end
 
-return M
+return _cmp
