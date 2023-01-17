@@ -90,6 +90,16 @@ return {
                 border = 'rounded', -- single, double, rounded, none
             }
         }
+    },
+    {
+        'RaafatTurki/hex.nvim',
+        config = true,
+        cmd = 'HexToggle'
+    },
+    {
+        "andrewferrier/debugprint.nvim",
+        config = true,
+        event = 'VeryLazy'
     }
     --     {
     --         'JosefLitos/reform.nvim',

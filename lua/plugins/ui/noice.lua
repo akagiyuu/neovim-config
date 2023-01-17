@@ -17,10 +17,21 @@ local M = {
                 },
                 -- help = { icon = ' ' },
                 -- lua = { icon = vim.fn.nr2char(58473) },
+                IncRename = {
+                    pattern = '^:%s*IncRename%s+',
+                    icon = ' ',
+                    conceal = true,
+                    opts = {
+                        relative = 'cursor',
+                        size = {
+                            width = '20%',
+                            maxwidth = 40,
+                        },
+                        position = { row = -3, col = 0 },
+                        border = 'rounded'
+                    },
+                },
             },
-        },
-        presets = {
-            inc_rename = true
         },
         popupmenu = { backend = 'cmp' },
         lsp = {

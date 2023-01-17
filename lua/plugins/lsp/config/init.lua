@@ -15,7 +15,7 @@ _lspconfig.config = function()
         'clangd',
         -- 'denols',
         'omnisharp',
-        -- 'texlab',
+        'texlab',
         'gopls',
         'pyright',
         'cssls',

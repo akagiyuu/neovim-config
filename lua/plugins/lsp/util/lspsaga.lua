@@ -4,7 +4,11 @@ return {
     config = {
         lightbulb = { virtual_text = false },
         border_style = 'rounded',
-        rename = { in_select = false },
+        rename = {
+            quit = 'q',
+            exec = '<CR>',
+            in_select = false,
+        },
         symbol_in_winbar = {
             enable = false,
             separator = '   ',
@@ -23,7 +27,8 @@ return {
             diagnostic = '🐞',
             incoming = ' ',
             outgoing = ' ',
-            colors = { normal_bg = 'NONE' },
+            colors = require('catppuccin.groups.integrations.lsp_saga').custom_colors(),
+            kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
         },
     }
 }
