@@ -4,12 +4,15 @@ local _cmp = {
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-cmdline',
-        'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'saadparwaiz1/cmp_luasnip',
         'lukas-reineke/cmp-rg',
         'hrsh7th/cmp-nvim-lsp-signature-help',
-        require(... .. '.luasnip')
+        require(... .. '.luasnip'),
+        {
+            'tzachar/cmp-fuzzy-buffer',
+            dependencies = { 'tzachar/fuzzy.nvim', }
+        }
     },
 }
 _cmp.config = function()
@@ -70,7 +73,8 @@ _cmp.config = function()
                 { name = 'neorg' },
                 -- { name = 'lab.quick_data', keyword_length = 4 },
                 { name = 'crates' },
-                { name = 'buffer' },
+                -- { name = 'buffer' },
+                { name = 'fuzzy_buffer', max_item_count = 2 },
                 { name = 'path' },
                 { name = 'nvim_lsp_signature_help' },
             },
@@ -105,7 +109,7 @@ _cmp.config = function()
     }
 
     cmp.setup.cmdline({ '/', '?' }, {
-        sources = { { name = 'buffer' } },
+        sources = { { name = 'fuzzy_buffer' } },
     })
 
     cmp.setup.cmdline(':', {

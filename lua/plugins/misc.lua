@@ -97,8 +97,18 @@ return {
         cmd = 'HexToggle'
     },
     {
-        "andrewferrier/debugprint.nvim",
+        'andrewferrier/debugprint.nvim',
         config = true,
+        event = 'VeryLazy'
+    },
+    {
+        'toppair/reach.nvim',
+        config = function()
+            require('reach').setup()
+            require('reach').buffers {
+                handle = 'dynamic',
+            }
+        end,
         event = 'VeryLazy'
     }
     --     {
