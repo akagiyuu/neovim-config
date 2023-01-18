@@ -8,6 +8,5 @@ return {
             }
         end,
     },
-    require(... .. '.tab'),
     require(... .. '.win'),
 }
