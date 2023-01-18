@@ -13,6 +13,9 @@ vim.diagnostic.config {
         header = '',
         prefix = '',
     },
+    on_init_callback = function(...)
+        require('util.lsp').code_lens_attach(...)
+    end,
 }
 
 local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ', other = '﫠' }

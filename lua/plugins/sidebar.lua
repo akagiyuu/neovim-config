@@ -11,13 +11,23 @@ return {
                 preserve_window_proportions = true,
                 -- float = { enable = true }
                 -- signcolumn = 'no',
+                mappings = {
+                    custom_only = false,
+                    list = {
+                        { key = 'l', action = 'edit' },
+                        { key = 'h', action = 'close_node' },
+                    }
+                },
             },
             renderer = {
                 highlight_opened_files = 'name',
                 group_empty = true,
                 highlight_git = true,
                 indent_markers = { enable = true },
-                icons = { git_placement = 'after' }
+                icons = {
+                    git_placement = 'after',
+                    symlink_arrow = ' ',
+                }
             },
             actions = { open_file = { resize_window = true } },
         }
