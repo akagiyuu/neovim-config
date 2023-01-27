@@ -93,7 +93,48 @@ return {
             },
         },
         config = true
+    },
+    {
+        'andymass/vim-matchup',
+        lazy = false
+    },
+    {
+        'hrsh7th/nvim-insx',
+        config = function()
+            require('insx.preset.standard').setup()
+        end,
+        event = 'VeryLazy'
+    },
+    {
+        'zdcthomas/yop.nvim',
+        config = function()
+            local function search(lines)
+                -- Multiple lines can't be searched for
+                if #lines > 1 then
+                    return
+                end
+                require('telescope.builtin').grep_string { search = lines[1] }
+            end
+
+            require('yop').op_map({ 'n', 'v' }, '<leader>fs', search)
+        end,
+        event = 'VeryLazy'
+    },
+    {
+        'gen740/SmoothCursor.nvim',
+        config = function()
+            require('smoothcursor').setup {
+                fancy = { enable = true },
+                type = 'exp',
+                speed = 25,
+            }
+        end,
+        event = 'VeryLazy',
     }
+    -- {
+    --     'Exafunction/codeium.vim',
+    --     lazy = false
+    -- }
     --     {
     --         'JosefLitos/reform.nvim',
     --         event = 'VeryLazy',

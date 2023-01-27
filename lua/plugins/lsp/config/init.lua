@@ -23,6 +23,7 @@ _lspconfig.config = function()
         'emmet_ls',
         'html',
         'jsonls',
+        'zls'
         -- 'bashls',
         -- 'vimls',
     }
@@ -65,6 +66,7 @@ return {
                                 command = 'clippy',
                             },
                             diagnostics = {
+                                enable = true,
                                 experimental = { enable = true }
                             }
                         }
@@ -74,14 +76,25 @@ return {
         end
     },
     {
-        'jose-elias-alvarez/typescript.nvim',
+        'yioneko/nvim-vtsls',
         ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
         config = function()
-            require('typescript').setup {
-                server = {
-                    capabilities = capabilities,
-                },
+            require('lspconfig.configs').vtsls = require('vtsls').lspconfig -- set default server config
+            require('lspconfig').vtsls.setup {
+                capabilities = capabilities,
             }
         end
-    }
+    },
+    -- {
+    --     'jose-elias-alvarez/typescript.nvim',
+    --     -- ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+    --     enabled = false,
+    --     config = function()
+    --         require('typescript').setup {
+    --             server = {
+    --                 capabilities = capabilities,
+    --             },
+    --         }
+    --     end
+    -- }
 }
