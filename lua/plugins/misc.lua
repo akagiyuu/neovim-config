@@ -130,7 +130,19 @@ return {
             }
         end,
         event = 'VeryLazy',
-    }
+    },
+    {
+        'tjdevries/sg.nvim',
+        build = 'cargo build --workspace',
+        config = {
+            on_attach = require('plugins.lsp.config.on_attach')
+        }
+    },
+    {
+        'jcdickinson/codeium.nvim',
+        config = true,
+        event = 'VeryLazy'
+    },
     -- {
     --     'Exafunction/codeium.vim',
     --     lazy = false

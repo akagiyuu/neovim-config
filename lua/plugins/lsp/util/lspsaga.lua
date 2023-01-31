@@ -27,7 +27,6 @@ return {
             diagnostic = '🐞',
             incoming = ' ',
             outgoing = ' ',
-            colors = require('catppuccin.groups.integrations.lsp_saga').custom_colors(),
             kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
         },
     }

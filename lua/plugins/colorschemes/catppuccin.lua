@@ -206,6 +206,7 @@ _catppuccin.config = function()
                     ['@property.cpp'] = { fg = cp.text },
 
                     -- ["@symbol"] = { fg = cp.flamingo },
+                    NoiceCmdlineIcon = { fg = cp.sky, style = { 'bold' } },
                 }
             end,
         },
