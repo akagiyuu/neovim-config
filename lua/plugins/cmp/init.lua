@@ -7,7 +7,6 @@ local _cmp = {
         'hrsh7th/cmp-path',
         'saadparwaiz1/cmp_luasnip',
         'lukas-reineke/cmp-rg',
-        'hrsh7th/cmp-nvim-lsp-signature-help',
         require(... .. '.luasnip'),
         {
             'tzachar/cmp-fuzzy-buffer',
@@ -77,7 +76,6 @@ _cmp.config = function()
                 -- { name = 'buffer' },
                 { name = 'fuzzy_buffer', max_item_count = 2 },
                 { name = 'path' },
-                { name = 'nvim_lsp_signature_help' },
             },
             {
                 { name = 'rg', keyword_length = 4 },

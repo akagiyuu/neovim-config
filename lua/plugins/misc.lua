@@ -18,10 +18,6 @@ return {
         config = true
     },
     {
-        'dstein64/vim-startuptime',
-        cmd = 'StartupTime'
-    },
-    {
         'narutoxy/silicon.lua',
         config = true
     },
@@ -34,7 +30,7 @@ return {
         'cbochs/portal.nvim',
         keys = {
             { '<leader>o', function() require('portal').jump_backward() end, desc = 'Jump backward' },
-            { '<leader>i', function() require('portal').jump_forward() end, desc = 'Jump forward' }
+            { '<leader>i', function() require('portal').jump_forward() end,  desc = 'Jump forward' }
         },
         config = {
             portal = {
@@ -143,10 +139,45 @@ return {
         config = true,
         event = 'VeryLazy'
     },
-    -- {
-    --     'Exafunction/codeium.vim',
-    --     lazy = false
-    -- }
+    {
+        'kyazdani42/nvim-tree.lua',
+        keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', silent = true, desc = 'Toggle nvim-tree' } },
+        config = {
+            hijack_cursor = true,
+            filesystem_watchers = {
+                enable = true,
+            },
+            view = {
+                preserve_window_proportions = true,
+                -- float = { enable = true }
+                -- signcolumn = 'no',
+                mappings = {
+                    custom_only = false,
+                    list = {
+                        { key = 'l', action = 'edit' },
+                        { key = 'h', action = 'close_node' },
+                    }
+                },
+            },
+            renderer = {
+                highlight_opened_files = 'name',
+                group_empty = true,
+                highlight_git = true,
+                indent_markers = { enable = true },
+                icons = {
+                    git_placement = 'after',
+                    symlink_arrow = ' ',
+                }
+            },
+            actions = { open_file = { resize_window = true } },
+        }
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        dependencies = { 'samjwill/nvim-unception' },
+        keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
+        config = true,
+    }
     --     {
     --         'JosefLitos/reform.nvim',
     --         event = 'VeryLazy',

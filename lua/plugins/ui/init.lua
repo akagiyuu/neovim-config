@@ -7,5 +7,4 @@ return {
     require(... .. '.dressing'),
     require(... .. '.notify'),
     require(... .. '.indent-blankline'),
-    require(... .. '.cinnamon')
 }
