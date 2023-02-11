@@ -1,6 +1,5 @@
 require('util').vim_opts {
     g = {
-        colorscheme             = 'catppuccin',
         mapleader               = ' ',
         loaded_node_provider    = false,
         loaded_perl_provider    = false,
@@ -10,10 +9,8 @@ require('util').vim_opts {
     opt = {
         termguicolors  = true,
         guifont        = {
-            'CaskaydiaCove NF',
-            'nonicons:h12',
+            'CaskaydiaCove NF:h11',
         },
-        mouse          = 'a',
         laststatus     = 3,
         cmdheight      = 0,
         shada          = '',
@@ -22,14 +19,17 @@ require('util').vim_opts {
         updatetime     = 50,
         timeoutlen     = 250,
         showmode       = false,
+        clipboard      = 'unnamedplus',
+
         number         = true,
         relativenumber = true,
         signcolumn     = 'number',
-        cindent        = true,
+
         softtabstop    = 4,
         tabstop        = 4,
         shiftwidth     = 4,
         expandtab      = true,
+
         fillchars      = {
             fold = ' ',
             eob = ' ',
@@ -45,15 +45,21 @@ require('util').vim_opts {
             conceal  = '┊',
             nbsp     = '␣',
         },
+
         preserveindent = true,
         foldlevel      = 99,
-        clipboard      = 'unnamedplus',
+
         scrolloff      = 8,
+
         splitbelow     = true,
         splitright     = true,
-        spelloptions   = 'camel,noplainbuffer',
-        mousemoveevent = true,
         splitkeep      = 'screen',
+
+        spelloptions   = 'camel,noplainbuffer',
+
+        mouse          = 'a',
+        mousemoveevent = true,
+
         winblend       = 10,
         -- pumblend       = 10
     }

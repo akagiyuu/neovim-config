@@ -18,15 +18,15 @@ _cmp.config = function()
     local cmp = require('cmp')
 
     cmp.setup {
-        duplicates = {
-            nvim_lsp    = 1,
-            luasnip     = 1,
-            cmp_tabnine = 1,
-            buffer      = 1,
-            path        = 1,
+        duplicates   = {
+            nvim_lsp     = 1,
+            luasnip      = 1,
+            cmp_tabnine  = 1,
+            fuzzy_buffer = 1,
+            path         = 1,
         },
-        snippet    = { expand = function(args) require('luasnip').lsp_expand(args.body) end },
-        window     = {
+        snippet      = { expand = function(args) require('luasnip').lsp_expand(args.body) end },
+        window       = {
             completion = cmp.config.window.bordered {
                 winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None',
                 scrolloff    = 2,
@@ -36,7 +36,7 @@ _cmp.config = function()
                 scrolloff    = 2,
             },
         },
-        mapping    = {
+        mapping      = {
             ['<C-e>']     = cmp.mapping.close(),
             ['<C-p>']     = cmp.mapping.select_prev_item(),
             ['<C-n>']     = cmp.mapping.select_next_item(),
@@ -44,9 +44,9 @@ _cmp.config = function()
             ['<CR>']      = cmp.mapping.confirm { select = false },
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-d>']     = cmp.mapping.scroll_docs(5),
-            ['<C-u>']     = cmp.mapping.scroll_docs(-5),
+            ['<C-u>']     = cmp.mapping.scroll_docs( -5),
             ['<Tab>']     = cmp.mapping(function(fallback)
-                if  cmp.visible() then
+                if cmp.visible() then
                     cmp.select_next_item()
                 elseif require('luasnip').jumpable(1) then
                     require('luasnip').jump(1)
@@ -55,20 +55,20 @@ _cmp.config = function()
                 end
             end, { 'i', 's', 'c' }),
 
-            ['<S-Tab>'] = cmp.mapping(function(fallback)
-                if  cmp.visible() then
+            ['<S-Tab>']   = cmp.mapping(function(fallback)
+                if cmp.visible() then
                     cmp.select_prev_item()
-                elseif require('luasnip').jumpable(-1) then
-                    require('luasnip').jump(-1)
+                elseif require('luasnip').jumpable( -1) then
+                    require('luasnip').jump( -1)
                 else
                     fallback()
                 end
             end, { 'i', 's', 'c' }),
         },
-        sources    = cmp.config.sources(
+        sources      = cmp.config.sources(
             {
-                { name = "codeium" },
-                { name = 'luasnip', max_item_count = 2 },
+                { name = 'codeium',      max_item_count = 2 },
+                { name = 'luasnip',      max_item_count = 2 },
                 { name = 'nvim_lsp' },
                 { name = 'neorg' },
                 -- { name = 'lab.quick_data', keyword_length = 4 },
@@ -86,7 +86,7 @@ _cmp.config = function()
         --     completeopt = 'menu,menuone',
         -- },
 
-        formatting = {
+        formatting   = {
             fields = { 'kind', 'abbr', 'menu' },
             format = require('lspkind').cmp_format {
                 mode = 'symbol',
