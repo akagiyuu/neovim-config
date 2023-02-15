@@ -1,12 +1,21 @@
-local M = {
+local _dap = {
     'mfussenegger/nvim-dap',
     dependencies = {
-        require(... .. '.ui'),
-        require(... .. '.virtual_text'),
+        {
+            'rcarriga/nvim-dap-ui',
+            config = true,
+        },
+        {
+            'theHamsta/nvim-dap-virtual-text',
+            opts = {
+                highlight_new_as_changed = true,
+                commented = true,
+            }
+        }
     },
 }
 
-M.config = function()
+_dap.config = function()
     local dap = require('dap')
     dap.defaults.fallback.external_terminal = {
         command = 'kitty',
@@ -63,4 +72,4 @@ M.config = function()
     dap.listeners.before.event_exited['dapui_config'] = function() require('dapui').close() end
 end
 
-return M
+return _dap

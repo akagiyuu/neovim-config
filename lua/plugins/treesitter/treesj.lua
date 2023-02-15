@@ -7,7 +7,7 @@ return {
             desc = 'Split or Join code block with autodetect',
         },
     },
-    config = {
+    opts = {
         use_default_keymaps = true,
         max_join_length = 300,
     }

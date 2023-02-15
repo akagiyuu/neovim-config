@@ -1,7 +1,7 @@
 return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
-    config = {
+    opts = {
         popup_mappings = {
             scroll_down = '<Down>',
             scroll_up = '<Up>',

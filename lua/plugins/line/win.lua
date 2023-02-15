@@ -4,18 +4,14 @@ return {
     dependencies = {
         {
             'SmiteshP/nvim-navic',
-            config = {
-                highlight = true
-            }
+            opts = { highlight = true },
         }
     },
-    config = function()
-        require('barbecue').setup {
-            theme = 'catppuccin',
-            show_modified = true,
-            -- symbols = {
-            --     separator = " ",
-            -- }
-        }
-    end
+    opts = {
+        theme = 'catppuccin',
+        show_modified = true,
+        -- symbols = {
+        --     separator = " ",
+        -- }
+    }
 }

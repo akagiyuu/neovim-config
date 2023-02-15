@@ -216,6 +216,20 @@ return {
         dependencies = { 'MunifTanjim/nui.nvim', 'edluffy/hologram.nvim' },
         config = true,
         event = 'VeryLazy',
+    },
+    {
+        'williamboman/mason.nvim',
+        cmd = 'Mason',
+        opts = {
+            ui = {
+                border = 'single',
+                icons = {
+                    package_installed = '✓',
+                    package_pending = '➜',
+                    package_uninstalled = '✗'
+                }
+            }
+        },
     }
     --     {
     --         'JosefLitos/reform.nvim',
