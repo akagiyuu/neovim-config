@@ -2,7 +2,7 @@ return {
     {
         'NvChad/nvim-colorizer.lua',
         event = 'VeryLazy',
-        config = {
+        opts = {
             user_default_options = {
                 RGB = true, -- #RGB hex codes
                 RRGGBB = true, -- #RRGGBB hex codes

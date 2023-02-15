@@ -1,7 +1,10 @@
 local _luasnip = {
     'L3MON4D3/LuaSnip',
     build = 'make install_jsregexp',
-    dependencies = { 'rafamadriz/friendly-snippets' }
+    dependencies = {
+        'rafamadriz/friendly-snippets',
+        config = function() require('luasnip.loaders.from_vscode').lazy_load() end,
+    }
 }
 _luasnip.config = function()
     local luasnip = require('luasnip')
@@ -17,9 +20,6 @@ _luasnip.config = function()
             }
         },
     }
-
-    require('luasnip.loaders.from_vscode').lazy_load()
-
 
     vim.keymap.set({ 'i', 's' }, '<c-l>', function()
         if luasnip.choice_active() then luasnip.change_choice(1) end

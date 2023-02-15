@@ -1,10 +1,20 @@
+-- local hint = [[
+--  ^^^                    Debug
+--  ^^^--------------------------------------------------
+--  _c_: Continue                  _p_: Toggle breakpoint
+--  _i_: Step in                   _o_: Step over
+--  _u_: Step out                  _b_: Step back
+--  _s_: Start debug               _q_: Stop debug
+-- ]]
 local hint = [[
- ^^^                    Debug
- ^^^--------------------------------------------------
- _c_: Continue                  _p_: Toggle breakpoint
- _i_: Step in                   _o_: Step over
- _u_: Step out                  _b_: Step back
- _s_: Start debug               _q_: Stop debug
+Debug:
+ _K_: Step Back    _H_: Step Out
+ _J_: Step Over    _L_: Step Into
+
+ _b_: Toggle Breakpoint
+ _s_: Start
+ _<CR>_: Continue
+ [_<Esc>_ | _q_]: Close
 ]]
 local diagnostic = {
     name = 'Diagnostic',
@@ -14,7 +24,7 @@ local diagnostic = {
         timeout = 1000,
         invoke_on_body = true,
         hint = {
-            position = 'bottom',
+            position = 'middle-right',
             border = 'rounded',
         },
     },
@@ -29,6 +39,12 @@ local diagnostic = {
             end,
             { nowait = true },
         },
+        { 'J',    function() require 'dap'.step_over() end,         { nowait = true } },
+        { 'K',    function() require 'dap'.step_back() end,         { nowait = true } },
+        { 'H',    function() require 'dap'.step_out() end,          { nowait = true } },
+        { 'L',    function() require 'dap'.step_into() end,         { nowait = true } },
+        { '<CR>', function() require 'dap'.continue() end,          { nowait = true } },
+        { 'b',    function() require 'dap'.toggle_breakpoint() end, { nowait = true } },
         {
             'q',
             function()
@@ -37,13 +53,6 @@ local diagnostic = {
             end,
             { nowait = true },
         },
-        { 'c', function() require 'dap'.continue() end, { nowait = true } },
-        { 'p', function() require 'dap'.toggle_breakpoint() end, { nowait = true } },
-        { 'i', function() require 'dap'.step_into() end, { nowait = true } },
-        { 'o', function() require 'dap'.step_over() end, { nowait = true } },
-        { 'b', function() require 'dap'.step_back() end, { nowait = true } },
-        { 'u', function() require 'dap'.step_out() end, { nowait = true } },
     },
 }
 return diagnostic
-

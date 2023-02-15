@@ -7,7 +7,6 @@ local _cmp = {
         'hrsh7th/cmp-path',
         'saadparwaiz1/cmp_luasnip',
         'lukas-reineke/cmp-rg',
-        require(... .. '.luasnip'),
         {
             'tzachar/cmp-fuzzy-buffer',
             dependencies = { 'tzachar/fuzzy.nvim', }

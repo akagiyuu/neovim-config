@@ -24,7 +24,7 @@ return {
     {
         'm-demare/hlargs.nvim',
         event = 'VeryLazy',
-        config = { use_colorpalette = true }
+        opts = { use_colorpalette = true }
     },
     {
         'cbochs/portal.nvim',
@@ -32,7 +32,7 @@ return {
             { '<leader>o', function() require('portal').jump_backward() end, desc = 'Jump backward' },
             { '<leader>i', function() require('portal').jump_forward() end,  desc = 'Jump forward' }
         },
-        config = {
+        opts = {
             portal = {
                 title = {
                     options = {
@@ -59,7 +59,7 @@ return {
                 desc = 'Structure search and replace',
             },
         },
-        config = {
+        opts = {
             min_width = 50,
             min_height = 5,
             keymaps = {
@@ -118,21 +118,21 @@ return {
     },
     {
         'gen740/SmoothCursor.nvim',
-        config = function()
-            require('smoothcursor').setup {
-                fancy = { enable = true },
-                type = 'exp',
-                speed = 25,
-            }
-        end,
+        opts = {
+            cursor = '',
+            fancy = {
+                enable = true,
+                head = { cursor = '', texthl = 'SmoothCursor', linehl = nil }
+            },
+            type = 'exp',
+            disable_float_win = true,
+        },
         event = 'VeryLazy',
     },
     {
         'tjdevries/sg.nvim',
         build = 'cargo build --workspace',
-        config = {
-            on_attach = require('plugins.lsp.config.on_attach')
-        }
+        opts = { on_attach = require('plugins.lsp.config.on_attach') },
     },
     {
         'jcdickinson/codeium.nvim',
@@ -142,7 +142,7 @@ return {
     {
         'kyazdani42/nvim-tree.lua',
         keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', silent = true, desc = 'Toggle nvim-tree' } },
-        config = {
+        opts = {
             hijack_cursor = true,
             filesystem_watchers = {
                 enable = true,
@@ -167,6 +167,12 @@ return {
                 icons = {
                     git_placement = 'after',
                     symlink_arrow = ' ',
+                    glyphs = {
+                        folder = {
+                            arrow_closed = '', -- arrow when folder is closed
+                            arrow_open = '', -- arrow when folder is open
+                        },
+                    }
                 }
             },
             actions = { open_file = { resize_window = true } },
@@ -177,6 +183,39 @@ return {
         dependencies = { 'samjwill/nvim-unception' },
         keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
         config = true,
+    },
+    {
+        'glacambre/firenvim',
+        build = function() vim.fn['firenvim#install'](0) end,
+        config = function()
+            vim.cmd [[
+                let g:firenvim_config = {
+                    \ 'globalSettings': {
+                        \ 'alt': 'all',
+                    \  },
+                    \ 'localSettings': {
+                        \ '.*': {
+                            \ 'cmdline': 'neovim',
+                            \ 'content': 'text',
+                            \ 'priority': 0,
+                            \ 'selector': 'textarea',
+                            \ 'takeover': 'never',
+                        \ },
+                    \ }
+                \ }
+            ]]
+        end,
+
+        -- Lazy load firenvim
+        -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+        cond = not not vim.g.started_by_firenvim,
+        lazy = false,
+    },
+    {
+        'giusgad/pets.nvim',
+        dependencies = { 'MunifTanjim/nui.nvim', 'edluffy/hologram.nvim' },
+        config = true,
+        event = 'VeryLazy',
     }
     --     {
     --         'JosefLitos/reform.nvim',

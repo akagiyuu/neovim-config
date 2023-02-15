@@ -1,4 +1,4 @@
-local _treesitter = {
+return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     lazy = false,
@@ -15,10 +15,7 @@ local _treesitter = {
         'windwp/nvim-ts-autotag',
         'RRethy/nvim-treesitter-endwise',
     },
-}
-
-_treesitter.config = function()
-    require('nvim-treesitter.configs').setup {
+    opts = {
         highlight = { enable = true },
         indent = { enable = true },
         autotag = { enable = true },
@@ -103,7 +100,8 @@ _treesitter.config = function()
                 show_help = '?',
             },
         }
-    }
-end
-
-return _treesitter
+    },
+    config = function(_, opts)
+        require('nvim-treesitter.configs').setup(opts)
+    end
+}

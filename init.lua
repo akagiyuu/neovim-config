@@ -3,7 +3,6 @@ require('config.lazy')
 
 vim.defer_fn(function()
     require('config.gui')
-    require('config.diagnostic')
     require('config.keymap')
     require('config.autocmd')
 

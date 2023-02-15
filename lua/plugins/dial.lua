@@ -5,7 +5,10 @@ local M = {
         { '<C-x>', },
         { '<C-a>', nil, 'v' },
         { '<C-x>', nil, 'v' }
-    }
+    },
+    opts = {
+
+    },
 }
 
 M.config = function()

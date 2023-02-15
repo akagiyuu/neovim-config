@@ -20,7 +20,7 @@ return {
     {
         'danymat/neogen',
         cmd = 'Neogen',
-        config = {
+        opts = {
             snippet_engine = 'luasnip',
             enabled = true,
             languages = {
