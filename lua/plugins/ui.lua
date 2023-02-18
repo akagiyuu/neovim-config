@@ -3,11 +3,64 @@ return {
         'nvim-tree/nvim-web-devicons',
         lazy = false,
     },
-    require(... .. '.noice'),
     {
         'stevearc/dressing.nvim',
         event = 'VeryLazy',
         opts = { input = { prompt_align = 'center' } }
+    },
+    {
+        'rcarriga/nvim-notify',
+        keys = {
+            {
+                '<leader>un',
+                function() require('notify').dismiss { silent = true, pending = true } end,
+                desc = 'Delete all Notifications',
+            },
+        },
+        opts = {
+            stages = 'fade_in_slide_out',
+            background_colour = '#000000',
+        },
+    },
+    {
+        'utilyre/barbecue.nvim',
+        event = 'VeryLazy',
+        dependencies = {
+            {
+                'SmiteshP/nvim-navic',
+                opts = { highlight = true },
+            }
+        },
+        opts = {
+            theme = 'catppuccin',
+            show_modified = true,
+            -- symbols = {
+            --     separator = " ",
+            -- }
+        }
+    },
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        event = 'VeryLazy',
+        opts = {
+            char = '▏',
+            -- char_blankline = ' ',
+            -- context_char = '▏',
+            context_char = '▎',
+            show_current_context = true,
+            show_current_context_start = true,
+            use_treesitter = true,
+            filetype_exclude = {
+                'help',
+                'lspinfo',
+                'packer',
+                'checkhealth',
+                'telescope',
+                '',
+            },
+            -- show_trailing_blankline_indent = false,
+            max_indent_increase = 1,
+        }
     },
     {
         'folke/noice.nvim',
@@ -111,27 +164,4 @@ return {
             },
         }
     },
-    {
-        'lukas-reineke/indent-blankline.nvim',
-        event = 'VeryLazy',
-        opts = {
-            char = '▏',
-            -- char_blankline = ' ',
-            -- context_char = '▏',
-            context_char = '▎',
-            show_current_context = true,
-            show_current_context_start = true,
-            use_treesitter = true,
-            filetype_exclude = {
-                'help',
-                'lspinfo',
-                'packer',
-                'checkhealth',
-                'telescope',
-                '',
-            },
-            -- show_trailing_blankline_indent = false,
-            max_indent_increase = 1,
-        }
-    }
 }

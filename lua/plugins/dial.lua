@@ -1,14 +1,6 @@
 local M = {
     'monaqa/dial.nvim',
-    keys = {
-        { '<C-a>', },
-        { '<C-x>', },
-        { '<C-a>', nil, 'v' },
-        { '<C-x>', nil, 'v' }
-    },
-    opts = {
-
-    },
+    event = 'VeryLazy'
 }
 
 M.config = function()
