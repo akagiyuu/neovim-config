@@ -1,7 +1,14 @@
 return {
     'jose-elias-alvarez/null-ls.nvim',
-    dependencies = { 'jay-babu/mason-null-ls.nvim' },
-    config = function()
+    opts = {
+        ensure_installed = {
+            'prettier',
+            'markdownlint',
+            'pylint',
+            'autopep8'
+        }
+    },
+    config = function(_, opts)
         local null_ls = require('null-ls')
         local builtins = null_ls.builtins
 
@@ -13,9 +20,9 @@ return {
                 builtins.formatting.fish_indent,
                 builtins.formatting.autopep8,
                 builtins.formatting.markdownlint,
+                builtins.diagnostics.markdownlint,
                 builtins.diagnostics.pylint,
                 builtins.diagnostics.fish,
-                builtins.diagnostics.markdownlint,
                 builtins.diagnostics.cppcheck.with {
                     args = {
                         '--enable=warning,style,performance,portability',
@@ -27,11 +34,7 @@ return {
                 builtins.hover.dictionary,
             },
         }
-        require('mason-null-ls').setup {
-            ensure_installed = nil,
-            automatic_installation = true,
-            automatic_setup = false,
-        }
+        require('util.mason').install(opts.ensure_installed)
     end,
     event = 'VeryLazy',
 }

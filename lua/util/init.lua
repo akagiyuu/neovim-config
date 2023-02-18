@@ -1,9 +1,9 @@
-local util = {}
+local _util = {}
 local api = vim.api
 local fn = vim.fn
 
 ---Set cursor to previous position
-util.setCursorPosition = function()
+_util.setCursorPosition = function()
     -- Return if the file doesn't exist, like a new and unsaved file
     if fn.empty(fn.glob(fn.expand('%'))) ~= 0 then
         return
@@ -27,7 +27,7 @@ util.setCursorPosition = function()
         api.nvim_input('zvzz')
     end
 end
-function util.smart_quit()
+function _util.smart_quit()
     local bufnr = vim.api.nvim_get_current_buf()
     local modified = vim.api.nvim_buf_get_option(bufnr, 'modified')
     if not modified then
@@ -40,11 +40,11 @@ function util.smart_quit()
     end)
 end
 
-util.lsp = require(... .. '.lsp')
+_util.lsp = require(... .. '.lsp')
 
 --- Set vim options with a nested table like API with the format vim.<first_key>.<second_key>.<value>
 -- @param options the nested table of vim options
-util.vim_opts = function(options)
+_util.vim_opts = function(options)
     for scope, table in pairs(options) do
         for setting, value in pairs(table) do
             vim[scope][setting] = value
@@ -52,4 +52,4 @@ util.vim_opts = function(options)
     end
 end
 
-return util
+return _util
