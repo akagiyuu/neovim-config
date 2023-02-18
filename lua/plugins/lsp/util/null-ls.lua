@@ -1,42 +1,37 @@
-local M = {
+return {
     'jose-elias-alvarez/null-ls.nvim',
+    dependencies = { 'jay-babu/mason-null-ls.nvim' },
+    config = function()
+        local null_ls = require('null-ls')
+        local builtins = null_ls.builtins
+
+        null_ls.setup {
+            sources = {
+                builtins.formatting.prettier.with {
+                    extra_args = { '--tab-width', '4', '--single-quote', '--bracket-spacing' }
+                },
+                builtins.formatting.fish_indent,
+                builtins.formatting.autopep8,
+                builtins.formatting.markdownlint,
+                builtins.diagnostics.pylint,
+                builtins.diagnostics.fish,
+                builtins.diagnostics.markdownlint,
+                builtins.diagnostics.cppcheck.with {
+                    args = {
+                        '--enable=warning,style,performance,portability',
+                        '--language=c++',
+                        '--template=gcc',
+                        '$FILENAME',
+                    },
+                },
+                builtins.hover.dictionary,
+            },
+        }
+        require('mason-null-ls').setup {
+            ensure_installed = nil,
+            automatic_installation = true,
+            automatic_setup = false,
+        }
+    end,
     event = 'VeryLazy',
 }
-
-M.config = function()
-    local null_ls = require('null-ls')
-    local diagnostics = null_ls.builtins.diagnostics
-    local formatting = null_ls.builtins.formatting
-
-    null_ls.setup {
-        sources = {
-            -- code_actions.eslint_d,
-            -- code_actions.cspell,
-            formatting.prettier.with {
-                extra_args = { '--tab-width', '4', '--single-quote', '--bracket-spacing' }
-            },
-            formatting.fish_indent,
-            formatting.autopep8,
-            formatting.markdownlint,
-            diagnostics.pylint,
-            diagnostics.fish,
-            diagnostics.markdownlint,
-            diagnostics.cppcheck.with {
-                args = {
-                    '--enable=warning,style,performance,portability',
-                    '--language=c++',
-                    '--template=gcc',
-                    '$FILENAME',
-                },
-            },
-            -- diagnostics.cspell.with {
-            --     diagnostics_postprocess = function(diagnostic)
-            --         diagnostic.severity = vim.diagnostic.severity['WARN']
-            --     end,
-            -- },
-            null_ls.builtins.hover.dictionary,
-        },
-    }
-end
-
-return M

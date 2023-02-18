@@ -5,39 +5,6 @@ local _lspconfig = {
     'neovim/nvim-lspconfig',
     lazy = false,
     dependencies = {
-        {
-            'simrat39/rust-tools.nvim',
-            ft = 'rust',
-            config = function()
-                require('rust-tools').setup {
-                    tools = { inlay_hints = { auto = false }, },
-                    server = {
-                        capabilities = capabilities,
-                        settings = {
-                            ['rust-analyzer'] = {
-                                checkOnSave = {
-                                    command = 'clippy',
-                                },
-                                diagnostics = {
-                                    enable = true,
-                                    experimental = { enable = true }
-                                }
-                            }
-                        }
-                    }
-                }
-            end
-        },
-        {
-            'yioneko/nvim-vtsls',
-            ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-            config = function()
-                require('lspconfig.configs').vtsls = require('vtsls').lspconfig -- set default server config
-                require('lspconfig').vtsls.setup {
-                    capabilities = capabilities,
-                }
-            end
-        },
     },
     opts = {
         diagnostics = {
@@ -169,4 +136,40 @@ _lspconfig.config = function(_, opts)
     require('lspconfig.ui.windows').default_options.border = 'single'
 end
 
-return _lspconfig
+return {
+    _lspconfig,
+    {
+        'simrat39/rust-tools.nvim',
+        ft = 'rust',
+        config = function()
+            require('rust-tools').setup {
+                tools = { inlay_hints = { auto = false }, },
+                server = {
+                    capabilities = capabilities,
+                    settings = {
+                        ['rust-analyzer'] = {
+                            checkOnSave = {
+                                command = 'clippy',
+                            },
+                            diagnostics = {
+                                enable = true,
+                                experimental = { enable = true }
+                            }
+                        }
+                    }
+                }
+            }
+        end
+    },
+    {
+        'yioneko/nvim-vtsls',
+        ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+        config = function()
+            require('lspconfig.configs').vtsls = require('vtsls').lspconfig -- set default server config
+            require('lspconfig').vtsls.setup {
+                capabilities = capabilities,
+            }
+        end
+    },
+
+}

@@ -214,22 +214,18 @@ return {
     {
         'giusgad/pets.nvim',
         dependencies = { 'MunifTanjim/nui.nvim', 'edluffy/hologram.nvim' },
-        config = true,
+        opts = {
+            death_animation = false,
+            random = true,
+        },
         event = 'VeryLazy',
     },
     {
-        'williamboman/mason.nvim',
-        cmd = 'Mason',
-        opts = {
-            ui = {
-                border = 'single',
-                icons = {
-                    package_installed = '✓',
-                    package_pending = '➜',
-                    package_uninstalled = '✗'
-                }
-            }
-        },
+        'lukas-reineke/headlines.nvim',
+        config = function()
+            require('headlines').setup()
+        end,
+        event = 'VeryLazy'
     }
     --     {
     --         'JosefLitos/reform.nvim',
