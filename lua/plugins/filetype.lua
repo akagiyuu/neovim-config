@@ -50,9 +50,5 @@ return {
                 ['core.presenter'] = { config = { zen_mode = 'truezen' } }
             }
         },
-        config = function(_, opts)
-            vim.opt.conceallevel = 2
-            require('neorg').setup(opts)
-        end
     }
 }

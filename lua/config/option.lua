@@ -1,66 +1,66 @@
-require('util').vim_opts {
-    g = {
-        mapleader               = ' ',
-        loaded_node_provider    = false,
-        loaded_perl_provider    = false,
-        loaded_python3_provider = false,
-        loaded_ruby_provider    = false,
-    },
-    opt = {
-        termguicolors  = true,
-        guifont        = {
-            'CaskaydiaCove NF:h11',
-        },
-        laststatus     = 3,
-        cmdheight      = 0,
-        shada          = '',
-        wrap           = false,
-        undofile       = true,
-        updatetime     = 50,
-        timeoutlen     = 250,
-        showmode       = false,
-        clipboard      = 'unnamedplus',
+local g                   = vim.g
+local opt                 = vim.opt
 
-        number         = true,
-        relativenumber = true,
-        signcolumn     = 'number',
+g.mapleader               = ' '
+g.loaded_node_provider    = false
+g.loaded_perl_provider    = false
+g.loaded_python3_provider = false
+g.loaded_ruby_provider    = false
 
-        softtabstop    = 4,
-        tabstop        = 4,
-        shiftwidth     = 4,
-        expandtab      = true,
-
-        fillchars      = {
-            fold = ' ',
-            eob = ' ',
-            foldsep = ' ',
-        },
-        list           = true,
-        listchars      = {
-            tab      = '» ',
-            -- lead     = '·',
-            trail    = '·',
-            extends  = '<',
-            precedes = '>',
-            conceal  = '┊',
-            nbsp     = '␣',
-        },
-
-        preserveindent = true,
-        foldlevel      = 99,
-
-        scrolloff      = 8,
-
-        splitbelow     = true,
-        splitright     = true,
-        splitkeep      = 'screen',
-
-        spelloptions   = 'camel,noplainbuffer',
-
-        mouse          = 'a',
-        mousemoveevent = true,
-
-        winblend       = 10,
-        -- pumblend       = 10
-    }
+opt.termguicolors         = true
+opt.guifont               = {
+    'CaskaydiaCove NF:h11'
 }
+opt.laststatus            = 3
+opt.cmdheight             = 0
+opt.shada                 = ''
+opt.wrap                  = false
+opt.undofile              = true
+opt.updatetime            = 50
+opt.timeoutlen            = 250
+opt.showmode              = false
+opt.clipboard             = 'unnamedplus'
+opt.conceallevel          = 3
+
+opt.number                = true
+opt.numberwidth           = 2
+opt.relativenumber        = true
+opt.signcolumn            = 'yes'
+
+opt.softtabstop           = 4
+opt.tabstop               = 4
+opt.shiftwidth            = 4
+opt.expandtab             = true
+
+opt.fillchars             = {
+    fold = ' ',
+    eob = ' ',
+    foldsep = ' ',
+}
+opt.list                  = true
+opt.listchars             = {
+    tab      = '» ',
+    -- lead     = '·'
+    trail    = '·',
+    extends  = '<',
+    precedes = '>',
+    conceal  = '┊',
+    nbsp     = '␣',
+}
+
+opt.preserveindent        = true
+opt.foldlevel             = 99
+
+opt.scrolloff             = 8
+
+opt.splitbelow            = true
+opt.splitright            = true
+opt.splitkeep             = 'screen'
+
+--opt.spelloptions          = 'camelnoplainbuffer'
+
+opt.mouse                 = 'a'
+opt.mousemoveevent        = true
+
+opt.winblend              = 10
+-- pumblend       = 10

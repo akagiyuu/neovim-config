@@ -218,6 +218,7 @@ return {
             death_animation = false,
             random = true,
         },
+        cond = not vim.g.neovide,
         event = 'VeryLazy',
     },
     {
@@ -226,7 +227,14 @@ return {
             require('headlines').setup()
         end,
         event = 'VeryLazy'
-    }
+    },
+    {
+        'dstein64/vim-startuptime',
+        cmd = 'StartupTime',
+        config = function()
+            vim.g.startuptime_tries = 10
+        end,
+    },
     --     {
     --         'JosefLitos/reform.nvim',
     --         event = 'VeryLazy',
