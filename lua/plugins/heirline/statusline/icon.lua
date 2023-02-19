@@ -1,9 +1,6 @@
 return {
-    vertical_bar = '┃',
-    vertical_bar_thin = '│',
     left = '',
     right = '',
-    block = '█',
     left_filled = '',
     right_filled = '',
     slant_left = '',
@@ -18,8 +15,4 @@ return {
     left_rounded_thin = '',
     right_rounded = '',
     right_rounded_thin = '',
-    circle = '●',
-    github_icon = ' ﯙ ',
-    folder_icon = ' ',
-    database = '  ',
 }

@@ -1,18 +1,13 @@
-local _catppuccin = {
+return {
     'catppuccin/nvim',
     name = 'catppuccin',
     build = ':CatppuccinCompile',
     lazy = false,
     enabled = true,
     priority = 1000,
-}
-
-_catppuccin.config = function()
-    require('catppuccin').setup {
+    opts = {
         flavour = 'mocha',
         transparent_background = true,
-        term_colors = true,
-        compile = { enabled = true },
         styles = {
             comments     = { 'italic' },
             properties   = { 'italic' },
@@ -204,8 +199,9 @@ _catppuccin.config = function()
             LspFloatWinNormal       = { bg = 'NONE' },
             TreesitterContextBottom = { underline = true, sp = '#6E6C7E', }
         },
-    }
-    vim.cmd.colorscheme('catppuccin')
-end
-
-return _catppuccin
+    },
+    config = function(_, opts)
+        require('catppuccin').setup(opts)
+        vim.cmd.colorscheme('catppuccin')
+    end
+}

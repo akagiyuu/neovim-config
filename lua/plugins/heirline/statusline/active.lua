@@ -1,7 +1,7 @@
 local conditions = require('heirline.conditions')
 local utils = require('heirline.utils')
 local icons = require('plugins.heirline.statusline.icon')
-local components = require('plugins.heirline.statusline.components')
+local components = require('plugins.heirline.components')
 
 local left_segment = {
     hl = { fg = 'grey' },

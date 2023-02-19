@@ -52,12 +52,13 @@ opt.preserveindent        = true
 opt.foldlevel             = 99
 
 opt.scrolloff             = 8
+opt.sidescrolloff         = 8
 
 opt.splitbelow            = true
 opt.splitright            = true
 opt.splitkeep             = 'screen'
 
---opt.spelloptions          = 'camelnoplainbuffer'
+opt.spelloptions          = 'camel,noplainbuffer'
 
 opt.mouse                 = 'a'
 opt.mousemoveevent        = true

@@ -37,15 +37,10 @@ return {
                 exec = '<CR>',
                 in_select = false,
             },
-            symbol_in_winbar = {
-                enable = false,
-                separator = '   ',
-                show_file = true,
-            },
+            code_action = { show_server_name = true },
+            symbol_in_winbar = { enable = false },
             ui = {
-                -- currently only round theme
                 theme = 'round',
-                -- border type can be single,double,rounded,solid,shadow.
                 border = 'rounded',
                 winblend = vim.g.neovide and 60 or 0,
                 kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
@@ -56,23 +51,9 @@ return {
         'kevinhwang91/nvim-ufo',
         event = 'VeryLazy',
         opts = {
-            enable_get_fold_virt_text = true,
             open_fold_hl_timeout = 0,
-            -- provider_selector = function(_, _, _) return { 'treesitter', 'indent' } end,
-            -- fold_virt_text_handler = handler,
-            -- preview = {
-            --     win_config = {
-            --         winblend = 0,
-            --     },
-            -- },
             close_fold_kinds = { 'imports', 'regions' }
         }
-    },
-    require(... .. '.refactoring'),
-    require(... .. '.null-ls'),
-    {
-        'Maan2003/lsp_lines.nvim',
-        config = true
     },
     {
         'smjonas/inc-rename.nvim',
@@ -84,9 +65,6 @@ return {
         cmd = 'Touble',
         config = true
     },
-    -- {
-    --     'adoyle-h/lsp-toggle.nvim',
-    --     cmd = { 'ToggleLSP', 'ToggleNullLSP' },
-    --     config = true
-    -- },
+    require(... .. '.refactoring'),
+    require(... .. '.null-ls'),
 }
