@@ -1,9 +1,5 @@
 return {
     {
-        'xorid/asciitree.nvim',
-        cmd = { 'AsciiTree', 'AsciiTreeUndo' }
-    },
-    {
         'krady21/compiler-explorer.nvim',
         cmd = 'CECompile'
     },
@@ -18,36 +14,9 @@ return {
         config = true
     },
     {
-        'narutoxy/silicon.lua',
-        config = true
-    },
-    {
         'm-demare/hlargs.nvim',
         event = 'VeryLazy',
         opts = { use_colorpalette = true }
-    },
-    {
-        'cbochs/portal.nvim',
-        keys = {
-            { '<leader>o', function() require('portal').jump_backward() end, desc = 'Jump backward' },
-            { '<leader>i', function() require('portal').jump_forward() end,  desc = 'Jump forward' }
-        },
-        opts = {
-            portal = {
-                title = {
-                    options = {
-                        style = 'minimal',
-                        border = 'rounded',
-                    },
-                },
-
-                body = {
-                    options = {
-                        border = 'rounded',
-                    },
-                },
-            },
-        }
     },
     {
         'cshuaimin/ssr.nvim',
@@ -73,12 +42,11 @@ return {
     {
         'RaafatTurki/hex.nvim',
         config = true,
-        cmd = 'HexToggle'
     },
     {
         'andrewferrier/debugprint.nvim',
         config = true,
-        event = 'VeryLazy'
+        keys = { { 'g?', nil } },
     },
     {
         'toppair/reach.nvim',
@@ -96,25 +64,8 @@ return {
     },
     {
         'hrsh7th/nvim-insx',
-        config = function()
-            require('insx.preset.standard').setup()
-        end,
-        event = 'VeryLazy'
-    },
-    {
-        'zdcthomas/yop.nvim',
-        config = function()
-            local function search(lines)
-                -- Multiple lines can't be searched for
-                if #lines > 1 then
-                    return
-                end
-                require('telescope.builtin').grep_string { search = lines[1] }
-            end
-
-            require('yop').op_map({ 'n', 'v' }, '<leader>fs', search)
-        end,
-        event = 'VeryLazy'
+        config = function() require('insx.preset.standard').setup() end,
+        event = 'InsertEnter',
     },
     {
         'gen740/SmoothCursor.nvim',
@@ -127,6 +78,30 @@ return {
             type = 'exp',
             disable_float_win = true,
         },
+        config = function(_, opts)
+            require('smoothcursor').setup(opts)
+            vim.api.nvim_create_autocmd({ 'ModeChanged' }, {
+                callback = function()
+                    local current_mode = vim.fn.mode()
+                    if current_mode == 'n' then
+                        vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = '#8aa872' })
+                        vim.fn.sign_define('smoothcursor', { text = '' })
+                    elseif current_mode == 'v' then
+                        vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = '#bf616a' })
+                        vim.fn.sign_define('smoothcursor', { text = '' })
+                    elseif current_mode == 'V' then
+                        vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = '#bf616a' })
+                        vim.fn.sign_define('smoothcursor', { text = '' })
+                    elseif current_mode == '�' then
+                        vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = '#bf616a' })
+                        vim.fn.sign_define('smoothcursor', { text = '' })
+                    elseif current_mode == 'i' then
+                        vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = '#668aab' })
+                        vim.fn.sign_define('smoothcursor', { text = '' })
+                    end
+                end,
+            })
+        end,
         event = 'VeryLazy',
     },
     {
@@ -135,13 +110,14 @@ return {
         opts = { on_attach = require('plugins.lsp.config.on_attach') },
     },
     {
-        'jcdickinson/codeium.nvim',
-        config = true,
-        event = 'VeryLazy'
+        'antosha417/nvim-lsp-file-operations',
+        requires = { 'plenary.nvim' },
+        config = true
     },
     {
         'kyazdani42/nvim-tree.lua',
         keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', silent = true, desc = 'Toggle nvim-tree' } },
+        dependencies = { 'nvim-lsp-file-operations' },
         opts = {
             hijack_cursor = true,
             filesystem_watchers = {
@@ -219,14 +195,7 @@ return {
             random = true,
         },
         cond = not vim.g.neovide,
-        event = 'VeryLazy',
-    },
-    {
-        'lukas-reineke/headlines.nvim',
-        config = function()
-            require('headlines').setup()
-        end,
-        event = 'VeryLazy'
+        cmd = 'PetsNew'
     },
     {
         'dstein64/vim-startuptime',
@@ -235,10 +204,4 @@ return {
             vim.g.startuptime_tries = 10
         end,
     },
-    --     {
-    --         'JosefLitos/reform.nvim',
-    --         event = 'VeryLazy',
-    --         config = true,
-    --         build = 'make docfmt',
-    --     }
 }

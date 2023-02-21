@@ -45,6 +45,7 @@ return {
                 winblend = vim.g.neovide and 60 or 0,
                 kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
             },
+            diagnostic = { on_insert = false }
         }
     },
     {

@@ -118,4 +118,11 @@ _cmp.config = function()
     })
 end
 
-return _cmp
+return {
+    {
+        'jcdickinson/codeium.nvim',
+        config = true,
+        event = 'InsertEnter'
+    },
+    _cmp
+}

@@ -13,11 +13,7 @@ local _dap = {
             }
         }
     },
-    opts = {
-        ensure_installed = {
-            'netcoredbg',
-        }
-    }
+    opts = { ensure_installed = { 'netcoredbg' } }
 }
 
 _dap.config = function(_, opts)
