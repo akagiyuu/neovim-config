@@ -162,34 +162,30 @@ return {
     },
     {
         'glacambre/firenvim',
-        build = function() vim.fn['firenvim#install'](0) end,
-        config = function()
-            vim.cmd [[
-                let g:firenvim_config = {
-                    \ 'globalSettings': {
-                        \ 'alt': 'all',
-                    \  },
-                    \ 'localSettings': {
-                        \ '.*': {
-                            \ 'cmdline': 'neovim',
-                            \ 'content': 'text',
-                            \ 'priority': 0,
-                            \ 'selector': 'textarea',
-                            \ 'takeover': 'never',
-                        \ },
-                    \ }
-                \ }
-            ]]
-        end,
-
-        -- Lazy load firenvim
-        -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
         cond = not not vim.g.started_by_firenvim,
+        build = function()
+            require('lazy').load { plugins = 'firenvim', wait = true }
+            vim.fn['firenvim#install'](0)
+        end,
         lazy = false,
+        config = function()
+            vim.g.firenvim_config = {
+                globalSettings = { alt = 'all' },
+                localSettings = {
+                    ['.*'] = {
+                        cmdline  = 'neovim',
+                        content  = 'text',
+                        priority = 0,
+                        selector = 'textarea',
+                        takeover = 'never'
+                    }
+                }
+            }
+        end,
     },
     {
         'giusgad/pets.nvim',
-        dependencies = { 'MunifTanjim/nui.nvim', 'edluffy/hologram.nvim' },
+        dependencies = { 'nui.nvim', 'giusgad/hologram.nvim' },
         opts = {
             death_animation = false,
             random = true,
@@ -204,4 +200,8 @@ return {
             vim.g.startuptime_tries = 10
         end,
     },
+    {
+        'mbbill/undotree',
+        cmd = 'UndotreeToggle'
+    }
 }

@@ -18,6 +18,3 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     command = '%s/\\s\\+$//e',
     desc = 'remove whitespaces on save',
 })
---
--- vim.api.nvim_create_autocmd('FileType', { pattern = 'dap-repl', command = 'set nobuflisted' })
--- vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'set nobuflisted' })

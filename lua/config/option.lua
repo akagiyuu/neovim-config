@@ -8,9 +8,7 @@ g.loaded_python3_provider = false
 g.loaded_ruby_provider    = false
 
 opt.termguicolors         = true
-opt.guifont               = {
-    'CaskaydiaCove NF:h11'
-}
+opt.guifont               = { 'CaskaydiaCove NF:h11' }
 opt.laststatus            = 3
 opt.cmdheight             = 0
 opt.shada                 = ''
@@ -20,11 +18,9 @@ opt.updatetime            = 50
 opt.timeoutlen            = 250
 opt.showmode              = false
 opt.clipboard             = 'unnamedplus'
-opt.conceallevel          = 3
 
 opt.number                = true
 opt.numberwidth           = 2
-opt.relativenumber        = true
 opt.signcolumn            = 'yes'
 
 opt.softtabstop           = 4

@@ -10,17 +10,16 @@ return {
     },
     {
         'rcarriga/nvim-notify',
-        keys = {
-            {
-                '<leader>un',
-                function() require('notify').dismiss { silent = true, pending = true } end,
-                desc = 'Delete all Notifications',
-            },
-        },
         opts = {
             stages = 'fade_in_slide_out',
             background_colour = '#000000',
         },
+        config = function(_, opts)
+            require('notify').setup(opts)
+            vim.keymap.set('n', '<leader>un', function()
+                require('notify').dismiss { silent = true, pending = true }
+            end, { desc = 'Delete all Notifications' })
+        end
     },
     {
         'utilyre/barbecue.nvim',

@@ -11,7 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
--- load lazy
 require('lazy').setup('plugins', {
     defaults = { lazy = true },
     checker = {
@@ -19,10 +18,7 @@ require('lazy').setup('plugins', {
         notify = false,
         frequency = 86400,
     },
-    install = {
-        missing = true,
-        colorscheme = { "catppuccin" },
-    },
+    install = { missing = true },
     change_detection = {
         enabled = false,
         notify = false, -- get a notification when changes are found
