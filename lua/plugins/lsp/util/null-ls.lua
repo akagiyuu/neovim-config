@@ -2,8 +2,6 @@ return {
     'jose-elias-alvarez/null-ls.nvim',
     opts = {
         ensure_installed = {
-            'prettier',
-            'markdownlint',
             'pylint',
             'autopep8'
         }
