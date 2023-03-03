@@ -203,5 +203,10 @@ return {
     {
         'mbbill/undotree',
         cmd = 'UndotreeToggle'
-    }
+    },
+    -- {
+    --     "shell-Raining/hlchunk.nvim",
+    --     config = true,
+    --     event = 'VeryLazy'
+    -- }
 }
