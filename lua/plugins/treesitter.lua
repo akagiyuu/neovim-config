@@ -19,10 +19,14 @@ return {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         lazy = false,
-        dependencies = { 'nvim-treesitter-textobjects' },
+        dependencies = {
+            'nvim-treesitter-textobjects',
+            'https://gitlab.com/HiPhish/nvim-ts-rainbow2',
+        },
         opts = {
             highlight = { enable = true },
             indent = { enable = true },
+            rainbow = { enable = true },
             context_commentstring = {
                 enable = true,
                 enable_autocmd = false,
