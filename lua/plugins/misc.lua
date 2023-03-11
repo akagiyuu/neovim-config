@@ -52,7 +52,7 @@ return {
         'toppair/reach.nvim',
         keys = {
             {
-                '<leader>b',
+                '<leader><leader>',
                 function() require('reach').buffers { show_current = true } end,
             },
         },

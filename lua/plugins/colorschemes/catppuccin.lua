@@ -19,12 +19,8 @@ return {
             booleans     = { 'bold', 'italic' },
             types        = { 'bold' },
         },
-        color_overrides = {
-            crust = '#0000000',
-            mantle = '#0000000',
-            base = '#0000000',
-        },
         integrations = {
+            semantic_tokens = true,
             cmp = true,
             dashboard = false,
             gitsigns = true,
