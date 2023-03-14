@@ -29,9 +29,8 @@ local setup_colors = function()
 end
 
 require('heirline').load_colors(setup_colors())
-vim.api.nvim_create_autocmd("ColorScheme", {
+vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function()
-        local colors = setup_colors()
-        utils.on_colorscheme(colors)
+        utils.on_colorscheme(setup_colors)
     end,
 })

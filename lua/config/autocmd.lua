@@ -1,8 +1,6 @@
 vim.api.nvim_create_autocmd({
     'FocusGained',
     'FocusLost',
-    'TermClose',
-    'TermLeave',
 }, { command = 'checktime' })
 
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nospell' })

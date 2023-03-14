@@ -50,5 +50,11 @@ return {
         provider = function(self) return '   %2(' .. self.name[self.mode] .. '%) ' end,
     },
     { provider = function() return icons.right_filled end },
-    update = { 'ModeChanged' }
+    update = {
+        'ModeChanged',
+        pattern = '*:*',
+        callback = vim.schedule_wrap(function()
+            vim.cmd('redrawstatus')
+        end),
+    },
 }

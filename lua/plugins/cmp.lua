@@ -43,7 +43,7 @@ _cmp.config = function()
             ['<CR>']      = cmp.mapping.confirm { select = false },
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-d>']     = cmp.mapping.scroll_docs(5),
-            ['<C-u>']     = cmp.mapping.scroll_docs( -5),
+            ['<C-u>']     = cmp.mapping.scroll_docs(-5),
             ['<Tab>']     = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
@@ -53,12 +53,11 @@ _cmp.config = function()
                     fallback()
                 end
             end, { 'i', 's', 'c' }),
-
             ['<S-Tab>']   = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
-                elseif require('luasnip').jumpable( -1) then
-                    require('luasnip').jump( -1)
+                elseif require('luasnip').jumpable(-1) then
+                    require('luasnip').jump(-1)
                 else
                     fallback()
                 end
