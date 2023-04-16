@@ -27,7 +27,7 @@ return {
         end,
     },
     {
-        'glepnir/lspsaga.nvim',
+        'nvimdev/lspsaga.nvim',
         event = 'VeryLazy',
         opts = {
             lightbulb = { virtual_text = false },

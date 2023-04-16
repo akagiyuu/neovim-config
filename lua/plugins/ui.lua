@@ -6,7 +6,7 @@ return {
     {
         'stevearc/dressing.nvim',
         event = 'VeryLazy',
-        opts = { input = { prompt_align = 'center' } }
+        opts = { input = { title_pos = 'center' } }
     },
     {
         'rcarriga/nvim-notify',
