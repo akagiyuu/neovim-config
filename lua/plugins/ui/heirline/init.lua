@@ -3,7 +3,7 @@ return {
     lazy = false,
     config = function()
         require('heirline').setup {
-            statusline = require('plugins.heirline.statusline'),
+            statusline = require('plugins.ui.heirline.statusline'),
         }
     end,
 }

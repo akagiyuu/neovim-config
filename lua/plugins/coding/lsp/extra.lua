@@ -43,10 +43,13 @@ return {
                 theme = 'round',
                 border = 'rounded',
                 winblend = vim.g.neovide and 60 or 0,
-                kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
             },
             diagnostic = { on_insert = false }
-        }
+        },
+        config = function(_, opts)
+            opts.ui.kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind()
+            require('lspsaga').setup(opts)
+        end
     },
     {
         'kevinhwang91/nvim-ufo',
@@ -66,6 +69,9 @@ return {
         cmd = 'Touble',
         config = true
     },
-    require(... .. '.refactoring'),
-    require(... .. '.null-ls'),
+    {
+        'antosha417/nvim-lsp-file-operations',
+        requires = { 'plenary.nvim' },
+        config = true
+    },
 }

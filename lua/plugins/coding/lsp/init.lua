@@ -88,4 +88,5 @@ return {
     _lspconfig,
     require(... .. '.servers.rust-tools')(capabilities),
     require(... .. '.servers.vtsls')(capabilities),
+    require(... .. '.extra'),
 }

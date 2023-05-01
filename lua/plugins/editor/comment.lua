@@ -7,8 +7,8 @@ return {
             }
         end,
         keys = {
-            { 'gc', nil, mode = { 'n', 'v' } },
-            { 'gb', nil, mode = 'v' },
+            { 'gc', mode = { 'n', 'v' } },
+            { 'gb', mode = 'v' },
         }
     },
     {

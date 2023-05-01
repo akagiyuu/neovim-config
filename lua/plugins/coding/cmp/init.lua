@@ -37,8 +37,6 @@ _cmp.config = function()
         },
         mapping      = {
             ['<C-e>']     = cmp.mapping.close(),
-            ['<C-p>']     = cmp.mapping.select_prev_item(),
-            ['<C-n>']     = cmp.mapping.select_next_item(),
             ['<C-y>']     = cmp.mapping.confirm { select = false },
             ['<CR>']      = cmp.mapping.confirm { select = false },
             ['<C-Space>'] = cmp.mapping.complete(),
@@ -118,10 +116,7 @@ _cmp.config = function()
 end
 
 return {
-    {
-        'jcdickinson/codeium.nvim',
-        config = true,
-        event = 'InsertEnter'
-    },
-    _cmp
+    _cmp,
+    require(... .. '.codeium'),
+    require(... .. '.luasnip'),
 }
