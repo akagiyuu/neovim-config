@@ -10,10 +10,6 @@ local on_attach = function(client, bufnr)
         desc = '[l]sp [o]utline',
         buffer = bufnr
     })
-    vim.keymap.set('n', '<leader>lt', function() require('util').lsp.toggle_virtual_lines() end, {
-        desc = '[t]oggle virtual [l]ines',
-        buffer = bufnr
-    })
     vim.keymap.set('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>', {
         desc = '[l]ine [d]iagnostic',
         buffer = bufnr
@@ -35,7 +31,7 @@ local on_attach = function(client, bufnr)
         buffer = bufnr
     })
 
-    vim.keymap.set({ 'n', 'v' }, '<leader>fm', function() require('util').lsp.format() end, {
+    vim.keymap.set({ 'n', 'v' }, '<leader>fm', function() require('util.lsp').format() end, {
         desc = 'Format',
         buffer = bufnr
     })
@@ -49,7 +45,7 @@ local on_attach = function(client, bufnr)
         buffer = bufnr
     })
 
-    vim.keymap.set('n', 'K', require('util').lsp.hover, {
+    vim.keymap.set('n', 'K', require('util.lsp').hover, {
         desc = 'Hover doc',
         buffer = bufnr
     })

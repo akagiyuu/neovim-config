@@ -49,20 +49,6 @@ return {
         keys = { { 'g?', nil } },
     },
     {
-        'toppair/reach.nvim',
-        keys = {
-            {
-                '<leader><leader>',
-                function() require('reach').buffers { show_current = true } end,
-            },
-        },
-        config = true
-    },
-    {
-        'andymass/vim-matchup',
-        lazy = false
-    },
-    {
         'hrsh7th/nvim-insx',
         config = function() require('insx.preset.standard').setup() end,
         event = 'InsertEnter',
@@ -115,46 +101,6 @@ return {
         config = true
     },
     {
-        'kyazdani42/nvim-tree.lua',
-        keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', silent = true, desc = 'Toggle nvim-tree' } },
-        dependencies = { 'nvim-lsp-file-operations' },
-        opts = {
-            hijack_cursor = true,
-            filesystem_watchers = {
-                enable = true,
-            },
-            view = {
-                preserve_window_proportions = true,
-                -- float = { enable = true }
-                -- signcolumn = 'no',
-                mappings = {
-                    custom_only = false,
-                    list = {
-                        { key = 'l', action = 'edit' },
-                        { key = 'h', action = 'close_node' },
-                    }
-                },
-            },
-            renderer = {
-                highlight_opened_files = 'name',
-                group_empty = true,
-                highlight_git = true,
-                indent_markers = { enable = true },
-                icons = {
-                    git_placement = 'after',
-                    symlink_arrow = ' ',
-                    glyphs = {
-                        folder = {
-                            arrow_closed = '', -- arrow when folder is closed
-                            arrow_open = '', -- arrow when folder is open
-                        },
-                    }
-                }
-            },
-            actions = { open_file = { resize_window = true } },
-        }
-    },
-    {
         'akinsho/toggleterm.nvim',
         dependencies = { 'samjwill/nvim-unception' },
         keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
@@ -182,16 +128,6 @@ return {
                 }
             }
         end,
-    },
-    {
-        'giusgad/pets.nvim',
-        dependencies = { 'nui.nvim', 'giusgad/hologram.nvim' },
-        opts = {
-            death_animation = false,
-            random = true,
-        },
-        cond = not vim.g.neovide,
-        cmd = 'PetsNew'
     },
     {
         'mbbill/undotree',

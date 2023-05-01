@@ -25,14 +25,6 @@ _lsp.hover = function()
         vim.lsp.buf.hover()
     end
 end
-_lsp.toggle_virtual_lines = function()
-    require('lsp_lines')
-    local virtual_lines_enable = not vim.diagnostic.config().virtual_lines
-    vim.diagnostic.config {
-        virtual_lines = virtual_lines_enable,
-        virtual_text = not virtual_lines_enable
-    }
-end
 
 _lsp.code_lens_attach = function(client, bufnr)
     local status_ok, codelens_supported = pcall(function()

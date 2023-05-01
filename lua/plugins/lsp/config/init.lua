@@ -17,78 +17,7 @@ local _lspconfig = {
             severity_sort = true,
             on_init_callback = function(...) require('util.lsp').code_lens_attach(...) end,
         },
-        servers = {
-            clangd = {},
-            gopls = {},
-            pyright = {},
-            cssls = {},
-            cssmodules_ls = {},
-            emmet_ls = {},
-            html = {},
-            jsonls = {},
-            zls = {},
-            bashls = {},
-            lua_ls = {
-                settings = {
-                    Lua = {
-                        diagnostics = { neededFileStatus = { ['codestyle-check'] = 'Any' } },
-                        workspace = {
-                            library = {
-                                [vim.fn.expand '$VIMRUNTIME/lua'] = true,
-                                [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
-                                [vim.fn.stdpath('data') .. '/lazy/emmylua-nvim'] = true,
-                                -- ['/usr/share/awesome/lib'] = true
-                            },
-                            maxPreload = 100000,
-                        },
-                        hint = {
-                            enable = true,
-                        },
-                    },
-                },
-            },
-            omnisharp = {
-                cmd = {
-                    'omnisharp',
-                    '--languageserver',
-                    '--hostPID',
-                    tostring(vim.fn.getpid()),
-                    'RenameOptions:RenameOverloads=true',
-                    'RoslynExtensionsOptions:InlayHintsOptions:EnableForTypes=true',
-                    'RoslynExtensionsOptions:InlayHintsOptions:EnableForParameters=true',
-                    'RoslynExtensionsOptions:InlayHintsOptions:ForImplicitObjectCreation=true',
-                },
-                handlers = {
-                    ['textDocument/definition'] = function(...)
-                        return require('omnisharp_extended').handler(...)
-                    end,
-                },
-                enable_editorconfig_support = true,
-                enable_roslyn_analyzers = true,
-                organize_imports_on_format = true,
-                enable_import_completion = true,
-                sdk_include_prereleases = true,
-            },
-            texlab = {
-                settings = {
-                    texlab = {
-                        -- auxDirectory = "latex.out",
-                        build = {
-                            -- executable = "latexmk",
-                            -- -- Please set $pdf_mode in latexmkrc to enable PDF output.
-                            -- args = { "-interaction=nonstopmode", "-synctex=1", "%f" },
-                            onSave = true,
-                        },
-                        chktex = {
-                            onEdit = false,
-                            onOpenAndSave = true,
-                        },
-                        diagnosticsDelay = 100,
-                        formatterLineLength = 0,
-                    },
-                },
-            },
-        }
+        servers = require(... .. '.servers.generic'),
     }
 }
 
@@ -157,38 +86,6 @@ end
 
 return {
     _lspconfig,
-    {
-        'simrat39/rust-tools.nvim',
-        ft = 'rust',
-        config = function()
-            require('rust-tools').setup {
-                tools = { inlay_hints = { auto = false }, },
-                server = {
-                    capabilities = capabilities,
-                    settings = {
-                        ['rust-analyzer'] = {
-                            checkOnSave = {
-                                command = 'clippy',
-                            },
-                            diagnostics = {
-                                enable = true,
-                                experimental = { enable = true }
-                            }
-                        }
-                    }
-                }
-            }
-        end
-    },
-    {
-        'yioneko/nvim-vtsls',
-        ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-        config = function()
-            require('lspconfig.configs').vtsls = require('vtsls').lspconfig -- set default server config
-            require('lspconfig').vtsls.setup {
-                capabilities = capabilities,
-            }
-        end
-    },
-
+    require(... .. '.servers.rust-tools')(capabilities),
+    require(... .. '.servers.vtsls')(capabilities),
 }
