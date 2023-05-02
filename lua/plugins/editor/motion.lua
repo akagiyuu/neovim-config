@@ -51,8 +51,8 @@ return {
         'ziontee113/syntax-tree-surfer',
         config = true,
         keys = {
-            { 'vx', '<cmd>STSSelectMasterNode<cr>',      mode = 'n', noremap = true },
-            { 'vn', '<cmd>STSSelectCurrentNode<cr>',     mode = 'n', noremap = true },
+            -- { 'vx', '<cmd>STSSelectMasterNode<cr>',      mode = 'n', noremap = true },
+            -- { 'vn', '<cmd>STSSelectCurrentNode<cr>',     mode = 'n', noremap = true },
             { 'J',  '<cmd>STSSelectNextSiblingNode<cr>', mode = 'x', noremap = true },
             { 'K',  '<cmd>STSSelectPrevSiblingNode<cr>', mode = 'x', noremap = true },
             { 'H',  '<cmd>STSSelectParentNode<cr>',      mode = 'x', noremap = true },

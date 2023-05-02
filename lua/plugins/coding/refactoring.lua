@@ -1,20 +1,33 @@
 return {
     'ThePrimeagen/refactoring.nvim',
     config = true,
+    requires = {
+        { 'plenary.nvim' },
+        { 'nvim-treesitter' }
+    },
+    opts = {
+        prompt_func_return_type = {
+            go = true,
+            cpp = true,
+            c = true,
+            java = true,
+        },
+        -- prompt for function parameters
+        prompt_func_param_type = {
+            go = true,
+            cpp = true,
+            c = true,
+            java = true,
+        },
+    },
     keys = {
         {
-            '<leader>re',
-            [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
+            '<leader>rr',
+            function() require('refactoring').select_refactor() end,
             mode = 'v',
             silent = true,
-            desc = 'Extract function',
-        },
-        {
-            '<leader>rf',
-            [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
-            mode = 'v',
-            silent = true,
-            desc = 'Extract function to file',
+            expr = false,
+            desc = 'Refactor selector',
         },
         {
             '<leader>rv',
@@ -22,13 +35,6 @@ return {
             mode = 'v',
             silent = true,
             desc = 'Extract variable',
-        },
-        {
-            '<leader>ri',
-            [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
-            mode = 'v',
-            silent = true,
-            desc = 'Inline variable',
         },
         {
             '<leader>rb',
@@ -50,6 +56,17 @@ return {
             mode = 'n',
             silent = true,
             desc = 'Inline variable',
+        },
+        {
+            '<leader>rv',
+            function() require('refactoring').debug.print_var { normal = true } end,
+            desc = 'Print variable'
+        },
+        {
+            '<leader>rc',
+            [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
+            function() require('refactoring').debug.cleanup {} end,
+            desc = 'Delete print statement'
         }
     }
 }

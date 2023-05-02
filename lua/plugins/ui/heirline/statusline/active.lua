@@ -1,47 +1,46 @@
 local conditions = require('heirline.conditions')
 local utils = require('heirline.utils')
-local icons = require('plugins.ui.heirline.statusline.icon')
-local components = require('plugins.ui.heirline.components')
 
-local left_segment = {
-    hl = { fg = 'grey' },
-    components.mode,
-    -- fold_method,
-    utils.surround({ '', ' ' }, 'statusline_bg', components.git),
-}
+return function(components)
+    local left_segment = {
+        hl = { fg = 'grey' },
+        components.mode,
+        -- fold_method,
+        utils.surround({ '', ' ' }, 'statusline_bg', components.git),
+    }
 
-local middle_segment = {
-    condition = function() return vim.fn.expand('%:t') ~= '' end,
-    utils.surround({ ' ', ' ' }, 'statusline_bg', components.file),
-}
+    local middle_segment = {
+        condition = function() return vim.fn.expand('%:t') ~= '' end,
+        utils.surround({ ' ', ' ' }, 'statusline_bg', components.file),
+    }
 
-local right_segment = {
-    condition = function() return vim.fn.expand('%:t') ~= '' end,
-    hl = { fg = 'grey' },
-    components.lsp.name,
-    components.lsp.diagnostic,
-    components.misc.search_result,
-    {
-        hl = function(self)
-            return { fg = 'light_bg', bg = self:mode_color() }
-        end,
+    local right_segment = {
+        condition = function() return vim.fn.expand('%:t') ~= '' end,
+        hl = { fg = 'grey' },
+        components.lsp.name,
+        components.lsp.diagnostic,
+        components.misc.search_result,
         {
-            provider = icons.left_filled,
             hl = function(self)
-                return { fg = self:mode_color(), bg = 'statusline_bg' }
+                return { fg = 'light_bg', bg = self:mode_color() }
             end,
+            {
+                provider = components.icon.left_filled,
+                hl = function(self)
+                    return { fg = self:mode_color(), bg = 'statusline_bg' }
+                end,
+            },
+            components.misc.ruler,
         },
-        components.misc.ruler,
-    },
-}
+    }
 
-return {
-    condition = conditions.is_active,
-    hl = { fg = utils.get_highlight('StatusLine').fg, bg = 'NONE' },
-
-    utils.surround({ '', icons.right_filled }, 'statusline_bg', left_segment),
-    components.spring,
-    utils.surround({ icons.left_filled, icons.right_filled }, 'statusline_bg', middle_segment),
-    components.spring,
-    utils.surround({ icons.left_filled, '' }, 'statusline_bg', right_segment),
-}
+    return {
+        condition = conditions.is_active,
+        hl = { fg = utils.get_highlight('StatusLine').fg, bg = 'NONE' },
+        utils.surround({ '', components.icon.right_filled }, 'statusline_bg', left_segment),
+        components.spring,
+        utils.surround({ components.icon.left_filled, components.icon.right_filled }, 'statusline_bg', middle_segment),
+        components.spring,
+        utils.surround({ components.icon.left_filled, '' }, 'statusline_bg', right_segment),
+    }
+end

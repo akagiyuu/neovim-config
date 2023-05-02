@@ -5,11 +5,15 @@ return {
         'nvim-telescope/telescope-file-browser.nvim',
     },
     keys = {
-        { '<leader>f<Enter>', function() require('telescope.builtin').builtin() end,                      desc = 'All picker' },
+        { '<leader>f<Enter>', function() require('telescope.builtin').builtin() end,                      desc =
+        'All picker' },
         { '<leader>fr',       function() require('telescope.builtin').resume() end,                       desc = 'Resume' },
         { '<leader>ff',       function() require('telescope.builtin').find_files() end,                   desc = 'File' },
-        { '<leader>fw',       function() require('telescope.builtin').live_grep() end,                    desc = 'Live grep' },
-        { '<leader>fb',       function() require('telescope').extensions.file_browser.file_browser() end, desc = '[f]ile [b]rowser' },
+        { '<leader>fw',       function() require('telescope.builtin').live_grep() end,                    desc =
+        'Live grep' },
+        { '<leader>fb',       function() require('telescope').extensions.file_browser.file_browser() end,
+                                                                                                              desc =
+            '[f]ile [b]rowser' },
     },
     opts = {
         defaults = {
@@ -42,7 +46,7 @@ return {
         },
 
     },
-    config =  function(_, opts)
+    config = function(_, opts)
         require('telescope').setup(opts)
         require('telescope').load_extension('fzf')
     end

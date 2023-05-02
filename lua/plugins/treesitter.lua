@@ -31,7 +31,6 @@ return {
                 enable = true,
                 enable_autocmd = false,
             },
-            matchup = { enable = true },
             textobjects = {
                 select = {
                     enable = true,

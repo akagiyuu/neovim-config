@@ -70,28 +70,18 @@ return {
         }
     },
     {
-        'nvim-colortils/colortils.nvim',
-        cmd = 'Colortils',
-        config = true
-    },
-    {
-        'NvChad/nvim-colorizer.lua',
+        'uga-rosa/ccc.nvim',
         event = 'VeryLazy',
         opts = {
-            user_default_options = {
-                RGB = true,          -- #RGB hex codes
-                RRGGBB = true,       -- #RRGGBB hex codes
-                names = true,        -- "Name" codes like Blue or blue
-                RRGGBBAA = true,     -- #RRGGBBAA hex codes
-                AARRGGBB = true,     -- 0xAARRGGBB hex codes
-                rgb_fn = true,       -- CSS rgb() and rgba() functions
-                hsl_fn = true,       -- CSS hsl() and hsla() functions
-                css = true,          -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-                css_fn = true,       -- Enable all CSS *functions*: rgb_fn, hsl_fn
-                -- Available modes for `mode`: foreground, background,  virtualtext
-                mode = 'background', -- Set the display mode.
+            highlighter = {
+                auto_enable = true,
+                lsp = true,
             },
-        }
+        },
+        config = function()
+            require('ccc').setup()
+            require('ccc.highlighter'):enable(0)
+        end
     },
     require(... .. '.noice'),
     require(... .. '.nvim-tree'),
@@ -99,6 +89,5 @@ return {
     require(... .. '.whichkey'),
     require(... .. '.hydra'),
     require(... .. '.smoothcursor'),
-    require(... .. '.treesitter'),
     require(... .. '.heirline'),
 }

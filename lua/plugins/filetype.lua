@@ -1,15 +1,13 @@
 return {
     'Hoffs/omnisharp-extended-lsp.nvim',
     {
-        'barrett-ruth/import-cost.nvim',
-        build = 'sh install.sh yarn',
-        ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-        config = true
-    },
-    {
         'AckslD/nvim-FeMaco.lua',
         ft = 'markdown',
-        config = true
+        config = function()
+            require('peek').setup {}
+            vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
+            vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
+        end
     },
     {
         'toppair/peek.nvim',
@@ -39,7 +37,7 @@ return {
                         workspaces = {
                             notes = '~/Idea',
                         },
-                        autochdir = true, -- Automatically change the directory to the current workspace's root every time
+                        autochdir = true,    -- Automatically change the directory to the current workspace's root every time
                         index = 'main.norg', -- The name of the main (root) .norg file
                     }
                 },

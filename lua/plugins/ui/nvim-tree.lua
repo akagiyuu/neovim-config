@@ -98,7 +98,7 @@ end
 
 return {
     'kyazdani42/nvim-tree.lua',
-    keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', silent = true, desc = 'Toggle nvim-tree' } },
+    keys = { { '<leader>nt', '<cmd>NvimTreeToggle<CR>', desc = 'Toggle nvim-tree' } },
     dependencies = { 'nvim-lsp-file-operations' },
     opts = {
         hijack_cursor = true,

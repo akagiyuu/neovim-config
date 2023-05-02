@@ -1,9 +1,14 @@
 return {
     'rebelot/heirline.nvim',
     lazy = false,
-    config = function()
+    opts = {
+        statusline = ... .. '.statusline',
+        colors = ... .. '.colors'
+    },
+    config = function(_, opts)
         require('heirline').setup {
-            statusline = require('plugins.ui.heirline.statusline'),
+            statusline = require(opts.statusline),
         }
+        require(opts.colors)
     end,
 }

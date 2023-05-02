@@ -1,6 +1,5 @@
 local conditions = require('heirline.conditions')
 local components = require('plugins.ui.heirline.components')
-require(... .. '.colors')
 
 local disabled_buffers = {
     condition = function()
@@ -50,6 +49,6 @@ return {
     end,
     components.misc.help_file_name,
     disabled_buffers,
-    require(... .. '.active'),
-    require(... .. '.inactive')
+    require(... .. '.active')(components),
+    require(... .. '.inactive')(components)
 }

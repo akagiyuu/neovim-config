@@ -13,12 +13,7 @@ return {
     },
     {
         'LudoPinelli/comment-box.nvim',
-        disabled = true,
         -- event = 'VeryLazy',
-    },
-    {
-        'superhawk610/ascii-blocks.nvim',
-        cmd = 'AsciiBlockify'
     },
     {
         'danymat/neogen',

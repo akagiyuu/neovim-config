@@ -6,10 +6,6 @@ local on_attach = function(client, bufnr)
         desc = '[l]sp [f]inder',
         buffer = bufnr
     })
-    vim.keymap.set('n', '<leader>lo', '<cmd>Lspsaga outline<CR>', {
-        desc = '[l]sp [o]utline',
-        buffer = bufnr
-    })
     vim.keymap.set('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>', {
         desc = '[l]ine [d]iagnostic',
         buffer = bufnr
@@ -22,15 +18,10 @@ local on_attach = function(client, bufnr)
         desc = '[g]oto [d]efinition',
         buffer = bufnr
     })
-    vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, {
-        desc = '[g]oto [r]eferences',
-        buffer = bufnr
-    })
     vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, {
         desc = '[g]oto [i]mplementation',
         buffer = bufnr
     })
-
     vim.keymap.set({ 'n', 'v' }, '<leader>fm', function() require('util.lsp').format() end, {
         desc = 'Format',
         buffer = bufnr
@@ -44,12 +35,10 @@ local on_attach = function(client, bufnr)
         desc = 'Rename',
         buffer = bufnr
     })
-
     vim.keymap.set('n', 'K', require('util.lsp').hover, {
         desc = 'Hover doc',
         buffer = bufnr
     })
-
     vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', {
         desc = 'next diagnostic',
         buffer = bufnr
