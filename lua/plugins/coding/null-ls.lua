@@ -1,12 +1,6 @@
-return {
+local _null_ls = {
     'jose-elias-alvarez/null-ls.nvim',
-    opts = {
-        ensure_installed = {
-            'pylint',
-            'autopep8'
-        }
-    },
-    config = function(_, opts)
+    config = function()
         local null_ls = require('null-ls')
         local builtins = null_ls.builtins
 
@@ -29,10 +23,20 @@ return {
                         '$FILENAME',
                     },
                 },
+                builtins.code_actions.refactoring,
                 builtins.hover.dictionary,
+                -- builtins.diagnostics.cspell,
+                -- builtins.code_actions.cspell
             },
         }
-        require('util.mason').install(opts.ensure_installed)
     end,
+}
+return {
+    'jay-babu/mason-null-ls.nvim',
+    dependencies = { _null_ls },
+    opts = {
+        ensure_installed = nil,
+        automatic_installation = true,
+    },
     event = 'VeryLazy',
 }

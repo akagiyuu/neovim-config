@@ -45,7 +45,10 @@ _lsp.code_lens_attach = function(client, bufnr)
 
     vim.api.nvim_create_autocmd(event, {
         buffer = bufnr,
-        callback = vim.lsp.codelens.refresh,
+        callback = function()
+            print(2)
+            vim.lsp.codelens.refresh()
+        end
     })
 end
 

@@ -9,6 +9,18 @@ return {
     jsonls = {},
     zls = {},
     bashls = {},
+    dockerls = {},
+    sqlls = {},
+    vtsls = {
+        settings = {
+            typescript = {
+                updateImportsOnFileMove = 'always',
+            },
+            javascript = {
+                updateImportsOnFileMove = 'always',
+            },
+        },
+    },
     lua_ls = {
         settings = {
             Lua = {

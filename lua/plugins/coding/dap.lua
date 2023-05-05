@@ -70,12 +70,6 @@ _dap.config = function(_, opts)
         vim.fn.sign_define(group, { text = sign, texthl = group, linehl = '', numhl = '' })
     end
 
-    -- local sign = vim.fn.sign_define
-    --
-    -- sign('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
-    -- sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
-    -- sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = '', numhl = '' })
-
     dap.listeners.before['event_initialized'].ui = function() require('dapui').open() end
     dap.listeners.before.event_terminated['dapui_config'] = function() require('dapui').close() end
     dap.listeners.before.event_exited['dapui_config'] = function() require('dapui').close() end

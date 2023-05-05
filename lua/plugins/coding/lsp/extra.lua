@@ -1,5 +1,9 @@
 return {
     {
+        'yioneko/nvim-vtsls',
+        ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+    },
+    {
         'lvimuser/lsp-inlayhints.nvim',
         config = true
     },
@@ -9,17 +13,10 @@ return {
             preset = 'codicons',
             mode = 'symbol',
             symbol_map = {
-                Constructor = '',
-                Key = '',
-                Null = 'NULL',
-                Object = '⦿',
-                Package = '',
-                Property = '',
-                Reference = '',
-                Snippet = '',
-                String = '𝓐',
-                TypeParameter = '',
-                Unit = '',
+                Text = '',
+                Method = '',
+                Function = '',
+                Constructor = '',
             },
         },
         config = function(_, opts)

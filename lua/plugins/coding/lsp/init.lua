@@ -4,6 +4,7 @@ local on_attach = require(... .. '.on_attach')
 local _lspconfig = {
     'neovim/nvim-lspconfig',
     lazy = false,
+    priority = 100,
     dependencies = {
         'mason.nvim',
         'williamboman/mason-lspconfig.nvim',
@@ -15,7 +16,9 @@ local _lspconfig = {
             signs = true,
             underline = true,
             severity_sort = true,
-            on_init_callback = function(...) require('util.lsp').code_lens_attach(...) end,
+            on_init_callback = function(...)
+                require('util.lsp').code_lens_attach(...)
+            end,
         },
         servers = require(... .. '.servers.generic'),
     }
@@ -25,7 +28,8 @@ _lspconfig.config = function(_, opts)
     local servers = opts.servers
     local function setup(server)
         local server_opts = servers[server]
-        servers.capabilities = capabilities
+        server_opts.capabilities = capabilities
+        server_opts.on_attach = on_attach
 
         require('lspconfig')[server].setup(server_opts)
     end
@@ -54,19 +58,6 @@ _lspconfig.config = function(_, opts)
         mlsp.setup_handlers { setup }
     end
 
-    vim.api.nvim_create_autocmd('LspAttach', {
-        desc = 'Global lsp on attach',
-        callback = function(args)
-            if not (args.data and args.data.client_id) then
-                return
-            end
-
-            local bufnr = args.buf
-            local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-            on_attach(client, bufnr)
-        end
-    })
     vim.diagnostic.config(opts.diagnostics)
     local signs = {
         Error = ' ',
@@ -86,7 +77,6 @@ end
 
 return {
     _lspconfig,
-    require(... .. '.servers.rust-tools')(capabilities),
-    require(... .. '.servers.vtsls')(capabilities),
+    require(... .. '.servers.rust-tools')(capabilities, on_attach),
     require(... .. '.extra'),
 }
