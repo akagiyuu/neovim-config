@@ -4,7 +4,6 @@ local on_attach = require(... .. '.on_attach')
 local _lspconfig = {
     'neovim/nvim-lspconfig',
     lazy = false,
-    priority = 100,
     dependencies = {
         'mason.nvim',
         'williamboman/mason-lspconfig.nvim',
@@ -16,9 +15,6 @@ local _lspconfig = {
             signs = true,
             underline = true,
             severity_sort = true,
-            on_init_callback = function(...)
-                require('util.lsp').code_lens_attach(...)
-            end,
         },
         servers = require(... .. '.servers.generic'),
     }

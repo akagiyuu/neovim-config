@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
         desc = '[g]oto [i]mplementation',
         buffer = bufnr
     })
-    vim.keymap.set({ 'n', 'v' }, '<leader>fm', function() require('util.lsp').format() end, {
+    vim.keymap.set({ 'n', 'v' }, '<leader>fm', require('util.lsp').format, {
         desc = 'Format',
         buffer = bufnr
     })

@@ -35,18 +35,21 @@ _lsp.code_lens_attach = function(client, bufnr)
     end
 
     local event = { 'BufEnter', 'InsertLeave' }
+    local group = 'lsp_code_lens_refresh'
     local ok, autocmds = pcall(vim.api.nvim_get_autocmds, {
         buffer = bufnr,
         event = event,
+        group = group,
     })
     if ok and #autocmds > 0 then
         return
     end
 
+    vim.api.nvim_create_augroup(group, { clear = false })
     vim.api.nvim_create_autocmd(event, {
         buffer = bufnr,
+        group = group,
         callback = function()
-            print(2)
             vim.lsp.codelens.refresh()
         end
     })

@@ -123,6 +123,7 @@ return {
             mocha = function(cp)
                 return {
                     LspFloatWinNormal          = { bg = 'NONE' },
+                    CursorLine                 = { bg = 'NONE' },
                     NormalFloat                = { fg = cp.text, bg = cp.none },
                     NvimTreeNormal             = { bg = cp.none },
                     CmpBorder                  = { fg = cp.surface2 },

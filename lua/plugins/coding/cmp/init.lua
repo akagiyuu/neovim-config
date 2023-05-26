@@ -4,12 +4,15 @@ local _cmp = {
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-cmdline',
-        'hrsh7th/cmp-path',
         'saadparwaiz1/cmp_luasnip',
         'lukas-reineke/cmp-rg',
         {
             'tzachar/cmp-fuzzy-buffer',
             dependencies = { 'tzachar/fuzzy.nvim', }
+        },
+        {
+            'tzachar/cmp-fuzzy-path',
+            dependencies = { 'tzachar/fuzzy.nvim' },
         }
     },
 }
@@ -28,7 +31,7 @@ _cmp.config = function()
             luasnip      = 1,
             cmp_tabnine  = 1,
             fuzzy_buffer = 1,
-            path         = 1,
+            fuzzy_path   = 1,
         },
         snippet      = { expand = function(args) require('luasnip').lsp_expand(args.body) end },
         window       = {
@@ -43,7 +46,6 @@ _cmp.config = function()
         },
         mapping      = {
             ['<C-e>']     = cmp.mapping.close(),
-            ['<C-y>']     = cmp.mapping.confirm { select = false },
             ['<CR>']      = cmp.mapping.confirm { select = false },
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-d>']     = cmp.mapping.scroll_docs(5),
@@ -79,9 +81,8 @@ _cmp.config = function()
                 { name = 'neorg' },
                 -- { name = 'lab.quick_data', keyword_length = 4 },
                 { name = 'crates' },
-                -- { name = 'buffer' },
                 { name = 'fuzzy_buffer', max_item_count = 2 },
-                { name = 'path' },
+                { name = 'fuzzy_path' },
             },
             {
                 { name = 'rg', keyword_length = 4 },
@@ -99,8 +100,8 @@ _cmp.config = function()
                 maxwidth = 50,
                 ellipsis_char = '...',
                 menu = {
-                    buffer = '[buffer]',
-                    path = '[path]',
+                    fuzzy_buffer = '[buffer]',
+                    fuzzy_path = '[path]',
                     rg = '[rg]',
                     calc = '[calc]',
                 },
@@ -120,7 +121,7 @@ _cmp.config = function()
     cmp.setup.cmdline(':', {
         sources = {
             { name = 'cmdline' },
-            { name = 'path' },
+            { name = 'fuzzy_path' },
         },
     })
 end

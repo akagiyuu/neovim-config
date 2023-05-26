@@ -30,7 +30,6 @@ return {
                         [vim.fn.expand '$VIMRUNTIME/lua'] = true,
                         [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
                         [vim.fn.stdpath('data') .. '/lazy/emmylua-nvim'] = true,
-                        -- ['/usr/share/awesome/lib'] = true
                     },
                     maxPreload = 100000,
                 },

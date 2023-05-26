@@ -47,12 +47,4 @@ return {
             }
         },
     },
-    experimental = {
-        hoverActions = true,
-        hoverRange = true,
-        serverStatusNotification = true,
-        snippetTextEdit = true,
-        codeActionGroup = true,
-        ssr = true,
-    }
 }

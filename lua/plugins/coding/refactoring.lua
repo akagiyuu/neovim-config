@@ -28,21 +28,5 @@ return {
             expr = false,
             desc = 'Refactor selector',
         },
-        {
-            '<leader>ri',
-            function() require('refactoring').refactor('Inline Variable') end,
-            mode = 'n',
-            desc = 'Inline variable',
-        },
-        {
-            '<leader>rv',
-            function() require('refactoring').debug.print_var { normal = true } end,
-            desc = 'Print variable'
-        },
-        {
-            '<leader>rc',
-            function() require('refactoring').debug.cleanup {} end,
-            desc = 'Delete print statement'
-        }
     }
 }

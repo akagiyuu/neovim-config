@@ -22,7 +22,7 @@ return {
     {
         'rcarriga/nvim-notify',
         opts = {
-            stages = 'fade_in_slide_out',
+            stages = 'slide',
             background_colour = '#000000',
         },
         config = function(_, opts)
@@ -52,8 +52,8 @@ return {
         opts = {
             char = '▏',
             -- char_blankline = ' ',
-            -- context_char = '▏',
-            context_char = '▎',
+            context_char = '▏',
+            -- context_char = '▎',
             show_current_context = true,
             show_current_context_start = true,
             use_treesitter = true,
@@ -80,7 +80,6 @@ return {
         },
         config = function()
             require('ccc').setup()
-            require('ccc.highlighter'):enable(0)
         end
     },
     require(... .. '.noice'),

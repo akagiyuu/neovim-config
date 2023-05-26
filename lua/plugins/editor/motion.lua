@@ -20,10 +20,6 @@ return {
                 'ggandor/flit.nvim',
                 config = true,
             },
-            {
-                'ggandor/leap-spooky.nvim',
-                config = true,
-            }
         },
         event = 'VeryLazy',
         config = function() require('leap').add_default_mappings() end,
@@ -53,10 +49,10 @@ return {
         keys = {
             -- { 'vx', '<cmd>STSSelectMasterNode<cr>',      mode = 'n', noremap = true },
             -- { 'vn', '<cmd>STSSelectCurrentNode<cr>',     mode = 'n', noremap = true },
-            { 'J',  '<cmd>STSSelectNextSiblingNode<cr>', mode = 'x', noremap = true },
-            { 'K',  '<cmd>STSSelectPrevSiblingNode<cr>', mode = 'x', noremap = true },
-            { 'H',  '<cmd>STSSelectParentNode<cr>',      mode = 'x', noremap = true },
-            { 'L',  '<cmd>STSSelectChildNode<cr>',       mode = 'x', noremap = true },
+            -- { 'J',  '<cmd>STSSelectNextSiblingNode<cr>', mode = 'x', noremap = true },
+            -- { 'K',  '<cmd>STSSelectPrevSiblingNode<cr>', mode = 'x', noremap = true },
+            -- { 'H',  '<cmd>STSSelectParentNode<cr>',      mode = 'x', noremap = true },
+            -- { 'L',  '<cmd>STSSelectChildNode<cr>',       mode = 'x', noremap = true },
             {
                 'vU',
                 function()

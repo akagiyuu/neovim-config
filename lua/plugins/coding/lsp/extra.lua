@@ -62,11 +62,6 @@ return {
         config = true
     },
     {
-        'folke/trouble.nvim',
-        cmd = 'Touble',
-        config = true
-    },
-    {
         'antosha417/nvim-lsp-file-operations',
         requires = { 'plenary.nvim' },
         config = true
