@@ -1,4 +1,4 @@
-local _null_ls = {
+return {
     'jose-elias-alvarez/null-ls.nvim',
     config = function()
         local null_ls = require('null-ls')
@@ -30,13 +30,5 @@ local _null_ls = {
             },
         }
     end,
-}
-return {
-    'jay-babu/mason-null-ls.nvim',
-    dependencies = { _null_ls },
-    opts = {
-        ensure_installed = nil,
-        automatic_installation = true,
-    },
     event = 'VeryLazy',
 }

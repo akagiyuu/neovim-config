@@ -8,8 +8,8 @@
 -- ]]
 local hint = [[
 Debug:
- _K_: Step Back    _H_: Step Out
- _J_: Step Over    _L_: Step Into
+ _k_: Step Back    _h_: Step Out
+ _j_: Step Over    _l_: Step Into
 
  _b_: Toggle Breakpoint
  _s_: Start
@@ -39,10 +39,10 @@ local diagnostic = {
             end,
             { nowait = true },
         },
-        { 'J',    function() require 'dap'.step_over() end,         { nowait = true } },
-        { 'K',    function() require 'dap'.step_back() end,         { nowait = true } },
-        { 'H',    function() require 'dap'.step_out() end,          { nowait = true } },
-        { 'L',    function() require 'dap'.step_into() end,         { nowait = true } },
+        { 'j',    function() require 'dap'.step_over() end,         { nowait = true } },
+        { 'k',    function() require 'dap'.step_back() end,         { nowait = true } },
+        { 'h',    function() require 'dap'.step_out() end,          { nowait = true } },
+        { 'l',    function() require 'dap'.step_into() end,         { nowait = true } },
         { '<CR>', function() require 'dap'.continue() end,          { nowait = true } },
         { 'b',    function() require 'dap'.toggle_breakpoint() end, { nowait = true } },
         {

@@ -35,7 +35,11 @@ return {
                 in_select = false,
             },
             code_action = { show_server_name = true },
-            symbol_in_winbar = { enable = false },
+            symbol_in_winbar = {
+                enable = true,
+                respect_root = true,
+                separator = ' > ',
+            },
             ui = {
                 theme = 'round',
                 border = 'rounded',
@@ -45,6 +49,7 @@ return {
         },
         config = function(_, opts)
             opts.ui.kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind()
+            opts.ui.kind['Folder'] = { '', 'NONE' }
             require('lspsaga').setup(opts)
         end
     },

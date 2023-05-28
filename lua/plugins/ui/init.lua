@@ -32,20 +32,20 @@ return {
             end, { desc = 'Delete all Notifications' })
         end
     },
-    {
-        'utilyre/barbecue.nvim',
-        event = 'VeryLazy',
-        dependencies = {
-            {
-                'SmiteshP/nvim-navic',
-                opts = { highlight = true },
-            }
-        },
-        opts = {
-            theme = 'catppuccin',
-            show_modified = true,
-        }
-    },
+    -- {
+    --     'utilyre/barbecue.nvim',
+    --     event = 'VeryLazy',
+    --     dependencies = {
+    --         {
+    --             'SmiteshP/nvim-navic',
+    --             opts = { highlight = true },
+    --         }
+    --     },
+    --     opts = {
+    --         theme = 'catppuccin',
+    --         show_modified = true,
+    --     }
+    -- },
     {
         'lukas-reineke/indent-blankline.nvim',
         event = 'VeryLazy',
