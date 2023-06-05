@@ -20,7 +20,6 @@ return {
         build = ':TSUpdate',
         lazy = false,
         dependencies = {
-            'nvim-treesitter-textobjects',
             'https://gitlab.com/HiPhish/nvim-ts-rainbow2',
         },
         opts = {
@@ -31,51 +30,53 @@ return {
                 enable = true,
                 enable_autocmd = false,
             },
-            textobjects = {
-                select = {
-                    enable = true,
-                    lookahead = true,
-                    keymaps = {
-                        ['af'] = '@function.outer',
-                        ['if'] = '@function.inner',
-                        ['ac'] = '@class.outer',
-                        ['ic'] = '@class.inner',
-                        ['aa'] = '@parameter.outer',
-                        ['ia'] = '@parameter.inner',
-                    },
-                    -- You can choose the select mode (default is charwise 'v')
-                    selection_modes = {
-                        ['@parameter.outer'] = 'v', -- charwise
-                        ['@function.outer'] = 'V', -- linewise
-                        ['@class.outer'] = '<c-v>', -- blockwise
-                    },
-                    -- include_surrounding_whitespace = true,
-                },
-                move = {
-                    enable = true,
-                    set_jumps = true, -- whether to set jumps in the jumplist
-                    goto_next_start = {
-                        [']a'] = '@parameter.inner',
-                        [']f'] = '@function.outer',
-                        [']c'] = '@class.outer',
-                    },
-                    goto_next_end = {
-                        [']A'] = '@parameter.inner',
-                        [']F'] = '@function.outer',
-                        [']C'] = '@class.outer',
-                    },
-                    goto_previous_start = {
-                        ['[a'] = '@parameter.inner',
-                        ['[f'] = '@function.outer',
-                        ['[c'] = '@class.outer',
-                    },
-                    goto_previous_end = {
-                        ['[A'] = '@parameter.inner',
-                        ['[F'] = '@function.outer',
-                        ['[C'] = '@class.outer',
-                    },
-                },
-            },
+            -- textobjects = {
+            --     select = {
+            --         enable = true,
+            --         lookahead = true,
+            --         keymaps = {
+            --             ['af'] = '@function.outer',
+            --             ['if'] = '@function.inner',
+            --             ['ac'] = '@class.outer',
+            --             ['ic'] = '@class.inner',
+            --             ['aa'] = '@parameter.outer',
+            --             ['ia'] = '@parameter.inner',
+            --             ['iz'] = '@block.inner',
+            --             ['az'] = '@block.inner',
+            --         },
+            --         -- You can choose the select mode (default is charwise 'v')
+            --         selection_modes = {
+            --             ['@parameter.outer'] = 'v', -- charwise
+            --             ['@function.outer'] = 'V', -- linewise
+            --             ['@class.outer'] = '<c-v>', -- blockwise
+            --         },
+            --         -- include_surrounding_whitespace = true,
+            --     },
+            --     move = {
+            --         enable = true,
+            --         set_jumps = true, -- whether to set jumps in the jumplist
+            --         goto_next_start = {
+            --             [']a'] = '@parameter.inner',
+            --             [']f'] = '@function.outer',
+            --             [']c'] = '@class.outer',
+            --         },
+            --         goto_next_end = {
+            --             [']A'] = '@parameter.inner',
+            --             [']F'] = '@function.outer',
+            --             [']C'] = '@class.outer',
+            --         },
+            --         goto_previous_start = {
+            --             ['[a'] = '@parameter.inner',
+            --             ['[f'] = '@function.outer',
+            --             ['[c'] = '@class.outer',
+            --         },
+            --         goto_previous_end = {
+            --             ['[A'] = '@parameter.inner',
+            --             ['[F'] = '@function.outer',
+            --             ['[C'] = '@class.outer',
+            --         },
+            --     },
+            -- },
             playground = { enable = false }
         },
         config = function(_, opts) require('nvim-treesitter.configs').setup(opts) end

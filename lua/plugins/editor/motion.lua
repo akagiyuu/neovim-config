@@ -21,18 +21,18 @@ return {
                 config = true,
             },
         },
-        event = 'VeryLazy',
+        lazy = false,
         config = function() require('leap').add_default_mappings() end,
     },
-    {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        config = function()
-            local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
-
-            vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move)
-            vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_opposite)
-        end
-    },
+    -- {
+    --     'nvim-treesitter/nvim-treesitter-textobjects',
+    --     config = function()
+    --         local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
+    --
+    --         vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move)
+    --         vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_opposite)
+    --     end
+    -- },
     {
         'David-Kunz/treesitter-unit',
         config = true,
@@ -47,12 +47,14 @@ return {
         'ziontee113/syntax-tree-surfer',
         config = true,
         keys = {
-            -- { 'vx', '<cmd>STSSelectMasterNode<cr>',      mode = 'n', noremap = true },
-            -- { 'vn', '<cmd>STSSelectCurrentNode<cr>',     mode = 'n', noremap = true },
-            -- { 'J',  '<cmd>STSSelectNextSiblingNode<cr>', mode = 'x', noremap = true },
-            -- { 'K',  '<cmd>STSSelectPrevSiblingNode<cr>', mode = 'x', noremap = true },
-            -- { 'H',  '<cmd>STSSelectParentNode<cr>',      mode = 'x', noremap = true },
-            -- { 'L',  '<cmd>STSSelectChildNode<cr>',       mode = 'x', noremap = true },
+            { 'vx', '<cmd>STSSelectMasterNode<cr>',      mode = 'n', noremap = true },
+            { 'vn', '<cmd>STSSelectCurrentNode<cr>',     mode = 'n', noremap = true },
+            { 'J',  '<cmd>STSSelectNextSiblingNode<cr>', mode = 'x', noremap = true },
+            { 'K',  '<cmd>STSSelectPrevSiblingNode<cr>', mode = 'x', noremap = true },
+            { 'H',  '<cmd>STSSelectParentNode<cr>',      mode = 'x', noremap = true },
+            { 'L',  '<cmd>STSSelectChildNode<cr>',       mode = 'x', noremap = true },
+            { '<A-j>',  '<cmd>STSSwapNextVisual<cr>',      mode = 'x', noremap = true },
+            { '<A-k>',  '<cmd>STSSwapPrevVisual<cr>',       mode = 'x', noremap = true },
             {
                 'vU',
                 function()

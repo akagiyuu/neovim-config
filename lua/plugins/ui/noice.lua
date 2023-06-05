@@ -98,5 +98,10 @@ return {
                 },
             },
         },
+        format = {
+            spinner = {
+                name = 'aesthetic',
+            },
+        }
     }
 }

@@ -2,7 +2,9 @@ local debug = require(... .. '.debug')
 
 return {
     'anuvyklack/hydra.nvim',
-    event = 'VeryLazy',
+    keys = {
+        { '<leader>d' }
+    },
     config = function()
         local Hydra = require('hydra')
 
