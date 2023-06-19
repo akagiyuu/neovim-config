@@ -71,16 +71,14 @@ return {
     },
     {
         'uga-rosa/ccc.nvim',
-        event = 'VeryLazy',
+        cmd = 'CccHighlighterToggle',
         opts = {
             highlighter = {
                 auto_enable = true,
                 lsp = true,
             },
         },
-        config = function()
-            require('ccc').setup()
-        end
+        config = true
     },
     require(... .. '.noice'),
     require(... .. '.nvim-tree'),

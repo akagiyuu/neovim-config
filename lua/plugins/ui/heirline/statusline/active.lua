@@ -6,12 +6,16 @@ return function(components)
         hl = { fg = 'grey' },
         components.mode,
         -- fold_method,
-        utils.surround({ '', ' ' }, 'statusline_bg', components.git),
+        { provider = '' },
+        components.git,
+        { provider = ' ' },
     }
 
     local middle_segment = {
         condition = function() return vim.fn.expand('%:t') ~= '' end,
-        utils.surround({ ' ', ' ' }, 'statusline_bg', components.file),
+        { provider = ' ' },
+        components.file,
+        { provider = ' ' },
     }
 
     local right_segment = {

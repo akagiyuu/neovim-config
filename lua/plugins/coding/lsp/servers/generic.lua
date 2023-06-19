@@ -1,6 +1,5 @@
 return {
     clangd = {},
-    gopls = {},
     pyright = {},
     cssls = {},
     cssmodules_ls = {},
@@ -80,4 +79,5 @@ return {
             },
         },
     },
+    gopls = {},
 }
