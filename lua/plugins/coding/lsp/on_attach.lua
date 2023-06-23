@@ -1,5 +1,4 @@
 local on_attach = function(client, bufnr)
-    require('lsp-inlayhints').on_attach(client, bufnr)
     require('util.lsp').code_lens_attach(client, bufnr)
 
     vim.keymap.set('n', '<leader>lf', '<cmd>Lspsaga lsp_finder<CR>', {

@@ -1,10 +1,11 @@
 return {
     'jose-elias-alvarez/null-ls.nvim',
+    event = 'VeryLazy',
     config = function()
-        local null_ls = require('null-ls')
-        local builtins = null_ls.builtins
+        local null = require('null-ls')
+        local builtins = null.builtins
 
-        null_ls.setup {
+        null.setup {
             sources = {
                 builtins.formatting.prettier.with {
                     extra_args = { '--tab-width', '4', '--single-quote', '--bracket-spacing' }
@@ -25,10 +26,9 @@ return {
                 },
                 builtins.code_actions.refactoring,
                 builtins.hover.dictionary,
-                -- builtins.diagnostics.cspell,
-                -- builtins.code_actions.cspell
+                -- null.builtins.diagnostics.cspell,
+                -- null.builtins.code_actions.cspell
             },
         }
     end,
-    event = 'VeryLazy',
 }

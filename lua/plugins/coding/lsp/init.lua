@@ -13,16 +13,13 @@ local _lspconfig = {
             severity_sort = true,
         },
         servers = require(... .. '.servers.generic'),
+        on_attach = require(... .. '.on_attach'),
     }
 }
 
 _lspconfig.config = function(_, opts)
-    local servers = opts.servers
-
-    for server, server_opts in pairs(servers) do
+    for server, server_opts in pairs(opts.servers) do
         server_opts.capabilities = capabilities
-        server_opts.on_attach = on_attach
-
         require('lspconfig')[server].setup(server_opts)
     end
 
@@ -40,6 +37,17 @@ _lspconfig.config = function(_, opts)
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
+    vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+            if not (args.data and args.data.client_id) then
+                return
+            end
+
+            local bufnr = args.buf
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            opts.on_attach(client, bufnr)
+        end,
+    })
     require('lspconfig.ui.windows').default_options.border = 'single'
 end
 

@@ -5,7 +5,23 @@ return {
     },
     {
         'lvimuser/lsp-inlayhints.nvim',
-        config = true
+        init = function()
+            vim.api.nvim_create_autocmd('LspAttach', {
+                callback = function(args)
+                    if not (args.data and args.data.client_id) then
+                        return
+                    end
+
+                    local bufnr = args.buf
+                    local client = vim.lsp.get_client_by_id(args.data.client_id)
+                    require('lsp-inlayhints').on_attach(client, bufnr)
+                end,
+            })
+        end,
+        config = function()
+            require('lsp-inlayhints').setup()
+            vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'Comment', bg = 'NONE' })
+        end
     },
     {
         'onsails/lspkind.nvim',
@@ -25,7 +41,7 @@ return {
     },
     {
         'nvimdev/lspsaga.nvim',
-        event = 'VeryLazy',
+        event = 'LspAttach',
         opts = {
             lightbulb = { virtual_text = false },
             border_style = 'rounded',
@@ -55,7 +71,7 @@ return {
     },
     {
         'kevinhwang91/nvim-ufo',
-        event = 'VeryLazy',
+        event = 'LspAttach',
         opts = {
             open_fold_hl_timeout = 0,
             close_fold_kinds = { 'imports', 'regions' }

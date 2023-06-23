@@ -9,6 +9,7 @@ return {
         type = 'exp',
         disable_float_win = true,
     },
+    event = 'VeryLazy',
     config = function(_, opts)
         require('smoothcursor').setup(opts)
         vim.api.nvim_create_autocmd({ 'ModeChanged' }, {
@@ -33,5 +34,4 @@ return {
             end,
         })
     end,
-    event = 'VeryLazy',
 }

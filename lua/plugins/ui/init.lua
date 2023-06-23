@@ -23,7 +23,7 @@ return {
         'rcarriga/nvim-notify',
         opts = {
             stages = 'slide',
-            background_colour = '#000000',
+            background_colour = 'NONE',
         },
         config = function(_, opts)
             require('notify').setup(opts)
