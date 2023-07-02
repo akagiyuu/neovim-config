@@ -14,18 +14,56 @@ return {
         config = true
     },
     {
-        'ggandor/leap.nvim',
-        dependencies = {
+        'folke/flash.nvim',
+        opts = {},
+        keys = {
             {
-                'ggandor/flit.nvim',
-                config = true,
+                's',
+                mode = { 'n', 'x', 'o' },
+                function()
+                    require('flash').jump {
+                        search = {
+                            mode = function(str)
+                                return '\\<' .. str
+                            end,
+                        },
+                    }
+                end,
+                desc = 'Flash',
+            },
+            {
+                'S',
+                mode = { 'n', 'o', 'x' },
+                function()
+                    require('flash').treesitter()
+                end,
+                desc = 'Flash Treesitter',
+            },
+            {
+                'r',
+                mode = 'o',
+                function()
+                    require('flash').remote()
+                end,
+                desc = 'Remote Flash',
+            },
+            {
+                'R',
+                mode = { 'o', 'x' },
+                function()
+                    require('flash').treesitter_search()
+                end,
+                desc = 'Flash Treesitter Search',
+            },
+            {
+                '<c-s>',
+                mode = { 'c' },
+                function()
+                    require('flash').toggle()
+                end,
+                desc = 'Toggle Flash Search',
             },
         },
-        keys = {
-            { 's',  mode = { 'n', 'x', 'o' }, desc = 'Leap forward to' },
-            { 'S',  mode = { 'n', 'x', 'o' }, desc = 'Leap backward to' },
-        },
-        config = function() require('leap').add_default_mappings() end,
     },
     -- {
     --     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -36,16 +74,6 @@ return {
     --         vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_opposite)
     --     end
     -- },
-    {
-        'David-Kunz/treesitter-unit',
-        config = true,
-        keys = {
-            { 'iu', ':lua require"treesitter-unit".select()<CR>',          mode = 'x', desc = 'inside unit' },
-            { 'au', ':lua require"treesitter-unit".select(true)<CR>',      mode = 'x', desc = 'outside unit' },
-            { 'iu', ':<c-u>lua require"treesitter-unit".select()<CR>',     mode = 'o', desc = 'inside unit' },
-            { 'au', ':<c-u>lua require"treesitter-unit".select(true)<CR>', mode = 'o', desc = 'outside unit' },
-        }
-    },
     {
         'ziontee113/syntax-tree-surfer',
         config = true,
