@@ -84,7 +84,6 @@ return {
     },
     {
         'antosha417/nvim-lsp-file-operations',
-        requires = { 'plenary.nvim' },
         config = true
     },
 }

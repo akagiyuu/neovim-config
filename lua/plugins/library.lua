@@ -3,4 +3,5 @@ return {
     { 'MunifTanjim/nui.nvim', lazy = false },
     { 'kevinhwang91/promise-async', lazy = false },
     { 'ii14/emmylua-nvim' },
+    { 'stevearc/profile.nvim' }
 }
