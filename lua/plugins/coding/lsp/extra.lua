@@ -44,7 +44,7 @@ return {
         event = 'LspAttach',
         opts = {
             lightbulb = { virtual_text = false },
-            border_style = 'rounded',
+            border = 'rounded',
             rename = {
                 quit = 'q',
                 exec = '<CR>',

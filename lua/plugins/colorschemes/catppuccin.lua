@@ -33,7 +33,10 @@ return {
             markdown = true,
             notify = true,
             nvimtree = true,
-            telescope = true,
+            telescope = {
+                enabled = true,
+                style = 'nvchad',
+            },
             treesitter = true,
             treesitter_context = false,
             which_key = true,

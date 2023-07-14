@@ -1,7 +1,7 @@
 local on_attach = function(client, bufnr)
     require('util.lsp').code_lens_attach(client, bufnr)
 
-    vim.keymap.set('n', '<leader>lf', '<cmd>Lspsaga lsp_finder<CR>', {
+    vim.keymap.set('n', '<leader>lf', '<cmd>Lspsaga finder<CR>', {
         desc = '[l]sp [f]inder',
         buffer = bufnr
     })
