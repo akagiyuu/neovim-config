@@ -56,4 +56,5 @@ return {
     require(... .. '.cmp'),
     require(... .. '.dap'),
     require(... .. '.null-ls'),
+    require(... .. '.lint'),
 }

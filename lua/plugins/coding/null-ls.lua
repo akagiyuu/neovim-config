@@ -1,6 +1,7 @@
 return {
     'jose-elias-alvarez/null-ls.nvim',
-    event = 'VeryLazy',
+    enabled = false,
+    -- event = 'VeryLazy',
     config = function()
         local null = require('null-ls')
         local builtins = null.builtins

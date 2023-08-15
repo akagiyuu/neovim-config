@@ -10,10 +10,7 @@ local _cmp = {
             'tzachar/cmp-fuzzy-buffer',
             dependencies = { 'tzachar/fuzzy.nvim', }
         },
-        {
-            'tzachar/cmp-fuzzy-path',
-            dependencies = { 'tzachar/fuzzy.nvim' },
-        }
+        'FelipeLema/cmp-async-path',
     },
 }
 local has_words_before = function()
@@ -31,7 +28,7 @@ _cmp.config = function()
             luasnip      = 1,
             cmp_tabnine  = 1,
             fuzzy_buffer = 1,
-            fuzzy_path   = 1,
+            async_path   = 1,
         },
         snippet      = { expand = function(args) require('luasnip').lsp_expand(args.body) end },
         window       = {
@@ -80,9 +77,8 @@ _cmp.config = function()
                 { name = 'nvim_lsp' },
                 { name = 'neorg' },
                 -- { name = 'lab.quick_data', keyword_length = 4 },
-                { name = 'crates' },
                 { name = 'fuzzy_buffer', max_item_count = 2 },
-                { name = 'fuzzy_path' },
+                { name = 'async_path' }
             },
             {
                 { name = 'rg', keyword_length = 4 },
@@ -121,7 +117,7 @@ _cmp.config = function()
     cmp.setup.cmdline(':', {
         sources = {
             { name = 'cmdline' },
-            { name = 'fuzzy_path' },
+            { name = 'async_path' }
         },
     })
 end
