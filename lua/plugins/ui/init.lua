@@ -107,6 +107,5 @@ return {
     require(... .. '.nvim-tree'),
     require(... .. '.telescope'),
     require(... .. '.hydra'),
-    require(... .. '.smoothcursor'),
     require(... .. '.heirline'),
 }

@@ -69,6 +69,7 @@ return {
                 enabled = false,
                 color_mode = false,
             },
+            neogit = false,
         },
         color_overrides = {
             -- mocha = {

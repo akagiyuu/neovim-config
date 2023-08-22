@@ -57,4 +57,5 @@ return {
     require(... .. '.dap'),
     require(... .. '.null-ls'),
     require(... .. '.lint'),
+    require(... .. '.format'),
 }

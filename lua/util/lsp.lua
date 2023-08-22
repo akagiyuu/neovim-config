@@ -1,8 +1,24 @@
 local _lsp = {}
 
+
+local function range_from_selection()
+    -- TODO: Use `vim.region()` instead https://github.com/neovim/neovim/pull/13896
+    local start_row = vim.fn.getpos('v')[2]
+    local end_row = vim.fn.getpos('.')[2]
+
+    -- A user can start visual selection at the end and move backwards
+    -- Normalize the range to start < end
+    if end_row < start_row then
+        start_row, end_row = end_row, start_row
+    end
+    return {
+        ['start'] = start_row,
+        ['end'] = end_row,
+    }
+end
 _lsp.format = function()
     local disable_server = {
-        tsserver = true,
+        -- tsserver = true,
         html = true,
     }
     vim.lsp.buf.format {
@@ -13,6 +29,9 @@ _lsp.format = function()
             return true
         end,
     }
+
+    local range = range_from_selection()
+    vim.cmd(string.format('%s,%sFormat', range.start, range['end']))
 end
 _lsp.hover = function()
     local ok, ufo = pcall(require, 'ufo')
@@ -53,6 +72,12 @@ _lsp.code_lens_attach = function(client, bufnr)
             vim.lsp.codelens.refresh()
         end
     })
+end
+
+_lsp.inlay_hint_attach = function(client, bufnr)
+    if client.supports_method('textDocument/inlayHint') then
+        vim.lsp.inlay_hint(bufnr, true)
+    end
 end
 
 return _lsp

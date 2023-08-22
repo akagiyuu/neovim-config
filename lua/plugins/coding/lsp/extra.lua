@@ -4,26 +4,6 @@ return {
         ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
     },
     {
-        'lvimuser/lsp-inlayhints.nvim',
-        init = function()
-            vim.api.nvim_create_autocmd('LspAttach', {
-                callback = function(args)
-                    if not (args.data and args.data.client_id) then
-                        return
-                    end
-
-                    local bufnr = args.buf
-                    local client = vim.lsp.get_client_by_id(args.data.client_id)
-                    require('lsp-inlayhints').on_attach(client, bufnr)
-                end,
-            })
-        end,
-        config = function()
-            require('lsp-inlayhints').setup()
-            vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'Comment', bg = 'NONE' })
-        end
-    },
-    {
         'onsails/lspkind.nvim',
         opts = {
             preset = 'codicons',
@@ -86,4 +66,8 @@ return {
         'antosha417/nvim-lsp-file-operations',
         config = true
     },
+    {
+        'henry-hsieh/riscv-asm-vim',
+        ft = 'riscv_asm',
+    }
 }
