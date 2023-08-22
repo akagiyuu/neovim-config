@@ -5,11 +5,6 @@ return {
         keys = { { 'g?', nil } },
     },
     {
-        'nacro90/numb.nvim',
-        lazy = false,
-        config = true
-    },
-    {
         'cshuaimin/ssr.nvim',
         keys = {
             {
@@ -42,6 +37,7 @@ return {
     {
         'RaafatTurki/hex.nvim',
         config = true,
+        cmd = 'HexToggle'
     },
     {
         'glacambre/firenvim',
@@ -78,10 +74,6 @@ return {
                 { 'gc', mode = { 'n', 'v' } },
                 { 'gb', mode = 'v' },
             }
-        },
-        {
-            'LudoPinelli/comment-box.nvim',
-            -- event = 'VeryLazy',
         },
         {
             'danymat/neogen',

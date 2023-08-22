@@ -13,7 +13,6 @@ local _dap = {
             }
         }
     },
-    opts = { ensure_installed = { 'netcoredbg' } }
 }
 
 _dap.config = function(_, opts)
@@ -83,8 +82,6 @@ _dap.config = function(_, opts)
     dap.listeners.before['event_initialized'].ui = function() require('dapui').open() end
     dap.listeners.before.event_terminated['dapui_config'] = function() require('dapui').close() end
     dap.listeners.before.event_exited['dapui_config'] = function() require('dapui').close() end
-
-    require('util.mason').install(opts.ensure_installed)
 end
 
 return _dap

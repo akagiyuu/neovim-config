@@ -1,6 +1,6 @@
 return {
     'mhartington/formatter.nvim',
-    lazy = false,
+    cmd = 'Format',
     config = function()
         local util = require 'formatter.util'
         local prettier = {

@@ -64,7 +64,7 @@ return {
             lsp_saga = true,
             mason = true,
             ts_rainbow = false,
-            ts_rainbow2 = true,
+            ts_rainbow2 = false,
             dropbar = {
                 enabled = false,
                 color_mode = false,

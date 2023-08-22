@@ -1,37 +1,16 @@
 local _lsp = {}
 
-
-local function range_from_selection()
-    -- TODO: Use `vim.region()` instead https://github.com/neovim/neovim/pull/13896
-    local start_row = vim.fn.getpos('v')[2]
-    local end_row = vim.fn.getpos('.')[2]
-
-    -- A user can start visual selection at the end and move backwards
-    -- Normalize the range to start < end
-    if end_row < start_row then
-        start_row, end_row = end_row, start_row
-    end
-    return {
-        ['start'] = start_row,
-        ['end'] = end_row,
-    }
-end
 _lsp.format = function()
-    local disable_server = {
-        -- tsserver = true,
-        html = true,
-    }
+    local defined_types = require('formatter.config').values.filetype
     vim.lsp.buf.format {
         async = true,
-        filter = function(client)
-            if disable_server[client.name] then return false end
-
+        filter = function()
+            if defined_types[vim.bo.filetype] ~= nil then
+                return false
+            end
             return true
         end,
     }
-
-    local range = range_from_selection()
-    vim.cmd(string.format('%s,%sFormat', range.start, range['end']))
 end
 _lsp.hover = function()
     local ok, ufo = pcall(require, 'ufo')
