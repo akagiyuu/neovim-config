@@ -1,9 +1,5 @@
 return {
     {
-        'yioneko/nvim-vtsls',
-        ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-    },
-    {
         'onsails/lspkind.nvim',
         opts = {
             preset = 'codicons',

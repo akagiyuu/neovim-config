@@ -2,6 +2,7 @@ local g                   = vim.g
 local opt                 = vim.opt
 
 g.mapleader               = ' '
+g.maplocalleader               = ' '
 g.loaded_node_provider    = false
 g.loaded_perl_provider    = false
 g.loaded_python3_provider = false
@@ -63,3 +64,5 @@ opt.mousemoveevent = true
 
 opt.winblend       = 10
 -- pumblend       = 10
+
+opt.conceallevel = 2

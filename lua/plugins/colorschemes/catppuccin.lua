@@ -27,6 +27,7 @@ return {
             semantic_tokens = true,
             cmp = true,
             dashboard = false,
+            illuminate = false,
             gitsigns = true,
             leap = true,
             lsp_trouble = true,

@@ -56,5 +56,6 @@ end
 return {
     _lspconfig,
     require(... .. '.servers.rust-tools')(capabilities, on_attach),
+    require(... .. '.servers.typescript-tools')(on_attach),
     require(... .. '.extra'),
 }

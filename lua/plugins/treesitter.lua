@@ -1,5 +1,4 @@
 return {
-    'nvim-treesitter/playground',
     'JoosepAlviste/nvim-ts-context-commentstring',
     {
         'Wansmer/treesj',
@@ -19,8 +18,6 @@ return {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         lazy = false,
-        dependencies = {
-        },
         opts = {
             highlight = { enable = true },
             indent = { enable = true },
@@ -28,7 +25,6 @@ return {
                 enable = true,
                 enable_autocmd = false,
             },
-            playground = { enable = false }
         },
         config = function(_, opts) require('nvim-treesitter.configs').setup(opts) end
     },

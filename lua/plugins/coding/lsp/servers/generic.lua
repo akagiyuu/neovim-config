@@ -10,16 +10,7 @@ return {
     bashls = {},
     dockerls = {},
     sqlls = {},
-    vtsls = {
-        settings = {
-            typescript = {
-                updateImportsOnFileMove = 'always',
-            },
-            javascript = {
-                updateImportsOnFileMove = 'always',
-            },
-        },
-    },
+    svelte = {},
     lua_ls = {
         settings = {
             Lua = {
