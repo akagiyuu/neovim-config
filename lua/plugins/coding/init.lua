@@ -55,7 +55,6 @@ return {
     require(... .. '.lsp'),
     require(... .. '.cmp'),
     require(... .. '.dap'),
-    require(... .. '.null-ls'),
     require(... .. '.lint'),
     require(... .. '.format'),
 }

@@ -1,6 +1,5 @@
 local capabilities = require(... .. '.capabilities')
 local on_attach = require(... .. '.on_attach')
-
 local _lspconfig = {
     'neovim/nvim-lspconfig',
     lazy = false,
@@ -12,8 +11,7 @@ local _lspconfig = {
             underline = true,
             severity_sort = true,
         },
-        servers = require(... .. '.servers.generic'),
-        on_attach = require(... .. '.on_attach'),
+        servers = require(... .. '.servers'),
     }
 }
 
@@ -31,7 +29,7 @@ _lspconfig.config = function(_, opts)
 
             local bufnr = args.buf
             local client = vim.lsp.get_client_by_id(args.data.client_id)
-            opts.on_attach(client, bufnr)
+            on_attach(client, bufnr)
         end,
     })
 
@@ -55,7 +53,44 @@ end
 
 return {
     _lspconfig,
-    require(... .. '.servers.rust-tools')(capabilities, on_attach),
-    require(... .. '.servers.typescript-tools')(on_attach),
+    {
+        'simrat39/rust-tools.nvim',
+        ft = 'rust',
+        opts = {
+            tools = { inlay_hints = { auto = false }, },
+            server = {
+                capabilities = capabilities,
+                on_attach = on_attach,
+                settings = {
+                    ['rust-analyzer'] = {
+                        checkOnSave = {
+                            command = 'clippy',
+                        },
+                        diagnostics = {
+                            enable = true,
+                            experimental = { enable = true }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        'pmizio/typescript-tools.nvim',
+        lazy = false,
+        opts = {
+            on_attach = on_attach,
+            settings = {
+                tsserver_file_preferences = {
+                    includeInlayParameterNameHints = 'all',
+                    includeInlayEnumMemberValueHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayVariableTypeHints = true
+                },
+            }
+        }
+    },
     require(... .. '.extra'),
 }

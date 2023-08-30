@@ -14,59 +14,6 @@ return {
         config = true
     },
     {
-        'folke/flash.nvim',
-        opts = {},
-        keys = {
-            {
-                's',
-                mode = { 'n', 'x', 'o' },
-                function()
-                    require('flash').jump {
-                        search = {
-                            mode = function(str)
-                                return '\\<' .. str
-                            end,
-                        },
-                    }
-                end,
-                desc = 'Flash',
-            },
-            {
-                'S',
-                -- mode = 'n',
-                function()
-                    require('flash').treesitter()
-                end,
-                desc = 'Flash Treesitter',
-            },
-            {
-                'r',
-                mode = 'o',
-                function()
-                    require('flash').remote()
-                end,
-                desc = 'Remote Flash',
-            },
-            {
-                'R',
-                mode = { 'o', 'x' },
-                function()
-                    require('flash').treesitter_search()
-                end,
-                desc = 'Flash Treesitter Search',
-            },
-        },
-    },
-    -- {
-    --     'nvim-treesitter/nvim-treesitter-textobjects',
-    --     config = function()
-    --         local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
-    --
-    --         vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move)
-    --         vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_opposite)
-    --     end
-    -- },
-    {
         'ziontee113/syntax-tree-surfer',
         config = true,
         keys = {
@@ -119,5 +66,67 @@ return {
                 desc = 'Swap current node down',
             },
         }
+    },
+    {
+        'folke/flash.nvim',
+        opts = {},
+        keys = {
+            {
+                's',
+                mode = { 'n', 'x', 'o' },
+                function()
+                    require('flash').jump {
+                        search = {
+                            mode = function(str)
+                                return '\\<' .. str
+                            end,
+                        },
+                    }
+                end,
+                desc = 'Flash',
+            },
+            {
+                'S',
+                -- mode = 'n',
+                function() require('flash').treesitter() end,
+                desc = 'Flash Treesitter',
+            },
+            {
+                'r',
+                mode = 'o',
+                function() require('flash').remote() end,
+                desc = 'Remote Flash',
+            },
+            {
+                'R',
+                mode = { 'o', 'x' },
+                function() require('flash').treesitter_search() end,
+                desc = 'Flash Treesitter Search',
+            },
+            {
+                'gb',
+                function()
+                    require('flash').jump {
+                        matcher = function(win)
+                            ---@param diag Diagnostic
+                            return vim.tbl_map(function(diag)
+                                return {
+                                    pos = { diag.lnum + 1, diag.col },
+                                    end_pos = { diag.end_lnum + 1, diag.end_col - 1 },
+                                }
+                            end, vim.diagnostic.get(vim.api.nvim_win_get_buf(win)))
+                        end,
+                        action = function(match, state)
+                            vim.api.nvim_win_call(match.win, function()
+                                vim.api.nvim_win_set_cursor(match.win, match.pos)
+                                vim.diagnostic.open_float()
+                            end)
+                            state:restore()
+                        end,
+                    }
+                end,
+                desc = 'Goto diagnostic'
+            }
+        },
     }
 }

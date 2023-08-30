@@ -21,7 +21,7 @@ return function(components)
     local right_segment = {
         condition = function() return vim.fn.expand('%:t') ~= '' end,
         hl = { fg = 'grey' },
-        components.lsp.name,
+        -- components.lsp.name,
         components.lsp.diagnostic,
         components.misc.search_result,
         {

@@ -11,8 +11,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function() vim.highlight.on_yank() end,
     desc = 'Highlight on yank',
 })
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-    command = '%s/\\s\\+$//e',
-    desc = 'remove whitespaces on save',
-})

@@ -11,7 +11,6 @@ M.config = function()
             augend.integer.alias.decimal_int,
             augend.integer.alias.hex,
             augend.date.alias['%d/%m/%Y'],
-            augend.date.alias['%m/%d/%Y'],
             augend.date.alias['%H:%M'],
             augend.date.alias['%H:%M:%S'],
             augend.semver.alias.semver,
