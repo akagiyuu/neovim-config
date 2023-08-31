@@ -10,6 +10,7 @@ local _lspconfig = {
             signs = true,
             underline = true,
             severity_sort = true,
+            float = { border = 'rounded' }
         },
         servers = require(... .. '.servers'),
     }
