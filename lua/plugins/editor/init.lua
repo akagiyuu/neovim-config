@@ -1,5 +1,12 @@
 return {
     {
+        'kevinhwang91/nvim-fundo',
+        lazy = false,
+        dependencies = 'kevinhwang91/promise-async',
+        config = true,
+        build = function() require('fundo').install() end,
+    },
+    {
         'andrewferrier/debugprint.nvim',
         config = true,
         keys = { { 'g?', nil } },
