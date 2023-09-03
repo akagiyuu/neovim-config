@@ -3,7 +3,9 @@ return {
     dependencies = {
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         'nvim-telescope/telescope-file-browser.nvim',
+        'Marskey/telescope-sg',
     },
+    cmd = 'Telescope',
     keys = {
         {
             '<leader>f<Enter>',
@@ -28,6 +30,7 @@ return {
     },
     opts = {
         defaults = {
+            sorting_strategy = 'ascending', --Remove this when https://github.com/nvim-telescope/telescope.nvim/issues/2667 is resolved
             prompt_prefix = '🔭 ',
             selection_caret = '  ',
             layout_strategy = 'flex',
@@ -55,10 +58,10 @@ return {
                 -- auto_depth = true,
             },
         },
-
     },
     config = function(_, opts)
         require('telescope').setup(opts)
         require('telescope').load_extension('fzf')
+        require('telescope').load_extension('ast_grep')
     end
 }

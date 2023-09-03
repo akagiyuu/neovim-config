@@ -28,7 +28,7 @@ return {
             },
             code_action = { show_server_name = true },
             symbol_in_winbar = {
-                enable = true,
+                enable = false,
                 respect_root = true,
                 separator = ' > ',
             },
