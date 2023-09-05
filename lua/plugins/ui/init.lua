@@ -96,7 +96,6 @@ return {
         }
     },
     require(... .. '.noice'),
-    require(... .. '.nvim-tree'),
     require(... .. '.telescope'),
     require(... .. '.hydra'),
     require(... .. '.heirline'),
