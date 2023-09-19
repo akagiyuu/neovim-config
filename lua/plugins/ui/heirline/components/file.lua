@@ -34,7 +34,7 @@ local lock_info = {
 
 local name = {
     init = function(self)
-        self.filename = vim.fn.fnamemodify(self.filename, ':.')
+        self.filename = vim.fn.expand('%:~:.')
         if self.filename == '' then return '[No Name]' end
     end,
     {

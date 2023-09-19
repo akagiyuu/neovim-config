@@ -11,6 +11,7 @@ return {
     dockerls = {},
     sqlls = {},
     svelte = {},
+    eslint = {},
     lua_ls = {
         settings = {
             Lua = {
