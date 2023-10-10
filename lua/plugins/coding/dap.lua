@@ -27,11 +27,6 @@ _dap.config = function(_, opts)
         command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
         name = 'lldb'
     }
-    dap.adapters.coreclr = {
-        type = 'executable',
-        command = vim.fn.stdpath('data') .. '/mason/bin/netcoredbg',
-        args = { '--interpreter=vscode' }
-    }
     dap.configurations.c = {
         {
             name = 'Launch',
@@ -57,19 +52,6 @@ _dap.config = function(_, opts)
     }
 
     dap.configurations.cpp = dap.configurations.c
-    dap.configurations.cs = {
-        {
-            type = 'coreclr',
-            name = 'launch - netcoredbg',
-            request = 'launch',
-            stopOnEntry = true,
-            program = function()
-                local cwd = vim.fn.getcwd()
-                local file_name = vim.fn.fnamemodify(cwd, ':t')
-                return vim.fn.input('Path to dll: ', cwd .. '/bin/Debug/net7.0/' .. file_name .. '.dll', 'file')
-            end,
-        },
-    }
 
     for group, sign in pairs {
         ['DapBreakpoint'] = '●',

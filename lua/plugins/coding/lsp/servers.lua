@@ -3,7 +3,23 @@ return {
     pyright = {},
     cssls = {},
     cssmodules_ls = {},
-    emmet_ls = {},
+    emmet_language_server = {
+        filetypes = {
+            'css',
+            'eruby',
+            'html',
+            'javascript',
+            'javascriptreact',
+            'less',
+            'sass',
+            'scss',
+            'svelte',
+            'pug',
+            'typescriptreact',
+            'vue',
+            'rust'
+        },
+    },
     html = {},
     jsonls = {},
     zls = {},
@@ -12,6 +28,7 @@ return {
     sqlls = {},
     svelte = {},
     eslint = {},
+    prismals = {},
     lua_ls = {
         settings = {
             Lua = {

@@ -6,16 +6,8 @@ return {
             view = 'cmdline',
             format = {
                 cmdline = { icon = '' },
-                search_down = {
-                    icon = '',
-                    view = 'cmdline',
-                },
-                search_up = {
-                    icon = '',
-                    view = 'cmdline',
-                },
-                -- help = { icon = ' ' },
-                -- lua = { icon = vim.fn.nr2char(58473) },
+                help = { icon = ' ' },
+                lua = { icon = vim.fn.nr2char(58473) },
                 IncRename = {
                     pattern = '^:%s*IncRename%s+',
                     icon = ' ',
@@ -34,7 +26,6 @@ return {
         },
         popupmenu = { backend = 'cmp' },
         lsp = {
-            -- progress = { view = 'notify' },
             signature = { enabled = true },
             override = {
                 ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
@@ -96,6 +87,7 @@ return {
                     },
                 },
             },
+            mini = { win_options = { winblend = 0 } },
         },
         format = {
             spinner = {

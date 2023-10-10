@@ -26,6 +26,6 @@ return {
                 enable_autocmd = false,
             },
         },
-        config = function(_, opts) require('nvim-treesitter.configs').setup(opts) end
+        main = 'nvim-treesitter.configs'
     },
 }

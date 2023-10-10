@@ -18,9 +18,9 @@ return {
 
         lint.linters_by_ft = {
             markdown = { 'markdownlint' },
-            python = { 'pylint' },
+            python = { 'ruff' },
             cpp = { 'cppcheck' },
-            c = { 'cppcheck' }
+            c = { 'cppcheck' },
         }
     end
 }

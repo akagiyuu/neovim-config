@@ -1,15 +1,9 @@
 local _lsp = {}
 
 _lsp.format = function()
-    local defined_types = require('formatter.config').values.filetype
-    vim.lsp.buf.format {
+    require('conform').format {
         async = true,
-        filter = function()
-            if defined_types[vim.bo.filetype] ~= nil then
-                return false
-            end
-            return true
-        end,
+        lsp_fallback = true
     }
 end
 _lsp.hover = function()

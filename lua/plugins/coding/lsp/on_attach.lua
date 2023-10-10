@@ -6,7 +6,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>lf', '<cmd>Lspsaga finder<CR>', {
         buffer = bufnr
     })
-    vim.keymap.set('n', '<leader>d', '<cmd>Lspsaga show_line_diagnostics<CR>', {
+    vim.keymap.set('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>', {
         buffer = bufnr
     })
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {

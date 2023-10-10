@@ -63,7 +63,7 @@ return {
                 custom_bg = 'NONE',
             },
             lsp_saga = true,
-            mason = true,
+            mason = false,
             ts_rainbow = false,
             ts_rainbow2 = false,
             dropbar = {
@@ -139,7 +139,6 @@ return {
                     NvimTreeNormal             = { bg = cp.none },
                     CmpBorder                  = { fg = cp.surface2 },
                     NoiceCmdlineIcon           = { fg = cp.sky, style = { 'bold' } },
-                    MasonNormal                = { link = 'NormalFloat' },
                     Pmenu                      = { fg = cp.overlay2, bg = cp.none },
                     PmenuBorder                = { fg = cp.surface1, bg = cp.none },
                     -- PmenuSel                   = { bg = cp.green, fg = cp.base },
