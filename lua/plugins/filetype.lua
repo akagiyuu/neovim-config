@@ -41,5 +41,9 @@ return {
                 ['core.ui.calendar'] = {},
             }
         },
+    },
+    {
+        'kaarmu/typst.vim',
+        ft = 'typst',
     }
 }

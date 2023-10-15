@@ -11,6 +11,14 @@ return {
             json = { { 'prettierd', 'prettier' } },
             fish = { 'fish_indent' },
             ['_'] = { 'trim_whitespace' },
+            typst = { 'typstfmt' }
+        },
+        formatters = {
+            typstfmt = {
+                command = 'typstfmt',
+                args = { '$FILENAME' },
+                stdin = false,
+            },
         }
     },
     config = function(_, opts)

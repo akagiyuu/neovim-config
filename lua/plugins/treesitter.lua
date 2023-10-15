@@ -26,6 +26,6 @@ return {
                 enable_autocmd = false,
             },
         },
-        main = 'nvim-treesitter.configs'
+        main = 'nvim-treesitter.configs',
     },
 }

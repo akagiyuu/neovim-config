@@ -29,6 +29,11 @@ return {
     svelte = {},
     eslint = {},
     prismals = {},
+    typst_lsp = {
+        settings = {
+            exportPdf = 'onSave' -- Choose onType, onSave or never.
+        }
+    },
     lua_ls = {
         settings = {
             Lua = {
