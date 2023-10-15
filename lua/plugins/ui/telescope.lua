@@ -4,6 +4,13 @@ return {
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         'nvim-telescope/telescope-file-browser.nvim',
         'Marskey/telescope-sg',
+        {
+            'prochri/telescope-all-recent.nvim',
+            config = true,
+            dependencies = {
+                'kkharji/sqlite.lua'
+            }
+        }
     },
     cmd = 'Telescope',
     keys = {
