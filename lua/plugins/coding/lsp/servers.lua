@@ -25,7 +25,6 @@ return {
     zls = {},
     bashls = {},
     dockerls = {},
-    sqlls = {},
     svelte = {},
     eslint = {},
     prismals = {},
@@ -52,46 +51,46 @@ return {
             },
         },
     },
-    omnisharp = {
-        cmd = {
-            'omnisharp',
-            '--languageserver',
-            '--hostPID',
-            tostring(vim.fn.getpid()),
-            'RenameOptions:RenameOverloads=true',
-            'RoslynExtensionsOptions:InlayHintsOptions:EnableForTypes=true',
-            'RoslynExtensionsOptions:InlayHintsOptions:EnableForParameters=true',
-            'RoslynExtensionsOptions:InlayHintsOptions:ForImplicitObjectCreation=true',
-        },
-        handlers = {
-            ['textDocument/definition'] = function(...)
-                return require('omnisharp_extended').handler(...)
-            end,
-        },
-        enable_editorconfig_support = true,
-        enable_roslyn_analyzers = true,
-        organize_imports_on_format = true,
-        enable_import_completion = true,
-        sdk_include_prereleases = true,
-    },
-    texlab = {
-        settings = {
-            texlab = {
-                -- auxDirectory = "latex.out",
-                build = {
-                    -- executable = "latexmk",
-                    -- -- Please set $pdf_mode in latexmkrc to enable PDF output.
-                    -- args = { "-interaction=nonstopmode", "-synctex=1", "%f" },
-                    onSave = true,
-                },
-                chktex = {
-                    onEdit = false,
-                    onOpenAndSave = true,
-                },
-                diagnosticsDelay = 100,
-                formatterLineLength = 0,
-            },
-        },
-    },
+    -- omnisharp = {
+    --     cmd = {
+    --         'omnisharp',
+    --         '--languageserver',
+    --         '--hostPID',
+    --         tostring(vim.fn.getpid()),
+    --         'RenameOptions:RenameOverloads=true',
+    --         'RoslynExtensionsOptions:InlayHintsOptions:EnableForTypes=true',
+    --         'RoslynExtensionsOptions:InlayHintsOptions:EnableForParameters=true',
+    --         'RoslynExtensionsOptions:InlayHintsOptions:ForImplicitObjectCreation=true',
+    --     },
+    --     handlers = {
+    --         ['textDocument/definition'] = function(...)
+    --             return require('omnisharp_extended').handler(...)
+    --         end,
+    --     },
+    --     enable_editorconfig_support = true,
+    --     enable_roslyn_analyzers = true,
+    --     organize_imports_on_format = true,
+    --     enable_import_completion = true,
+    --     sdk_include_prereleases = true,
+    -- },
+    -- texlab = {
+    --     settings = {
+    --         texlab = {
+    --             -- auxDirectory = "latex.out",
+    --             build = {
+    --                 -- executable = "latexmk",
+    --                 -- -- Please set $pdf_mode in latexmkrc to enable PDF output.
+    --                 -- args = { "-interaction=nonstopmode", "-synctex=1", "%f" },
+    --                 onSave = true,
+    --             },
+    --             chktex = {
+    --                 onEdit = false,
+    --                 onOpenAndSave = true,
+    --             },
+    --             diagnosticsDelay = 100,
+    --             formatterLineLength = 0,
+    --         },
+    --     },
+    -- },
     gopls = {},
 }

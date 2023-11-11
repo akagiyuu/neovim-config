@@ -65,5 +65,9 @@ return {
     {
         'henry-hsieh/riscv-asm-vim',
         ft = 'riscv_asm',
+    },
+    {
+        'lvimuser/lsp-inlayhints.nvim',
+        config = true,
     }
 }

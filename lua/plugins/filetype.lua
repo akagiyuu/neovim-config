@@ -1,5 +1,4 @@
 return {
-    'Hoffs/omnisharp-extended-lsp.nvim',
     {
         'AckslD/nvim-FeMaco.lua',
         ft = 'markdown',

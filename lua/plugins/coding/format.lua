@@ -11,7 +11,7 @@ return {
             json = { { 'prettierd', 'prettier' } },
             fish = { 'fish_indent' },
             ['_'] = { 'trim_whitespace' },
-            typst = { 'typstfmt' }
+            typst = { 'typstfmt' },
         },
         formatters = {
             typstfmt = {
