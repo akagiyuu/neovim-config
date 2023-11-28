@@ -13,6 +13,17 @@ local _dap = {
             }
         }
     },
+    keys = {
+        { '<leader>db', function() require('dap').toggle_breakpoint() end,                                    desc = 'Toggle Breakpoint' },
+        { '<leader>dc', function() require('dap').continue() end,                                             desc = 'Continue' },
+        { '<leader>dC', function() require('dap').run_to_cursor() end,                                        desc = 'Run to Cursor' },
+        { '<leader>dl', function() require('dap').step_into() end,                                            desc = 'Step Into' },
+        { '<leader>dj', function() require('dap').down() end,                                                 desc = 'Down' },
+        { '<leader>dk', function() require('dap').up() end,                                                   desc = 'Up' },
+        { '<leader>dh', function() require('dap').step_out() end,                                             desc = 'Step Out' },
+        { '<leader>dp', function() require('dap').pause() end,                                                desc = 'Pause' },
+        { '<leader>dt', function() require('dap').terminate() end,                                            desc = 'Terminate' },
+    },
 }
 
 _dap.config = function(_, opts)
