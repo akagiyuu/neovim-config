@@ -28,6 +28,7 @@ return {
     svelte = {},
     eslint = {},
     prismals = {},
+    vtsls = {},
     typst_lsp = {
         settings = {
             exportPdf = 'onSave' -- Choose onType, onSave or never.
@@ -93,4 +94,5 @@ return {
     --     },
     -- },
     gopls = {},
+    ocamllsp = {},
 }

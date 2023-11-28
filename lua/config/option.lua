@@ -11,7 +11,7 @@ g.editorconfig            = false
 
 
 opt.termguicolors  = true
-opt.guifont        = { 'CaskaydiaCove NF:h11' }
+opt.guifont        = { 'Monaspace Radon:h11' }
 opt.laststatus     = 3
 opt.cmdheight      = 0
 opt.shada          = ''
@@ -62,7 +62,7 @@ opt.spelloptions   = 'camel,noplainbuffer'
 opt.mouse          = 'a'
 opt.mousemoveevent = true
 
-opt.winblend       = 10
+-- opt.winblend       = 10
 -- pumblend       = 10
 
 opt.conceallevel   = 2

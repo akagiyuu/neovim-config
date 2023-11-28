@@ -97,9 +97,8 @@ _cmp.config = function()
                 ellipsis_char = '...',
                 menu = {
                     fuzzy_buffer = '[buffer]',
-                    fuzzy_path = '[path]',
+                    async_path = '[path]',
                     rg = '[rg]',
-                    calc = '[calc]',
                 },
                 before = function(_, vim_item)
                     vim_item.abbr = ' ' .. vim_item.abbr

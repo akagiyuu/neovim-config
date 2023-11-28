@@ -49,7 +49,7 @@ _lspconfig.config = function(_, opts)
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
-    require('lspconfig.ui.windows').default_options.border = 'single'
+    require('lspconfig.ui.windows').default_options.border = 'rounded'
 end
 
 return {
@@ -76,22 +76,22 @@ return {
             }
         }
     },
-    {
-        'pmizio/typescript-tools.nvim',
-        lazy = false,
-        opts = {
-            on_attach = on_attach,
-            settings = {
-                -- tsserver_file_preferences = {
-                --     includeInlayParameterNameHints = 'all',
-                --     includeInlayEnumMemberValueHints = true,
-                --     includeInlayFunctionLikeReturnTypeHints = true,
-                --     includeInlayFunctionParameterTypeHints = true,
-                --     includeInlayPropertyDeclarationTypeHints = true,
-                --     includeInlayVariableTypeHints = true
-                -- },
-            }
-        }
-    },
+    -- {
+    --     'pmizio/typescript-tools.nvim',
+    --     lazy = false,
+    --     opts = {
+    --         on_attach = on_attach,
+    --         settings = {
+    --             -- tsserver_file_preferences = {
+    --             --     includeInlayParameterNameHints = 'all',
+    --             --     includeInlayEnumMemberValueHints = true,
+    --             --     includeInlayFunctionLikeReturnTypeHints = true,
+    --             --     includeInlayFunctionParameterTypeHints = true,
+    --             --     includeInlayPropertyDeclarationTypeHints = true,
+    --             --     includeInlayVariableTypeHints = true
+    --             -- },
+    --         }
+    --     }
+    -- },
     require(... .. '.extra'),
 }

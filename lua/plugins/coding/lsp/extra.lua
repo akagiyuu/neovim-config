@@ -21,11 +21,7 @@ return {
         opts = {
             lightbulb = { virtual_text = false },
             border = 'rounded',
-            rename = {
-                quit = 'q',
-                exec = '<CR>',
-                in_select = false,
-            },
+            rename = { in_select = false },
             code_action = { show_server_name = true },
             symbol_in_winbar = {
                 enable = false,
@@ -52,11 +48,6 @@ return {
             open_fold_hl_timeout = 0,
             close_fold_kinds = { 'imports', 'regions' }
         }
-    },
-    {
-        'smjonas/inc-rename.nvim',
-        cmd = 'IncRename',
-        config = true
     },
     {
         'antosha417/nvim-lsp-file-operations',

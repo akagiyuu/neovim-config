@@ -87,6 +87,12 @@ return {
             show_keys = false
         }
     },
+    {
+        'HiPhish/rainbow-delimiters.nvim',
+        main = 'rainbow-delimiters.setup',
+        config = true,
+        event = 'VeryLazy',
+    },
     require(... .. '.noice'),
     require(... .. '.nvim-tree'),
     require(... .. '.telescope'),

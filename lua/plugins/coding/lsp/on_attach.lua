@@ -24,8 +24,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>', {
         buffer = bufnr
     })
-    vim.keymap.set('n', '<leader>rn', function() return ':IncRename ' .. vim.fn.expand('<cword>') end, {
-        expr = true,
+    vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', {
         buffer = bufnr
     })
     vim.keymap.set('n', 'K', require('util.lsp').hover, {
