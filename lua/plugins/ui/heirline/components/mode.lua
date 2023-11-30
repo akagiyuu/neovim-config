@@ -47,7 +47,7 @@ return {
                 bold = true,
             }
         end,
-        provider = function(self) return '   %2(' .. self.name[self.mode] .. '%) ' end,
+        provider = function(self) return '  %2(' .. self.name[self.mode] .. '%) ' end,
     },
     { provider = function() return icons.right_filled end },
     update = {
