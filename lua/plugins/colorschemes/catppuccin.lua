@@ -41,10 +41,8 @@ return {
             treesitter = true,
             treesitter_context = false,
             which_key = true,
-            dap = {
-                enabled = true,
-                enable_ui = true,
-            },
+            dap = true,
+            dap_ui = true,
             indent_blankline = {
                 enabled = true,
                 colored_indent_levels = false,
