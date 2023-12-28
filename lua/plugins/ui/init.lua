@@ -94,7 +94,6 @@ return {
         event = 'VeryLazy',
     },
     require(... .. '.noice'),
-    require(... .. '.nvim-tree'),
     require(... .. '.telescope'),
     require(... .. '.heirline'),
 }

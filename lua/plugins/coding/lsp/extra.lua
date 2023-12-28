@@ -50,10 +50,6 @@ return {
         }
     },
     {
-        'antosha417/nvim-lsp-file-operations',
-        config = true
-    },
-    {
         'henry-hsieh/riscv-asm-vim',
         ft = 'riscv_asm',
     },
