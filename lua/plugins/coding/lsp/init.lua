@@ -4,14 +4,6 @@ local _lspconfig = {
     'neovim/nvim-lspconfig',
     lazy = false,
     opts = {
-        diagnostics = {
-            virtual_text = true,
-            update_in_insert = true,
-            signs = true,
-            underline = true,
-            severity_sort = true,
-            float = { border = 'rounded' }
-        },
         servers = require(... .. '.servers'),
     }
 }
@@ -33,21 +25,6 @@ _lspconfig.config = function(_, opts)
             on_attach(client, bufnr)
         end,
     })
-
-
-    vim.diagnostic.config(opts.diagnostics)
-    local signs = {
-        Error = ' ',
-        Warn = ' ',
-        Hint = ' ',
-        Info = ' ',
-        other = ' ',
-    }
-
-    for type, icon in pairs(signs) do
-        local hl = 'DiagnosticSign' .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
 
     require('lspconfig.ui.windows').default_options.border = 'rounded'
 end
