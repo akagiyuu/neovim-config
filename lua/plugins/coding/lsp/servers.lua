@@ -34,6 +34,7 @@ return {
             exportPdf = 'onSave' -- Choose onType, onSave or never.
         }
     },
+    templ = {},
     lua_ls = {
         settings = {
             Lua = {
