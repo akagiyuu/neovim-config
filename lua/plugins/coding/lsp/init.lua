@@ -32,26 +32,28 @@ end
 return {
     _lspconfig,
     {
-        'simrat39/rust-tools.nvim',
+        'mrcjkb/rustaceanvim',
         ft = 'rust',
-        opts = {
-            tools = { inlay_hints = { auto = false }, },
-            server = {
-                capabilities = capabilities,
-                on_attach = on_attach,
-                settings = {
-                    ['rust-analyzer'] = {
-                        checkOnSave = {
-                            command = 'clippy',
-                        },
-                        diagnostics = {
-                            enable = true,
-                            experimental = { enable = true }
+        init = function()
+            vim.g.rustaceanvim = {
+                tools = { inlay_hints = { auto = false }, },
+                server = {
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    settings = {
+                        ['rust-analyzer'] = {
+                            checkOnSave = {
+                                command = 'clippy',
+                            },
+                            diagnostics = {
+                                enable = true,
+                                experimental = { enable = true }
+                            }
                         }
                     }
                 }
             }
-        }
+        end
     },
     -- {
     --     'pmizio/typescript-tools.nvim',
