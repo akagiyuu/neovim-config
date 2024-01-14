@@ -57,7 +57,7 @@
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "f7a55274a74053ccfafc24005b6f46303d543288" },
   "refactoring.nvim": { "branch": "master", "commit": "28c5a33a0c489eb559396d9424b042ccfdb03b14" },
   "riscv-asm-vim": { "branch": "master", "commit": "6719b4d7c482dc0b2ca9d5fa4ebda1801425dfa9" },
-  "rust-tools.nvim": { "branch": "master", "commit": "676187908a1ce35ffcd727c654ed68d851299d3e" },
+  "rustaceanvim": { "branch": "master", "commit": "73854d5e720d4ea135e7508d9d24fb82b4ec8223" },
   "sqlite.lua": { "branch": "master", "commit": "b7e28c8463254c46a8e61c52d27d6a2040492fc3" },
   "ssr.nvim": { "branch": "main", "commit": "bb323ba621ac647b4ac5638b47666e3ef3c279e1" },
   "syntax-tree-surfer": { "branch": "master", "commit": "732ea6d0f868bcccd2f526be73afa46997d5a2fb" },

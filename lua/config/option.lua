@@ -66,6 +66,7 @@ opt.mousemoveevent = true
 -- pumblend       = 10
 
 opt.conceallevel   = 2
+opt.smoothscroll   = true
 
 vim.diagnostic.config {
     virtual_text = true,

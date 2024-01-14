@@ -20,31 +20,23 @@ return {
     },
     {
         'rcarriga/nvim-notify',
+        keys = {
+            {
+                '<leader>un',
+                function()
+                    require('notify').dismiss { silent = true, pending = true }
+                end,
+                desc = 'Dismiss all Notifications',
+            },
+        },
         opts = {
             stages = 'slide',
             background_colour = 'NONE',
+            on_open = function(win)
+                vim.api.nvim_win_set_config(win, { zindex = 100 })
+            end,
         },
-        config = function(_, opts)
-            require('notify').setup(opts)
-            vim.keymap.set('n', '<leader>un', function()
-                require('notify').dismiss { silent = true, pending = true }
-            end, { desc = 'Delete all Notifications' })
-        end
     },
-    -- {
-    --     'utilyre/barbecue.nvim',
-    --     event = 'VeryLazy',
-    --     dependencies = {
-    --         {
-    --             'SmiteshP/nvim-navic',
-    --             opts = { highlight = true },
-    --         }
-    --     },
-    --     opts = {
-    --         theme = 'catppuccin',
-    --         show_modified = true,
-    --     }
-    -- },
     {
         'lukas-reineke/indent-blankline.nvim',
         event = 'VeryLazy',
