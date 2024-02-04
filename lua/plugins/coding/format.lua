@@ -3,7 +3,7 @@ return {
     opts = {
         formatters_by_ft = {
             python = { 'ruff_fix', 'ruff_format' },
-            -- Use a sub-list to run only the first available formatter
+            rust = { 'rustfmt', 'leptosfmt' },
             css = { { 'prettierd', 'prettier' } },
             scss = { { 'prettierd', 'prettier' } },
             less = { { 'prettierd', 'prettier' } },
@@ -12,8 +12,14 @@ return {
             fish = { 'fish_indent' },
             ['_'] = { 'trim_whitespace' },
             typst = { 'typstfmt' },
+            ['*'] = { 'injected' }
         },
         formatters = {
+            leptosfmt = {
+                command = 'leptosfmt',
+                args = { '$FILENAME' },
+                stdin = false,
+            },
             typstfmt = {
                 command = 'typstfmt',
                 args = { '$FILENAME' },
