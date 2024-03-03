@@ -6,8 +6,8 @@ return {
             mode = 'symbol',
             symbol_map = {
                 Text = '',
-                Method = '',
-                Function = '',
+                -- Method = '',
+                -- Function = '',
                 Constructor = '',
             },
         },
