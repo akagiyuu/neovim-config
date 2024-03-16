@@ -109,6 +109,9 @@ return {
         },
         config = true
     },
+    {
+        'LunarVim/bigfile.nvim',
+    },
     require(... .. '.dial'),
     require(... .. '.motion'),
 }

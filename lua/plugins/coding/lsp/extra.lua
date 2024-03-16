@@ -46,7 +46,7 @@ return {
         event = 'LspAttach',
         opts = {
             open_fold_hl_timeout = 0,
-            close_fold_kinds = { 'imports', 'regions' }
+            -- close_fold_kinds = { 'imports', 'regions' }
         }
     },
     {
