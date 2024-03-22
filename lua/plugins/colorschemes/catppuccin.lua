@@ -70,6 +70,7 @@ return {
                 color_mode = false,
             },
             neogit = false,
+            headlines = false
         },
         color_overrides = {
             -- mocha = {

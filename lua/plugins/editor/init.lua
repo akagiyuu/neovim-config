@@ -111,6 +111,7 @@ return {
     },
     {
         'LunarVim/bigfile.nvim',
+        lazy = false
     },
     require(... .. '.dial'),
     require(... .. '.motion'),

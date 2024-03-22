@@ -14,6 +14,12 @@ return {
         end
     },
     {
+        'lukas-reineke/headlines.nvim',
+        ft = 'markdown',
+        dependencies = 'nvim-treesitter/nvim-treesitter',
+        config = true, -- or `opts = {}`
+    },
+    {
         'nvim-neorg/neorg',
         ft = 'norg',
         opts = {
