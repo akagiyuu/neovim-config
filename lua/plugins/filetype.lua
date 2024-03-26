@@ -17,7 +17,11 @@ return {
         'lukas-reineke/headlines.nvim',
         ft = 'markdown',
         dependencies = 'nvim-treesitter/nvim-treesitter',
-        config = true, -- or `opts = {}`
+        opts = {
+            markdown = {
+                fat_headlines = true,
+            },
+        },
     },
     {
         'nvim-neorg/neorg',

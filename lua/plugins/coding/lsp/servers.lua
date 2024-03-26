@@ -1,6 +1,6 @@
 return {
     clangd = {},
-    pyright = {},
+    basedpyright = {},
     cssls = {},
     cssmodules_ls = {},
     emmet_language_server = {
