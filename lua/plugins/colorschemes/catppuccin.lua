@@ -5,6 +5,7 @@ return {
     lazy = false,
     enabled = true,
     priority = 1000,
+    default_integrations = true,
     opts = {
         flavour = 'mocha',
         transparent_background = true,
@@ -23,54 +24,49 @@ return {
             variables = {},
         },
         integrations = {
-            alpha = false,
-            semantic_tokens = true,
-            cmp = true,
-            dashboard = false,
-            illuminate = false,
+            flash = true,
             gitsigns = true,
-            leap = true,
-            lsp_trouble = true,
-            markdown = true,
-            notify = true,
-            nvimtree = true,
-            telescope = {
-                enabled = true,
-                style = 'nvchad',
-            },
-            treesitter = true,
-            treesitter_context = false,
-            which_key = true,
-            dap = true,
-            dap_ui = true,
+            harpoon = true,
+            headlines = true,
             indent_blankline = {
                 enabled = true,
+                scope_color = '', -- catppuccin color (eg. `lavender`) Default: text
                 colored_indent_levels = false,
             },
+            lsp_saga = true,
+            markdown = true,
+            noice = true,
+            cmp = true,
+            dap = true,
+            dap_ui = true,
             native_lsp = {
+                enabled = true,
+                virtual_text = {
+                    errors = { 'italic' },
+                    hints = { 'italic' },
+                    warnings = { 'italic' },
+                    information = { 'italic' },
+                },
                 underlines = {
-                    errors      = { 'undercurl' },
-                    hints       = { 'undercurl' },
-                    warnings    = { 'undercurl' },
+                    errors = { 'undercurl' },
+                    hints = { 'undercurl' },
+                    warnings = { 'undercurl' },
                     information = { 'undercurl' },
                 },
+                inlay_hints = {
+                    background = true,
+                },
             },
-            noice = true,
-            navic = {
-                enabled = true,
-                custom_bg = 'NONE',
-            },
-            lsp_saga = true,
-            mason = false,
-            ts_rainbow = false,
-            ts_rainbow2 = false,
+            notify = true,
+            semantic_tokens = true,
+            treesitter = true,
+            ufo = true,
             rainbow_delimiters = true,
-            dropbar = {
-                enabled = false,
-                color_mode = false,
+            telescope = {
+                enabled = true,
+                style = 'nvchad'
             },
-            neogit = false,
-            headlines = false
+            which_key = true
         },
         color_overrides = {
             -- mocha = {
