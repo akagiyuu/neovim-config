@@ -72,7 +72,6 @@ _cmp.config = function()
         },
         sources      = cmp.config.sources(
             {
-                { name = 'codeium',      max_item_count = 2 },
                 { name = 'luasnip',      max_item_count = 2 },
                 { name = 'nvim_lsp' },
                 { name = 'neorg' },
@@ -123,6 +122,5 @@ end
 
 return {
     _cmp,
-    require(... .. '.codeium'),
     require(... .. '.luasnip'),
 }
