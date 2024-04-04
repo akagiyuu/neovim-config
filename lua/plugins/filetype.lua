@@ -14,14 +14,10 @@ return {
         end
     },
     {
-        'lukas-reineke/headlines.nvim',
+        'MeanderingProgrammer/markdown.nvim',
+        name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
         ft = 'markdown',
-        dependencies = 'nvim-treesitter/nvim-treesitter',
-        opts = {
-            markdown = {
-                fat_headlines = true,
-            },
-        },
+        config = true
     },
     {
         'nvim-neorg/neorg',
