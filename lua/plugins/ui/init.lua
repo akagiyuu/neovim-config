@@ -10,8 +10,12 @@ return {
     },
     {
         'akinsho/toggleterm.nvim',
-        keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
-        config = true,
+        lazy = false,
+        -- keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
+        opts = {
+            open_mapping = [[<c-\>]],
+            winbar = { enabled = true, },
+        },
     },
     {
         'stevearc/dressing.nvim',
@@ -84,6 +88,11 @@ return {
         main = 'rainbow-delimiters.setup',
         config = true,
         event = 'VeryLazy',
+    },
+    {
+        'nvim-zh/colorful-winsep.nvim',
+        config = true,
+        event = { 'WinNew' },
     },
     require(... .. '.noice'),
     require(... .. '.telescope'),
