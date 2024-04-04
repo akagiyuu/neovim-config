@@ -10,7 +10,8 @@ return {
             dependencies = {
                 'kkharji/sqlite.lua'
             }
-        }
+        },
+        'debugloop/telescope-undo.nvim',
     },
     cmd = 'Telescope',
     keys = {
@@ -32,7 +33,13 @@ return {
             '<leader>fb',
             function() require('telescope').extensions.file_browser.file_browser() end,
             desc =
-            '[f]ile [b]rowser'
+            'File browser'
+        },
+        {
+            '<leader>fu',
+            function() require('telescope').extensions.undo.undo() end,
+            desc =
+            'Undo tree'
         },
     },
     opts = {
@@ -62,13 +69,14 @@ return {
         extensions = {
             file_browser = {
                 grouped = true,
-                -- auto_depth = true,
             },
+            extensions = { undo = {}, }
         },
     },
     config = function(_, opts)
         require('telescope').setup(opts)
         require('telescope').load_extension('fzf')
         require('telescope').load_extension('ast_grep')
+        require('telescope').load_extension('undo')
     end
 }
