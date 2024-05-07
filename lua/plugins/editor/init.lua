@@ -9,7 +9,16 @@ return {
     {
         'andrewferrier/debugprint.nvim',
         config = true,
-        keys = { { 'g?', nil } },
+        keys = {
+            { 'g?p', mode = 'n' },
+            { 'g?P', mode = 'n' },
+            { 'g?v', mode = 'n' },
+            { 'g?V', mode = 'n' },
+            { 'g?o', mode = 'n' },
+            { 'g?O', mode = 'n' },
+            { 'g?v', mode = 'x' },
+            { 'g?V', mode = 'x' },
+        },
     },
     {
         'cshuaimin/ssr.nvim',
@@ -64,29 +73,27 @@ return {
         end,
     },
     {
-        {
-            'numToStr/Comment.nvim',
-            config = function()
-                require('Comment').setup {
-                    pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-                }
-            end,
-            keys = {
-                { 'gc', mode = { 'n', 'v' } },
-                { 'gb', mode = 'v' },
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup {
+                pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+            }
+        end,
+        keys = {
+            { 'gc', mode = { 'n', 'v' } },
+            { 'gb', mode = 'v' },
+        }
+    },
+    {
+        'danymat/neogen',
+        cmd = 'Neogen',
+        opts = {
+            snippet_engine = 'luasnip',
+            enabled = true,
+            languages = {
+                cs = { template = { annotation_convention = 'xmldoc', } },
             }
         },
-        {
-            'danymat/neogen',
-            cmd = 'Neogen',
-            opts = {
-                snippet_engine = 'luasnip',
-                enabled = true,
-                languages = {
-                    cs = { template = { annotation_convention = 'xmldoc', } },
-                }
-            },
-        }
     },
     {
         'ThePrimeagen/harpoon',
@@ -131,6 +138,42 @@ return {
         'folke/todo-comments.nvim',
         config = true,
         event = 'VeryLazy'
+    },
+    {
+        'mistricky/codesnap.nvim',
+        build = 'make build_generator',
+        cmd = 'CodeSnap',
+        opts = {
+            mac_window_bar = true,
+            title = '',
+            code_font_family = 'Monaspace Radon',
+            watermark = '',
+        }
+    },
+    {
+        'NStefan002/screenkey.nvim',
+        cmd = 'Screenkey',
+        config = true,
+    },
+    {
+        'nvim-tree/nvim-tree.lua',
+        config = true,
+        cmd = 'NvimTreeToggle'
+    },
+    {
+        'vyfor/cord.nvim',
+        build = './build',
+        event = 'VeryLazy',
+        opts = {
+            display = {
+                show_time = true,
+                show_repository = false,
+                show_cursor_position = true,
+            },
+            idle = {
+                show_idle = false,
+            }
+        }
     },
     require(... .. '.dial'),
     require(... .. '.motion'),
