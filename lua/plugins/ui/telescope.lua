@@ -6,6 +6,7 @@ return {
         'Marskey/telescope-sg',
         {
             'prochri/telescope-all-recent.nvim',
+            enabled = false,
             config = true,
             dependencies = {
                 'kkharji/sqlite.lua'
