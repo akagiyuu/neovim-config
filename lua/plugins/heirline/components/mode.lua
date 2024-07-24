@@ -1,4 +1,4 @@
-local icons = require('lua.plugins.heirline.components.icon')
+local icons = require('plugins.heirline.components.icon')
 return {
     static = {
         name = {
