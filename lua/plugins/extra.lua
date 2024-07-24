@@ -1,5 +1,100 @@
 return {
     {
+        'nvim-tree/nvim-web-devicons',
+        lazy = false,
+    },
+    {
+        'm-demare/hlargs.nvim',
+        event = 'VeryLazy',
+        opts = { use_colorpalette = true }
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        lazy = false,
+        -- keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
+        opts = {
+            open_mapping = [[<c-\>]],
+            winbar = { enabled = true, },
+        },
+    },
+    {
+        'stevearc/dressing.nvim',
+        event = 'VeryLazy',
+        opts = { input = { title_pos = 'center' } }
+    },
+    {
+        'rcarriga/nvim-notify',
+        keys = {
+            {
+                '<leader>un',
+                function()
+                    require('notify').dismiss { silent = true, pending = true }
+                end,
+                desc = 'Dismiss all Notifications',
+            },
+        },
+        opts = {
+            stages = 'slide',
+            background_colour = 'NONE',
+            on_open = function(win)
+                vim.api.nvim_win_set_config(win, { zindex = 100 })
+            end,
+        },
+    },
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        event = 'VeryLazy',
+        main = 'ibl',
+        opts = {
+            indent = {
+                char = '▏',
+                tab_char = '▏',
+            },
+            scope = {
+                show_start = true,
+                show_end = true
+            },
+        }
+    },
+    {
+        'uga-rosa/ccc.nvim',
+        cmd = 'CccHighlighterToggle',
+        opts = {
+            highlighter = {
+                auto_enable = true,
+                lsp = true,
+            },
+        },
+        config = true
+    },
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
+        opts = {
+            keys = {
+                scroll_down = '<Down>',
+                scroll_up = '<Up>',
+            },
+            win = {
+                border = 'rounded',
+            },
+            windblend = 10,
+            show_help = false,
+            show_keys = false
+        }
+    },
+    {
+        'HiPhish/rainbow-delimiters.nvim',
+        main = 'rainbow-delimiters.setup',
+        config = true,
+        event = 'VeryLazy',
+    },
+    {
+        'nvim-zh/colorful-winsep.nvim',
+        config = true,
+        event = { 'WinNew' },
+    },
+    {
         'kevinhwang91/nvim-fundo',
         lazy = false,
         dependencies = 'kevinhwang91/promise-async',
@@ -175,6 +270,58 @@ return {
             }
         }
     },
-    require(... .. '.dial'),
-    require(... .. '.motion'),
+    {
+        'onsails/lspkind.nvim',
+        opts = {
+            preset = 'codicons',
+            mode = 'symbol',
+            symbol_map = {
+                Text = '',
+                -- Method = '',
+                -- Function = '',
+                Constructor = '',
+            },
+        },
+        config = function(_, opts)
+            require('lspkind').init(opts)
+        end,
+    },
+    {
+        'nvimdev/lspsaga.nvim',
+        event = 'LspAttach',
+        opts = {
+            lightbulb = { virtual_text = false },
+            border = 'rounded',
+            rename = { in_select = false },
+            code_action = { show_server_name = true },
+            symbol_in_winbar = {
+                enable = false,
+                respect_root = true,
+                separator = ' > ',
+            },
+            ui = {
+                theme = 'round',
+                border = 'rounded',
+                winblend = vim.g.neovide and 60 or 0,
+            },
+            diagnostic = { on_insert = false }
+        },
+        config = function(_, opts)
+            opts.ui.kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind()
+            opts.ui.kind['Folder'] = { '', 'NONE' }
+            require('lspsaga').setup(opts)
+        end
+    },
+    {
+        'kevinhwang91/nvim-ufo',
+        event = 'LspAttach',
+        opts = {
+            open_fold_hl_timeout = 0,
+            -- close_fold_kinds = { 'imports', 'regions' }
+        }
+    },
+    {
+        'henry-hsieh/riscv-asm-vim',
+        ft = 'riscv_asm',
+    }
 }

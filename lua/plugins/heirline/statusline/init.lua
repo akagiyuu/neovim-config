@@ -1,5 +1,5 @@
 local conditions = require('heirline.conditions')
-local components = require('plugins.ui.heirline.components')
+local components = require('plugins.heirline.components')
 
 local disabled_buffers = {
     condition = function()

@@ -122,5 +122,4 @@ end
 
 return {
     _cmp,
-    require(... .. '.luasnip'),
 }
