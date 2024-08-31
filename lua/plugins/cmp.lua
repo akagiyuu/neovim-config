@@ -11,13 +11,16 @@ local _cmp = {
             dependencies = { 'tzachar/fuzzy.nvim', }
         },
         'FelipeLema/cmp-async-path',
+        'ray-x/cmp-sql',
+        {
+            'Exafunction/codeium.nvim',
+            dependencies = {
+                'nvim-lua/plenary.nvim',
+            },
+            opts = {}
+        },
     },
 }
-local has_words_before = function()
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
-end
 
 _cmp.config = function()
     local cmp = require('cmp')
@@ -43,32 +46,12 @@ _cmp.config = function()
         },
         mapping      = {
             ['<C-e>']     = cmp.mapping.close(),
-            ['<CR>']      = cmp.mapping.confirm { select = false },
+            ['<C-y>']     = cmp.mapping.confirm { select = true },
             ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-d>']     = cmp.mapping.scroll_docs(5),
-            ['<C-u>']     = cmp.mapping.scroll_docs(-5),
-            ['<Tab>']     = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                    cmp.select_next_item()
-                elseif require('luasnip').jumpable(1) then
-                    require('luasnip').jump(1)
-                elseif has_words_before() then
-                    cmp.complete()
-                else
-                    fallback()
-                end
-            end, { 'i', 's', 'c' }),
-            ['<S-Tab>']   = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item()
-                elseif require('luasnip').jumpable(-1) then
-                    require('luasnip').jump(-1)
-                elseif has_words_before() then
-                    cmp.complete()
-                else
-                    fallback()
-                end
-            end, { 'i', 's', 'c' }),
+            ['<C-b>']     = cmp.mapping.scroll_docs(-4),
+            ['<C-f>']     = cmp.mapping.scroll_docs(4),
+            ['<C-n>']     = cmp.mapping.select_next_item(),
+            ['<C-p>']     = cmp.mapping.select_prev_item(),
         },
         sources      = cmp.config.sources(
             {
@@ -77,7 +60,9 @@ _cmp.config = function()
                 { name = 'neorg' },
                 -- { name = 'lab.quick_data', keyword_length = 4 },
                 { name = 'fuzzy_buffer', max_item_count = 2 },
-                { name = 'async_path' }
+                { name = 'async_path' },
+                { name = 'codeium' },
+                { name = 'sql' },
             },
             {
                 { name = 'rg', keyword_length = 4 },
@@ -98,6 +83,10 @@ _cmp.config = function()
                     fuzzy_buffer = '[buffer]',
                     async_path = '[path]',
                     rg = '[rg]',
+                },
+                symbol_map = {
+                    sql = '',
+                    Codeium = '',
                 },
                 before = function(_, vim_item)
                     vim_item.abbr = ' ' .. vim_item.abbr

@@ -24,10 +24,10 @@ return {
             variables = {},
         },
         integrations = {
+            diffview = true,
             flash = true,
             gitsigns = true,
             harpoon = true,
-            headlines = true,
             indent_blankline = {
                 enabled = true,
                 scope_color = '', -- catppuccin color (eg. `lavender`) Default: text
@@ -36,6 +36,7 @@ return {
             lsp_saga = true,
             markdown = true,
             noice = true,
+            render_markdown = true,
             cmp = true,
             dap = true,
             dap_ui = true,

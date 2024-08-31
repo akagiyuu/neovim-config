@@ -4,11 +4,6 @@ return {
         lazy = false,
     },
     {
-        'm-demare/hlargs.nvim',
-        event = 'VeryLazy',
-        opts = { use_colorpalette = true }
-    },
-    {
         'akinsho/toggleterm.nvim',
         lazy = false,
         -- keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
@@ -51,20 +46,15 @@ return {
                 tab_char = '▏',
             },
             scope = {
+                char = '▏',
                 show_start = true,
                 show_end = true
             },
         }
     },
     {
-        'uga-rosa/ccc.nvim',
-        cmd = 'CccHighlighterToggle',
-        opts = {
-            highlighter = {
-                auto_enable = true,
-                lsp = true,
-            },
-        },
+        'brenoprata10/nvim-highlight-colors',
+        event = 'VeryLazy',
         config = true
     },
     {
@@ -88,11 +78,6 @@ return {
         main = 'rainbow-delimiters.setup',
         config = true,
         event = 'VeryLazy',
-    },
-    {
-        'nvim-zh/colorful-winsep.nvim',
-        config = true,
-        event = { 'WinNew' },
     },
     {
         'kevinhwang91/nvim-fundo',
@@ -253,6 +238,17 @@ return {
     {
         'nvim-tree/nvim-tree.lua',
         config = true,
+
+        dependencies = {
+            {
+                'antosha417/nvim-lsp-file-operations',
+                requires = {
+                    'nvim-lua/plenary.nvim',
+                },
+                main = 'lsp-file-operations',
+                config = true,
+            },
+        },
         cmd = 'NvimTreeToggle'
     },
     {
@@ -313,6 +309,11 @@ return {
         end
     },
     {
+        'chrisgrieser/nvim-lsp-endhints',
+        event = 'LspAttach',
+        opts = {}, -- required, even if empty
+    },
+    {
         'kevinhwang91/nvim-ufo',
         event = 'LspAttach',
         opts = {
@@ -323,5 +324,12 @@ return {
     {
         'henry-hsieh/riscv-asm-vim',
         ft = 'riscv_asm',
-    }
+    },
+    {
+        'rasulomaroff/reactive.nvim',
+        event = 'VeryLazy',
+        opts = {
+            load = { 'catppuccin-mocha-cursor', 'catppuccin-mocha-cursorline' }
+        }
+    },
 }
