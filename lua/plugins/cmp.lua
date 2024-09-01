@@ -22,6 +22,11 @@ local _cmp = {
     },
 }
 
+local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
 _cmp.config = function()
     local cmp = require('cmp')
 
@@ -44,14 +49,34 @@ _cmp.config = function()
                 scrolloff    = 2,
             },
         },
-        mapping      = {
+        mapping      = cmp.mapping.preset.insert {
             ['<C-e>']     = cmp.mapping.close(),
-            ['<C-y>']     = cmp.mapping.confirm { select = true },
+            ['<CR>']      = cmp.mapping.confirm { select = true },
             ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-b>']     = cmp.mapping.scroll_docs(-4),
-            ['<C-f>']     = cmp.mapping.scroll_docs(4),
-            ['<C-n>']     = cmp.mapping.select_next_item(),
-            ['<C-p>']     = cmp.mapping.select_prev_item(),
+            ['<C-b>']     = cmp.mapping.scroll_docs(-5),
+            ['<C-f>']     = cmp.mapping.scroll_docs(5),
+            ['<Tab>']     = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif require('luasnip').jumpable(1) then
+                    require('luasnip').jump(1)
+                elseif has_words_before() then
+                    cmp.complete()
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
+            ['<S-Tab>']   = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif require('luasnip').jumpable(-1) then
+                    require('luasnip').jump(-1)
+                elseif has_words_before() then
+                    cmp.complete()
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
         },
         sources      = cmp.config.sources(
             {
@@ -83,7 +108,7 @@ _cmp.config = function()
                     fuzzy_buffer = '[buffer]',
                     async_path = '[path]',
                     rg = '[rg]',
-                },
+  },
                 symbol_map = {
                     sql = '',
                     Codeium = '',
@@ -98,11 +123,13 @@ _cmp.config = function()
     }
 
     cmp.setup.cmdline({ '/', '?' }, {
-        sources = { { name = 'fuzzy_buffer' } },
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources { { name = 'fuzzy_buffer' } },
     })
 
     cmp.setup.cmdline(':', {
-        sources = {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources {
             { name = 'cmdline' },
             { name = 'async_path' }
         },
