@@ -252,21 +252,6 @@ return {
         cmd = 'NvimTreeToggle'
     },
     {
-        'vyfor/cord.nvim',
-        build = './build',
-        event = 'VeryLazy',
-        opts = {
-            display = {
-                show_time = true,
-                show_repository = false,
-                show_cursor_position = true,
-            },
-            idle = {
-                show_idle = false,
-            }
-        }
-    },
-    {
         'onsails/lspkind.nvim',
         opts = {
             preset = 'codicons',
