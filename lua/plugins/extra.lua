@@ -5,8 +5,7 @@ return {
     },
     {
         'akinsho/toggleterm.nvim',
-        lazy = false,
-        -- keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
+        keys = { { '<C-\\>', '<cmd>ToggleTerm<CR>', 'Toggle terminal' } },
         opts = {
             open_mapping = [[<c-\>]],
             winbar = { enabled = true, },
