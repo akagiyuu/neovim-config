@@ -9,6 +9,10 @@ return {
             less = { { 'prettierd', 'prettier' } },
             html = { { 'prettierd', 'prettier' } },
             json = { { 'prettierd', 'prettier' } },
+            typescript = { { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true } },
+            typescriptreact = { { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true } },
+            javascript = { { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true } },
+            java = { 'google-java-format' },
             fish = { 'fish_indent' },
             ['_'] = { 'trim_whitespace' },
             typst = { 'typstfmt' },
@@ -33,6 +37,11 @@ return {
         util.add_formatter_args(
             require('conform.formatters.prettier'),
             { '--tab-width', '4' }
+        )
+
+        util.add_formatter_args(
+            require('conform.formatters.google-java-format'),
+            { '-a' }
         )
     end
 }

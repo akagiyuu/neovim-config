@@ -97,7 +97,7 @@ local capabilities = {
 
 local servers = {
     clangd = {},
-    pyright = {},
+    basedpyright = {},
     cssls = {},
     cssmodules_ls = {},
     emmet_language_server = {
@@ -172,25 +172,25 @@ local servers = {
     --     enable_import_completion = true,
     --     sdk_include_prereleases = true,
     -- },
-    -- texlab = {
-    --     settings = {
-    --         texlab = {
-    --             -- auxDirectory = "latex.out",
-    --             build = {
-    --                 -- executable = "latexmk",
-    --                 -- -- Please set $pdf_mode in latexmkrc to enable PDF output.
-    --                 -- args = { "-interaction=nonstopmode", "-synctex=1", "%f" },
-    --                 onSave = true,
-    --             },
-    --             chktex = {
-    --                 onEdit = false,
-    --                 onOpenAndSave = true,
-    --             },
-    --             diagnosticsDelay = 100,
-    --             formatterLineLength = 0,
-    --         },
-    --     },
-    -- },
+    texlab = {
+        settings = {
+            texlab = {
+                -- auxDirectory = "latex.out",
+                build = {
+                    -- executable = "latexmk",
+                    -- -- Please set $pdf_mode in latexmkrc to enable PDF output.
+                    -- args = { "-interaction=nonstopmode", "-synctex=1", "%f" },
+                    onSave = true,
+                },
+                chktex = {
+                    onEdit = false,
+                    onOpenAndSave = true,
+                },
+                diagnosticsDelay = 100,
+                formatterLineLength = 0,
+            },
+        },
+    },
     gopls = {},
     ocamllsp = {},
 }
@@ -246,6 +246,7 @@ return {
             }
         end
     },
+    { 'mfussenegger/nvim-jdtls' }
     -- {
     --     'pmizio/typescript-tools.nvim',
     --     lazy = false,
