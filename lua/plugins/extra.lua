@@ -208,11 +208,11 @@ return {
             'MunifTanjim/nui.nvim',
         },
     },
-    {
-        '3rd/image.nvim',
-        config = true,
-        event = 'VeryLazy'
-    },
+    -- {
+    --     '3rd/image.nvim',
+    --     config = true,
+    --     event = 'VeryLazy'
+    -- },
     {
         'folke/todo-comments.nvim',
         config = true,
