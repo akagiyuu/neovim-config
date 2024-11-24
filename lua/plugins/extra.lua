@@ -316,4 +316,42 @@ return {
             load = { 'catppuccin-mocha-cursor', 'catppuccin-mocha-cursorline' }
         }
     },
+    {
+        'xeluxee/competitest.nvim',
+        lazy = false,
+        dependencies = 'MunifTanjim/nui.nvim',
+        config = function()
+            require('competitest').setup {
+                testcases_use_single_file = true,
+            }
+        end,
+    },
+    {
+        'nvim-neorg/neorg',
+        lazy = false,
+        opts = {
+            load = {
+                ['core.defaults'] = {},
+                ['core.completion'] = { config = { engine = 'nvim-cmp' } },
+                ['core.concealer'] = {
+                    config = {
+                        icon_preset = 'diamond'
+                    }
+                },
+                ['core.dirman'] = {
+                    config = {
+                        workspaces = {
+                            note = '~/Documents/note',
+                            todo = '~/Documents/todo',
+                        },
+                    }
+                },
+                ['core.export'] = {},
+                ['core.summary'] = { config = { strategy = 'by_path' } },
+                ['core.ui.calendar'] = {},
+                ['core.todo-introspector'] = {},
+                ['core.esupports.metagen'] = { config = { update_date = false } }, -- do not update date until https://github.com/nvim-neorg/neorg/issues/1579 fixed
+            }
+        },
+    }
 }

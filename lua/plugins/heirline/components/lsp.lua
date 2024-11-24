@@ -6,7 +6,7 @@ lsp.name = {
     condition = conditions.lsp_attached,
     provider = function()
         local names = {}
-        for _, client in pairs(vim.lsp.get_active_clients()) do
+        for _, client in pairs(vim.lsp.get_clients()) do
             table.insert(names, client.name)
         end
 

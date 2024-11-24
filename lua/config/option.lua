@@ -9,35 +9,34 @@ g.loaded_python3_provider = false
 g.loaded_ruby_provider    = false
 g.editorconfig            = false
 
+opt.termguicolors         = true
+opt.guifont               = { 'Monaspace Radon:h11' }
+opt.laststatus            = 3
+opt.cmdheight             = 0
+opt.shada                 = ''
+opt.wrap                  = false
+opt.undofile              = true
+opt.updatetime            = 50
+opt.timeoutlen            = 250
+opt.showmode              = false
+opt.clipboard             = 'unnamedplus'
 
-opt.termguicolors  = true
-opt.guifont        = { 'Monaspace Radon:h11' }
-opt.laststatus     = 3
-opt.cmdheight      = 0
-opt.shada          = ''
-opt.wrap           = false
-opt.undofile       = true
-opt.updatetime     = 50
-opt.timeoutlen     = 250
-opt.showmode       = false
-opt.clipboard      = 'unnamedplus'
+opt.number                = true
+opt.numberwidth           = 2
+opt.signcolumn            = 'yes'
 
-opt.number         = true
-opt.numberwidth    = 2
-opt.signcolumn     = 'yes'
+opt.softtabstop           = 4
+opt.tabstop               = 4
+opt.shiftwidth            = 4
+opt.expandtab             = true
 
-opt.softtabstop    = 4
-opt.tabstop        = 4
-opt.shiftwidth     = 4
-opt.expandtab      = true
-
-opt.fillchars      = {
+opt.fillchars             = {
     fold = ' ',
     eob = ' ',
     foldsep = ' ',
 }
-opt.list           = true
-opt.listchars      = {
+opt.list                  = true
+opt.listchars             = {
     tab      = '» ',
     -- lead     = '·'
     trail    = '·',
@@ -47,26 +46,26 @@ opt.listchars      = {
     nbsp     = '␣',
 }
 
-opt.preserveindent = true
-opt.foldlevel      = 99
+opt.preserveindent        = true
+opt.foldlevel             = 99
 
-opt.scrolloff      = 8
-opt.sidescrolloff  = 8
+opt.scrolloff             = 8
+opt.sidescrolloff         = 8
 
-opt.splitbelow     = true
-opt.splitright     = true
-opt.splitkeep      = 'screen'
+opt.splitbelow            = true
+opt.splitright            = true
+opt.splitkeep             = 'screen'
 
-opt.spelloptions   = 'camel,noplainbuffer'
+opt.spelloptions          = 'camel,noplainbuffer'
 
-opt.mouse          = 'a'
-opt.mousemoveevent = true
+opt.mouse                 = 'a'
+opt.mousemoveevent        = true
 
 -- opt.winblend       = 10
 -- pumblend       = 10
 
-opt.conceallevel   = 2
-opt.smoothscroll   = true
+opt.conceallevel          = 2
+opt.smoothscroll          = true
 
 vim.diagnostic.config {
     virtual_text = true,

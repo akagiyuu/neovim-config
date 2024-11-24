@@ -12,13 +12,6 @@ local _cmp = {
         },
         'FelipeLema/cmp-async-path',
         'ray-x/cmp-sql',
-        {
-            'Exafunction/codeium.nvim',
-            dependencies = {
-                'nvim-lua/plenary.nvim',
-            },
-            opts = {}
-        },
     },
 }
 
@@ -86,7 +79,6 @@ _cmp.config = function()
                 -- { name = 'lab.quick_data', keyword_length = 4 },
                 { name = 'fuzzy_buffer', max_item_count = 2 },
                 { name = 'async_path' },
-                { name = 'codeium' },
                 { name = 'sql' },
             },
             {
