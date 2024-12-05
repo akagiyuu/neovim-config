@@ -12,6 +12,19 @@ local _cmp = {
         },
         'FelipeLema/cmp-async-path',
         'ray-x/cmp-sql',
+        {
+            'jmbuhr/otter.nvim',
+            opts = {
+                buffers = {
+                    set_filetype = true,
+                    write_to_disk = true,
+                },
+                strip_wrapping_quote_characters = { "'", '"', '`' },
+                -- otter may not work the way you expect when entire code blocks are indented (eg. in Org files)
+                -- When true, otter handles these cases fully.
+                handle_leading_whitespace = true,
+            }
+        }
     },
 }
 
@@ -74,6 +87,7 @@ _cmp.config = function()
         sources      = cmp.config.sources(
             {
                 { name = 'luasnip',      max_item_count = 2 },
+                { name = 'otter' },
                 { name = 'nvim_lsp' },
                 { name = 'neorg' },
                 -- { name = 'lab.quick_data', keyword_length = 4 },
@@ -100,7 +114,7 @@ _cmp.config = function()
                     fuzzy_buffer = '[buffer]',
                     async_path = '[path]',
                     rg = '[rg]',
-  },
+                },
                 symbol_map = {
                     sql = '',
                     Codeium = '',

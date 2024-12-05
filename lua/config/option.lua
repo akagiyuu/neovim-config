@@ -5,7 +5,6 @@ g.mapleader               = ' '
 g.maplocalleader          = ' '
 g.loaded_node_provider    = false
 g.loaded_perl_provider    = false
-g.loaded_python3_provider = false
 g.loaded_ruby_provider    = false
 g.editorconfig            = false
 
