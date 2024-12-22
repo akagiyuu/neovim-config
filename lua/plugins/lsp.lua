@@ -126,9 +126,9 @@ local servers = {
     eslint = {},
     prismals = {},
     vtsls = {},
-    typst_lsp = {
+    tinymist = {
         settings = {
-            exportPdf = 'onSave' -- Choose onType, onSave or never.
+            exportPdf = 'onType',
         }
     },
     templ = {},

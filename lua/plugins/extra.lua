@@ -211,7 +211,7 @@ return {
     {
         '3rd/image.nvim',
         config = true,
-        event = 'VeryLazy',
+        -- event = 'VeryLazy',
         opts = {
             integrations = {},                        -- do whatever you want with image.nvim's integrations
             max_width = 100,                          -- tweak to preference
@@ -259,6 +259,42 @@ return {
             },
         },
         cmd = 'NvimTreeToggle'
+    },
+    {
+        'rachartier/tiny-inline-diagnostic.nvim',
+        event = 'VeryLazy', -- Or `LspAttach`
+        priority = 1000,    -- needs to be loaded in first
+        opts = {
+            preset = 'powerline',
+            options = {
+                multilines = true,
+                multiple_diag_under_cursor = true,
+                show_all_diags_on_cursorline = true,
+            }
+        }
+    },
+    {
+        'saecki/crates.nvim',
+        event = { 'BufRead Cargo.toml' },
+        opts = {
+            completion = {
+                cmp = {
+                    enabled = true,
+                    use_custom_kind = true,
+                },
+                crates = {
+                    enabled = true,
+                    max_results = 8, -- The maximum number of search results to display
+                    min_chars = 3    -- The minimum number of charaters to type before completions begin appearing
+                }
+            },
+            lsp = {
+                enabled = true,
+                actions = true,
+                completion = true,
+                hover = true,
+            },
+        }
     },
     {
         'onsails/lspkind.nvim',
@@ -339,7 +375,8 @@ return {
     },
     {
         'nvim-neorg/neorg',
-        lazy = false,
+        ft = 'norg',
+        cmd = 'Neorg',
         opts = {
             load = {
                 ['core.defaults'] = {},
@@ -377,46 +414,45 @@ return {
     },
 
     {
-        'quarto-dev/quarto-nvim',
-        lazy = false,
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter',
-        },
-        opts = {
-            lspFeatures = {
-                enabled = true,
-                languages = { 'r', 'python', 'rust' },
-                chunks = 'all',
-                diagnostics = {
-                    enabled = true,
-                    triggers = { 'BufWritePost' },
-                },
-                completion = {
-                    enabled = true,
-                },
-            },
-            keymap = {
-                hover = 'H',
-                definition = 'gd',
-                rename = '<leader>rn',
-                references = 'gr',
-                format = '<leader>fm',
-            },
-            codeRunner = {
-                enabled = true,
-                default_method = 'molten',
-            },
-        }
-    },
-    {
         'benlubas/molten-nvim',
         version = '^1.0.0',
         ft = { 'quarto', 'markdown', 'ipynb' },
         dependencies = {
             '3rd/image.nvim',
+            {
+                'quarto-dev/quarto-nvim',
+                dependencies = {
+                    'nvim-treesitter/nvim-treesitter',
+                },
+                opts = {
+                    lspFeatures = {
+                        enabled = true,
+                        languages = { 'r', 'python', 'rust' },
+                        chunks = 'all',
+                        diagnostics = {
+                            enabled = true,
+                            triggers = { 'BufWritePost' },
+                        },
+                        completion = {
+                            enabled = true,
+                        },
+                    },
+                    keymap = {
+                        hover = 'H',
+                        definition = 'gd',
+                        rename = '<leader>rn',
+                        references = 'gr',
+                        format = '<leader>fm',
+                    },
+                    codeRunner = {
+                        enabled = true,
+                        default_method = 'molten',
+                    },
+                }
+            },
         },
         build = ':UpdateRemotePlugins',
-        init = function()
+        config = function()
             -- these are examples, not defaults. Please see the readme
             vim.g.molten_image_provider = 'image.nvim'
             vim.g.molten_output_win_max_height = 20

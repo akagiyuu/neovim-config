@@ -15,7 +15,7 @@ return {
             java = { 'google-java-format' },
             fish = { 'fish_indent' },
             ['_'] = { 'trim_whitespace' },
-            typst = { 'typstfmt' },
+            typst = { 'typstyle' },
             ['*'] = { 'injected' }
         },
         formatters = {
@@ -24,9 +24,9 @@ return {
                 args = { '$FILENAME' },
                 stdin = false,
             },
-            typstfmt = {
-                command = 'typstfmt',
-                args = { '$FILENAME' },
+            typstyle = {
+                command = 'typstyle',
+                args = { '-i', '$FILENAME' },
                 stdin = false,
             },
         }

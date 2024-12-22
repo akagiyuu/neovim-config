@@ -41,15 +41,15 @@ require('lazy').setup {
     },
     performance = {
         rtp = {
-            -- disabled_plugins = {
-            --     'gzip',
-            --     'matchit',
-            --     'matchparen',
-            --     'netrwPlugin',
-            --     'tarPlugin',
-            --     'tutor',
-            --     'zipPlugin',
-            -- },
+            disabled_plugins = {
+                'gzip',
+                'matchit',
+                'matchparen',
+                'netrwPlugin',
+                'tarPlugin',
+                'tutor',
+                'zipPlugin',
+            },
         },
     },
     rocks = {

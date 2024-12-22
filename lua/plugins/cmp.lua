@@ -57,7 +57,7 @@ _cmp.config = function()
         },
         mapping      = cmp.mapping.preset.insert {
             ['<C-e>']     = cmp.mapping.close(),
-            ['<CR>']      = cmp.mapping.confirm { select = true },
+            ['<CR>']      = cmp.mapping.confirm(),
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-b>']     = cmp.mapping.scroll_docs(-5),
             ['<C-f>']     = cmp.mapping.scroll_docs(5),
@@ -89,6 +89,7 @@ _cmp.config = function()
                 { name = 'luasnip',      max_item_count = 2 },
                 { name = 'otter' },
                 { name = 'nvim_lsp' },
+                { name = 'crates' },
                 { name = 'neorg' },
                 -- { name = 'lab.quick_data', keyword_length = 4 },
                 { name = 'fuzzy_buffer', max_item_count = 2 },

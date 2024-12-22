@@ -1,7 +1,6 @@
 require('config.option')
 require('config.lazy')
 
-vim.filetype.add { extension = { templ = 'templ', } }
 vim.api.nvim_create_autocmd('User', {
     pattern = 'VeryLazy',
     once = true,
