@@ -567,5 +567,20 @@ return {
         'marcussimonsen/let-it-snow.nvim',
         cmd = 'LetItSnow', -- Wait with loading until command is run
         opts = {},
-    }
+    },
+    {
+        'chrisgrieser/nvim-rulebook',
+        keys = {
+            {
+                '<leader>lri',
+                desc = 'Ignore rule',
+                function() require('rulebook').ignoreRule() end,
+            },
+            {
+                '<leader>lrl',
+                desc = 'Lookup rule',
+                function() require('rulebook').lookupRule() end,
+            },
+        }
+    },
 }
