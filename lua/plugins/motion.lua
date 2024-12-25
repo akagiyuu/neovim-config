@@ -65,5 +65,14 @@ return {
             { '<C-.>', nil },
             { '<C-,>', nil }
         },
-    }
+    },
+    {
+        'chrisgrieser/nvim-various-textobjs',
+        lazy = false,
+        opts = {
+            keymaps = {
+                useDefaults = true
+            }
+        },
+    },
 }
