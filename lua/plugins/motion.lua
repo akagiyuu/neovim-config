@@ -58,4 +58,12 @@ return {
         },
         opts = {},
     },
+    {
+        'Wansmer/sibling-swap.nvim',
+        opts = {},
+        keys = {
+            { '<C-.>', nil },
+            { '<C-,>', nil }
+        },
+    }
 }
