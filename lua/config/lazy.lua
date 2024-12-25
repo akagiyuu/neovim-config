@@ -18,7 +18,6 @@ require('lazy').setup {
     spec = {
         { import = 'plugins' },
         { import = 'plugins.colorschemes' },
-        { import = 'plugins.heirline.init' },
     },
     defaults = {
         lazy = true,
