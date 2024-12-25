@@ -13,7 +13,6 @@ return {
     },
     {
         'stevearc/dressing.nvim',
-        event = 'VeryLazy',
         opts = { input = { title_pos = 'center' } }
     },
     {
@@ -34,22 +33,6 @@ return {
                 vim.api.nvim_win_set_config(win, { zindex = 100 })
             end,
         },
-    },
-    {
-        'lukas-reineke/indent-blankline.nvim',
-        event = 'VeryLazy',
-        main = 'ibl',
-        opts = {
-            indent = {
-                char = '▏',
-                tab_char = '▏',
-            },
-            scope = {
-                char = '▏',
-                show_start = true,
-                show_end = true
-            },
-        }
     },
     {
         'brenoprata10/nvim-highlight-colors',
@@ -193,10 +176,6 @@ return {
             { '<C-M-L>',   function() require('harpoon'):list():next() end },
         },
         config = true
-    },
-    {
-        'LunarVim/bigfile.nvim',
-        lazy = false
     },
     {
         'benlubas/wrapping-paper.nvim',
@@ -567,4 +546,30 @@ return {
             },
         }
     },
+    {
+        'folke/snacks.nvim',
+        priority = 1000,
+        lazy = false,
+        opts = {
+            bigfile = { enabled = true },
+            indent = {
+                enabled = true,
+                char = '▏',
+                scope = {
+                    enabled = true, -- enable highlighting the current scope
+                    char = '▏',
+                    treesitter = { enabled = true },
+                    underline = true, -- underline the start of the scope
+                },
+            },
+            input = { enabled = true },
+            -- notifier = {
+            --     enabled = true,
+            --     style = 'fancy',
+            --     history = true,
+            -- },
+            quickfile = { enabled = true },
+            -- scroll = { enabled = true },
+        },
+    }
 }

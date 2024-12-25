@@ -27,15 +27,11 @@ return {
             flash = true,
             gitsigns = true,
             harpoon = true,
-            indent_blankline = {
-                enabled = true,
-                scope_color = '', -- catppuccin color (eg. `lavender`) Default: text
-                colored_indent_levels = false,
-            },
             lsp_saga = true,
             markdown = true,
             noice = true,
             render_markdown = true,
+            snacks = true,
             cmp = true,
             dap = true,
             dap_ui = true,
