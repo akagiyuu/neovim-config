@@ -251,22 +251,6 @@ return {
         }
     },
     {
-        'nvim-tree/nvim-tree.lua',
-        config = true,
-
-        dependencies = {
-            {
-                'antosha417/nvim-lsp-file-operations',
-                requires = {
-                    'nvim-lua/plenary.nvim',
-                },
-                main = 'lsp-file-operations',
-                config = true,
-            },
-        },
-        cmd = 'NvimTreeToggle'
-    },
-    {
         'rachartier/tiny-inline-diagnostic.nvim',
         event = 'VeryLazy', -- Or `LspAttach`
         priority = 1000,    -- needs to be loaded in first
