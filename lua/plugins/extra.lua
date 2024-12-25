@@ -53,13 +53,16 @@ return {
     },
     {
         'brenoprata10/nvim-highlight-colors',
-        event = 'VeryLazy',
-        config = true
+        lazy = false,
+        opts = {
+            render = 'virtual',
+        },
     },
     {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         opts = {
+            preset = 'modern',
             keys = {
                 scroll_down = '<Down>',
                 scroll_up = '<Up>',
@@ -240,9 +243,12 @@ return {
         }
     },
     {
-        'NStefan002/screenkey.nvim',
-        cmd = 'Screenkey',
-        config = true,
+        'nvzone/showkeys',
+        cmd = 'ShowkeysToggle',
+        opts = {
+            timeout = 1,
+            maxkeys = 10,
+        }
     },
     {
         'nvim-tree/nvim-tree.lua',
@@ -367,11 +373,12 @@ return {
         'xeluxee/competitest.nvim',
         lazy = false,
         dependencies = 'MunifTanjim/nui.nvim',
-        config = function()
-            require('competitest').setup {
+        opts = {
+            runner_ui = {
                 testcases_use_single_file = true,
+                interface = 'split',
             }
-        end,
+        }
     },
     {
         'nvim-neorg/neorg',
@@ -483,4 +490,82 @@ return {
             end, { desc = 'run all cells of all languages', silent = true })
         end,
     },
+    {
+        '0x00-ketsu/autosave.nvim',
+        event = { 'InsertLeave', 'TextChanged' },
+        opts = {
+            prompt = {
+                enable = false
+            }
+        }
+    },
+    {
+        'samjwill/nvim-unception',
+        lazy = false,
+    },
+    {
+        'sphamba/smear-cursor.nvim',
+        lazy = false,
+        opt = true
+    },
+    { 'kevinhwang91/nvim-bqf', ft = 'qf' },
+    {
+        'ThePrimeagen/refactoring.nvim',
+        keys = {
+            {
+                '<leader>re',
+                mode = 'x',
+                desc = 'Extract function',
+                function() require('refactoring').refactor('Extract Function') end
+            },
+            {
+                '<leader>rf',
+                mode = 'x',
+                desc = 'Extract function to file',
+                function() require('refactoring').refactor('Extract Function To File') end
+            },
+            {
+                '<leader>rv',
+                mode = 'x',
+                desc = 'Extract variable',
+                function() require('refactoring').refactor('Extract Variable') end
+            },
+            {
+                '<leader>rI',
+                mode = 'n',
+                desc = 'Inline function',
+                function() require('refactoring').refactor('Inline Function') end
+            },
+            {
+                '<leader>ri',
+                mode = { 'n', 'x' },
+                desc = 'Inline variable',
+                function() require('refactoring').refactor('Inline Variable') end
+            },
+            {
+                '<leader>rb',
+                mode = 'n',
+                desc = 'Extract block',
+                function() require('refactoring').refactor('Extract Block') end
+            },
+            {
+                '<leader>rbf',
+                mode = 'n',
+                desc = 'Extract block to file',
+                function() require('refactoring').refactor('Extract Block To File') end
+            }
+        }
+
+    },
+    {
+        'vyfor/cord.nvim',
+        build = './build || .\\build',
+        event = 'VeryLazy',
+        opts = {}, -- calls require('cord').setup()
+    },
+    {
+        'marcussimonsen/let-it-snow.nvim',
+        cmd = 'LetItSnow', -- Wait with loading until command is run
+        opts = {},
+    }
 }

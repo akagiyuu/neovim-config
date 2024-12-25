@@ -104,5 +104,12 @@ return {
                 desc = 'Flash Treesitter Search',
             },
         },
-    }
+    },
+    {
+        'dsully/treesitter-jump.nvim',
+        keys = {
+            { '%', function() require('treesitter-jump').jump() end },
+        },
+        opts = {},
+    },
 }

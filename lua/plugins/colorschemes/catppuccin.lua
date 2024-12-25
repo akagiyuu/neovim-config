@@ -24,7 +24,6 @@ return {
             variables = {},
         },
         integrations = {
-            diffview = true,
             flash = true,
             gitsigns = true,
             harpoon = true,
