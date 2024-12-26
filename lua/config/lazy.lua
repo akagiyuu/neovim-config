@@ -48,6 +48,7 @@ require('lazy').setup {
                 'tarPlugin',
                 'tutor',
                 'zipPlugin',
+                'rplugin'
             },
         },
     },
