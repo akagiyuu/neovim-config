@@ -22,9 +22,6 @@ return {
             ['<Down>'] = { 'select_next', 'fallback' },
             ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
             ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
-            cmdline = {
-                preset = 'enter',
-            }
         },
         appearance = {
             use_nvim_cmp_as_default = true,
