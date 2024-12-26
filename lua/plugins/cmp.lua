@@ -130,5 +130,19 @@ _cmp.config = function()
 end
 
 return {
-    _cmp,
+    'saghen/blink.cmp',
+    dependencies = 'rafamadriz/friendly-snippets',
+    event = { 'InsertEnter' },
+    build = 'cargo build --release',
+    opts = {
+        keymap = { preset = 'default' },
+        appearance = {
+            use_nvim_cmp_as_default = false,
+            nerd_font_variant = 'normal'
+        },
+        sources = {
+            default = { 'lsp', 'path', 'snippets', 'buffer' },
+        },
+    },
+    opts_extend = { 'sources.default' }
 }

@@ -24,6 +24,7 @@ return {
             variables = {},
         },
         integrations = {
+            blink_cmp = true,
             flash = true,
             gitsigns = true,
             harpoon = true,

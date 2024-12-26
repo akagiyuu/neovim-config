@@ -382,7 +382,7 @@ return {
     },
     {
         'sphamba/smear-cursor.nvim',
-        lazy = false,
+        -- lazy = false,
         opts = {
             smear_between_buffers = true,
             smear_between_neighbor_lines = true,
@@ -499,5 +499,12 @@ return {
             quickfile = { enabled = true },
             -- scroll = { enabled = true },
         },
+    },
+    {
+        'ptdewey/pendulum-nvim',
+        event = 'VeryLazy',
+        opts = {
+            log_file = vim.fn.expand('$HOME/Documents/log.csv'),
+        }
     }
 }
