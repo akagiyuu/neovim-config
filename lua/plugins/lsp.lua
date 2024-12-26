@@ -42,6 +42,9 @@ local on_attach = function(client, bufnr)
             command = 'EslintFixAll',
         })
     end
+    if client.name == 'sqls' then
+        require('sqls').on_attach(client, bufnr)
+    end
 end
 
 local capabilities = {
@@ -124,7 +127,6 @@ local servers = {
     dockerls = {},
     svelte = {},
     eslint = {},
-    prismals = {},
     vtsls = {},
     tinymist = {
         settings = {
@@ -150,28 +152,6 @@ local servers = {
             },
         },
     },
-    -- omnisharp = {
-    --     cmd = {
-    --         'omnisharp',
-    --         '--languageserver',
-    --         '--hostPID',
-    --         tostring(vim.fn.getpid()),
-    --         'RenameOptions:RenameOverloads=true',
-    --         'RoslynExtensionsOptions:InlayHintsOptions:EnableForTypes=true',
-    --         'RoslynExtensionsOptions:InlayHintsOptions:EnableForParameters=true',
-    --         'RoslynExtensionsOptions:InlayHintsOptions:ForImplicitObjectCreation=true',
-    --     },
-    --     handlers = {
-    --         ['textDocument/definition'] = function(...)
-    --             return require('omnisharp_extended').handler(...)
-    --         end,
-    --     },
-    --     enable_editorconfig_support = true,
-    --     enable_roslyn_analyzers = true,
-    --     organize_imports_on_format = true,
-    --     enable_import_completion = true,
-    --     sdk_include_prereleases = true,
-    -- },
     texlab = {
         settings = {
             texlab = {
@@ -193,6 +173,7 @@ local servers = {
     },
     gopls = {},
     ocamllsp = {},
+    sqls = {}
 }
 
 return {
@@ -221,7 +202,6 @@ return {
         end
 
     },
-
     {
         'mrcjkb/rustaceanvim',
         ft = 'rust',
@@ -246,7 +226,11 @@ return {
             }
         end
     },
-    { 'mfussenegger/nvim-jdtls' }
+    { 'nanotee/sqls.nvim' },
+    {
+        'dmmulroy/ts-error-translator.nvim',
+        ft = { 'typescript', 'typescriptreact' }
+    }
     -- {
     --     'pmizio/typescript-tools.nvim',
     --     lazy = false,
