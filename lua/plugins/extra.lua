@@ -334,8 +334,7 @@ return {
     },
     {
         'xeluxee/competitest.nvim',
-        lazy = false,
-        dependencies = 'MunifTanjim/nui.nvim',
+        cmd = { 'CompetiTest' },
         opts = {
             runner_ui = {
                 testcases_use_single_file = true,
@@ -372,90 +371,9 @@ return {
             }
         },
     },
-
-    {
-        'GCBallesteros/jupytext.nvim',
-        lazy = false,
-        opts = {
-            style = 'markdown',
-            output_extension = 'md',
-            force_ft = 'markdown',
-        }
-    },
-
-    {
-        'benlubas/molten-nvim',
-        version = '^1.0.0',
-        ft = { 'quarto', 'markdown', 'ipynb' },
-        dependencies = {
-            '3rd/image.nvim',
-            {
-                'quarto-dev/quarto-nvim',
-                dependencies = {
-                    'nvim-treesitter/nvim-treesitter',
-                },
-                opts = {
-                    lspFeatures = {
-                        enabled = true,
-                        languages = { 'r', 'python', 'rust' },
-                        chunks = 'all',
-                        diagnostics = {
-                            enabled = true,
-                            triggers = { 'BufWritePost' },
-                        },
-                        completion = {
-                            enabled = true,
-                        },
-                    },
-                    keymap = {
-                        hover = 'H',
-                        definition = 'gd',
-                        rename = '<leader>rn',
-                        references = 'gr',
-                        format = '<leader>fm',
-                    },
-                    codeRunner = {
-                        enabled = true,
-                        default_method = 'molten',
-                    },
-                }
-            },
-        },
-        build = ':UpdateRemotePlugins',
-        config = function()
-            -- these are examples, not defaults. Please see the readme
-            vim.g.molten_image_provider = 'image.nvim'
-            vim.g.molten_output_win_max_height = 20
-            vim.g.molten_virt_text_output = true
-            vim.g.molten_virt_lines_off_by_1 = true
-            vim.keymap.set('n', '<localleader>e', ':MoltenEvaluateOperator<CR>',
-                { desc = 'evaluate operator', silent = true })
-            vim.keymap.set('n', '<localleader>os', ':noautocmd MoltenEnterOutput<CR>',
-                { desc = 'open output window', silent = true })
-            vim.keymap.set('n', '<localleader>rr', ':MoltenReevaluateCell<CR>', { desc = 're-eval cell', silent = true })
-            vim.keymap.set('v', '<localleader>r', ':<C-u>MoltenEvaluateVisual<CR>gv',
-                { desc = 'execute visual selection', silent = true })
-            vim.keymap.set('n', '<localleader>oh', ':MoltenHideOutput<CR>',
-                { desc = 'close output window', silent = true })
-            vim.keymap.set('n', '<localleader>md', ':MoltenDelete<CR>', { desc = 'delete Molten cell', silent = true })
-
-            -- if you work with html outputs:
-            vim.keymap.set('n', '<localleader>mx', ':MoltenOpenInBrowser<CR>',
-                { desc = 'open output in browser', silent = true })
-            local runner = require('quarto.runner')
-            vim.keymap.set('n', '<localleader>rc', runner.run_cell, { desc = 'run cell', silent = true })
-            vim.keymap.set('n', '<localleader>ra', runner.run_above, { desc = 'run cell and above', silent = true })
-            vim.keymap.set('n', '<localleader>rA', runner.run_all, { desc = 'run all cells', silent = true })
-            vim.keymap.set('n', '<localleader>rl', runner.run_line, { desc = 'run line', silent = true })
-            vim.keymap.set('v', '<localleader>r', runner.run_range, { desc = 'run visual range', silent = true })
-            vim.keymap.set('n', '<localleader>RA', function()
-                runner.run_all(true)
-            end, { desc = 'run all cells of all languages', silent = true })
-        end,
-    },
     {
         '0x00-ketsu/autosave.nvim',
-        event = { 'InsertLeave', 'TextChanged' },
+        event = { 'InsertLeave' },
         opts = {
             prompt = {
                 enable = false
@@ -524,7 +442,16 @@ return {
         'vyfor/cord.nvim',
         build = './build || .\\build',
         event = 'VeryLazy',
-        opts = {}, -- calls require('cord').setup()
+        opts = {
+            display = {
+                show_time = true,            -- Display start timestamp
+                show_repository = true,      -- Display 'View repository' button linked to repository url, if any
+                show_cursor_position = true, -- Display line and column number of cursor's position
+                swap_fields = false,         -- If enabled, workspace is displayed first
+                swap_icons = false,          -- If enabled, editor is displayed on the main image
+                workspace_blacklist = {},    -- List of workspace names that will hide rich presence
+            },
+        },                                   -- calls require('cord').setup()
     },
     {
         'marcussimonsen/let-it-snow.nvim',
