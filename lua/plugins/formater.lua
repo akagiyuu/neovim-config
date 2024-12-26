@@ -4,14 +4,14 @@ return {
         formatters_by_ft = {
             python = { 'ruff_fix', 'ruff_format' },
             rust = { 'rustfmt', 'leptosfmt' },
-            css = { { 'prettierd', 'prettier' } },
-            scss = { { 'prettierd', 'prettier' } },
-            less = { { 'prettierd', 'prettier' } },
-            html = { { 'prettierd', 'prettier' } },
-            json = { { 'prettierd', 'prettier' } },
-            typescript = { { 'prettierd', 'prettier', stop_after_first = true } },
-            typescriptreact = { { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true  } },
-            javascript = { { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true } },
+            css = { 'prettierd', 'prettier' },
+            scss = { 'prettierd', 'prettier' },
+            less = { 'prettierd', 'prettier' },
+            html = { 'prettierd', 'prettier' },
+            json = { 'prettierd', 'prettier' },
+            typescript = { 'prettierd', 'prettier', stop_after_first = true },
+            typescriptreact = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
+            javascript = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
             java = { 'google-java-format' },
             fish = { 'fish_indent' },
             ['_'] = { 'trim_whitespace' },
@@ -19,29 +19,12 @@ return {
             ['*'] = { 'injected' }
         },
         formatters = {
-            leptosfmt = {
-                command = 'leptosfmt',
-                args = { '$FILENAME' },
-                stdin = false,
-            },
-            typstyle = {
-                command = 'typstyle',
-                args = { '-i', '$FILENAME' },
-                stdin = false,
-            },
+            prettier = {
+                prepend_args = {
+                    '--tab-width',
+                    '4',
+                }
+            }
         }
     },
-    config = function(_, opts)
-        require('conform').setup(opts)
-        local util = require('conform.util')
-        util.add_formatter_args(
-            require('conform.formatters.prettier'),
-            { '--tab-width', '4' }
-        )
-
-        util.add_formatter_args(
-            require('conform.formatters.google-java-format'),
-            { '-a' }
-        )
-    end
 }
