@@ -65,62 +65,6 @@ return {
             which_key = true
         },
         color_overrides = {
-            -- mocha = {
-            --     rosewater = '#EA6962',
-            --     flamingo = '#EA6962',
-            --     pink = '#D3869B',
-            --     mauve = '#D3869B',
-            --     red = '#EA6962',
-            --     maroon = '#EA6962',
-            --     peach = '#BD6F3E',
-            --     yellow = '#D8A657',
-            --     green = '#A9B665',
-            --     teal = '#89B482',
-            --     sky = '#89B482',
-            --     sapphire = '#89B482',
-            --     blue = '#7DAEA3',
-            --     lavender = '#7DAEA3',
-            --     text = '#D4BE98',
-            --     subtext1 = '#BDAE8B',
-            --     subtext0 = '#A69372',
-            --     overlay2 = '#8C7A58',
-            --     overlay1 = '#735F3F',
-            --     overlay0 = '#5A4525',
-            --     surface2 = '#4B4F51',
-            --     surface1 = '#2A2D2E',
-            --     surface0 = '#232728',
-            --     base = '#1D2021',
-            --     mantle = '#191C1D',
-            --     crust = '#151819',
-            -- },
-            -- mocha = { -- custom
-            --     rosewater = '#ffc6be',
-            --     flamingo = '#fb4934',
-            --     pink = '#ff75a0',
-            --     mauve = '#d3869b',
-            --     red = '#f2594b',
-            --     maroon = '#fe8019',
-            --     peach = '#FFAD7D',
-            --     yellow = '#d79921', -- "#DEB22C",
-            --     green = '#a9b665',
-            --     teal = '#8ec07c',
-            --     sky = '#7daea3',
-            --     sapphire = '#689d6a',
-            --     blue = '#6d8dad',
-            --     lavender = '#b16286',
-            --     text = '#fbf1c7', -- #D4BE98  #C6D0F5
-            --     subtext1 = '#d5c4a1', -- #BDAE8B  #B3BCDF
-            --     subtext0 = '#a89984', -- #A69372  #A1A8C9
-            --     overlay2 = '#8C7A58', -- #8E95B3
-            --     overlay1 = '#735F3F', -- #7B819D
-            --     overlay0 = '#806234', -- #696D86
-            --     surface2 = '#665c54', -- #6E7477  #4B4F51  #565970
-            --     surface1 = '#3c3836', -- #2A2D2E           #43465A
-            --     surface0 = '#32302f', -- #232728           #313244
-            --     base = '#282828', -- #1D2021           #1E1E2E
-            --     mantle = '#1d2021', -- #191C1D           #181825
-            --     crust = '#1b1b1b', --                   #11111B
-            -- },
             mocha = {
                 rosewater = '#F5B8AB',
                 flamingo = '#F29D9D',
@@ -150,6 +94,92 @@ return {
                 crust = '#191926',
             },
         },
+        highlight_overrides = {
+            all = function(colors)
+                local overrides = {
+                    Comment           = { fg = colors.overlay0, style = { 'italic' } },
+                    ['@markup.quote'] = { fg = colors.maroon, style = { 'italic' } }, -- block quotes
+                }
+                return overrides
+            end,
+            mocha = function(colors)
+                local overrides = {
+                    Headline                       = { style = { 'bold' } },
+                    FloatTitle                     = { fg = colors.green },
+                    WinSeparator                   = { fg = colors.surface1, style = { 'bold' } },
+                    CursorLineNr                   = { fg = colors.lavender, style = { 'bold' } },
+                    KazCodeBlock                   = { bg = colors.mantle },
+                    LeapBackdrop                   = { link = 'MiniJump2dDim' },
+                    LeapLabel                      = { fg = colors.green, style = { 'bold' } },
+                    MsgArea                        = { fg = colors.overlay2 },
+                    CmpItemAbbrMatch               = { fg = colors.green, style = { 'bold' } },
+                    CmpItemAbbrMatchFuzzy          = { fg = colors.green, style = { 'bold' } },
+
+                    -- Mini customizations
+                    MiniClueDescGroup              = { fg = colors.mauve },
+                    MiniClueDescSingle             = { fg = colors.sapphire },
+                    MiniClueNextKey                = { fg = colors.yellow },
+                    MiniClueNextKeyWithPostkeys    = { fg = colors.red, style = { 'bold' } },
+
+                    MiniFilesCursorLine            = { fg = nil, bg = colors.surface0, style = { 'bold' } },
+                    MiniFilesFile                  = { fg = colors.overlay2 },
+                    MiniFilesTitleFocused          = { fg = colors.sky, style = { 'bold' } },
+
+                    MiniHipatternsFixmeBody        = { fg = colors.red, bg = colors.base },
+                    MiniHipatternsFixmeColon       = { bg = colors.red, fg = colors.red, style = { 'bold' } },
+                    MiniHipatternsHackBody         = { fg = colors.yellow, bg = colors.base },
+                    MiniHipatternsHackColon        = { bg = colors.yellow, fg = colors.yellow, style = { 'bold' } },
+                    MiniHipatternsNoteBody         = { fg = colors.sky, bg = colors.base },
+                    MiniHipatternsNoteColon        = { bg = colors.sky, fg = colors.sky, style = { 'bold' } },
+                    MiniHipatternsTodoBody         = { fg = colors.teal, bg = colors.base },
+                    MiniHipatternsTodoColon        = { bg = colors.teal, fg = colors.teal, style = { 'bold' } },
+
+                    MiniIndentscopeSymbol          = { fg = colors.sapphire },
+
+                    MiniJump                       = { bg = colors.green, fg = colors.base, style = { 'bold' } },
+                    MiniJump2dSpot                 = { fg = colors.peach },
+                    MiniJump2dSpotAhead            = { fg = colors.mauve },
+                    MiniJump2dSpotUnique           = { fg = colors.peach },
+
+                    MiniMapNormal                  = { fg = colors.overlay2, bg = colors.mantle },
+
+                    MiniPickMatchCurrent           = { fg = nil, bg = colors.surface0, style = { 'bold' } },
+                    MiniPickMatchRanges            = { fg = colors.green, style = { 'bold' } },
+                    MiniPickNormal                 = { fg = colors.overlay2, bg = colors.mantle },
+                    MiniPickPrompt                 = { fg = colors.sky, style = { 'bold' } },
+
+                    MiniStarterHeader              = { fg = colors.sapphire },
+                    MiniStarterInactive            = { fg = colors.surface2, style = {} },
+                    MiniStarterItem                = { fg = colors.overlay2, bg = nil },
+                    MiniStarterItemBullet          = { fg = colors.surface2 },
+                    MiniStarterItemPrefix          = { fg = colors.pink },
+                    MiniStarterQuery               = { fg = colors.red, style = { 'bold' } },
+                    MiniStarterSection             = { fg = colors.peach, style = { 'bold' } },
+
+                    MiniStatuslineDirectory        = { fg = colors.overlay1, bg = colors.surface0 },
+                    MiniStatuslineFilename         = { fg = colors.text, bg = colors.surface0, style = { 'bold' } },
+                    MiniStatuslineFilenameModified = { fg = colors.blue, bg = colors.surface0, style = { 'bold' } },
+                    MiniStatuslineInactive         = { fg = colors.overlay1, bg = colors.surface0 },
+
+                    MiniSurround                   = { fg = nil, bg = colors.yellow },
+
+                    MiniTablineCurrent             = { fg = colors.yellow, bg = colors.base, style = { 'bold' } },
+                    MiniTablineFill                = { bg = colors.mantle },
+                    MiniTablineHidden              = { fg = colors.overlay1, bg = colors.surface0 },
+                    MiniTablineModifiedCurrent     = { fg = colors.base, bg = colors.yellow, style = { 'bold' } },
+                    MiniTablineModifiedHidden      = { fg = colors.base, bg = colors.subtext0 },
+                    MiniTablineModifiedVisible     = { fg = colors.base, bg = colors.subtext0, style = { 'bold' } },
+                    MiniTablineTabpagesection      = { fg = colors.base, bg = colors.mauve, style = { 'bold' } },
+                    MiniTablineVisible             = { fg = colors.overlay1, bg = colors.surface0, style = { 'bold' } },
+                }
+                for _, hl in ipairs { 'Headline', 'rainbow' } do
+                    for i, c in ipairs { 'green', 'sapphire', 'mauve', 'peach', 'red', 'yellow' } do
+                        overrides[hl .. i] = { fg = colors[c], style = { 'bold' } }
+                    end
+                end
+                return overrides
+            end,
+        }
     },
     config = function(_, opts)
         require('catppuccin').setup(opts)
