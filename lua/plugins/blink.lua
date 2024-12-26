@@ -1,6 +1,9 @@
 return {
     'saghen/blink.cmp',
-    dependencies = 'rafamadriz/friendly-snippets',
+    dependencies = {
+        'rafamadriz/friendly-snippets',
+        'mikavilpas/blink-ripgrep.nvim',
+    },
     event = { 'InsertEnter', 'CmdlineEnter' },
     build = 'cargo build --release',
     opts = {
@@ -28,14 +31,29 @@ return {
             nerd_font_variant = 'normal'
         },
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            default = {
+                'lsp',
+                'path',
+                'snippets',
+                'buffer',
+                'ripgrep'
+            },
+            providers = {
+                ripgrep = {
+                    module = 'blink-ripgrep',
+                    name = 'Ripgrep',
+                    opts = {
+                        prefix_min_len = 5,
+                    }
+                }
+            },
         },
         completion = {
             list = {
                 selection = 'auto_insert',
             },
             menu = {
-                border = 'rounded'
+                border = 'rounded',
             },
             documentation = {
                 auto_show = true,
