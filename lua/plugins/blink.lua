@@ -46,11 +46,19 @@ return {
             },
         },
         completion = {
+            accept = {
+                auto_brackets = {
+                    enabled = true,
+                },
+            },
             list = {
                 selection = 'auto_insert',
             },
             menu = {
                 border = 'rounded',
+                draw = {
+                    treesitter = { 'lsp' },
+                },
             },
             documentation = {
                 auto_show = true,
