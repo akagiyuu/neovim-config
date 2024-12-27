@@ -48,12 +48,21 @@ require('lazy').setup {
                 'tarPlugin',
                 'tutor',
                 'zipPlugin',
-                'rplugin'
+                'rplugin',
+                'editorconfig',
+                'shada',
+                'tohtml'
             },
         },
     },
     rocks = {
         hererocks = true, -- recommended if you do not have global installation of Lua 5.1.
     },
-    --   debug = true,
+    profiling = {
+        -- Enables extra stats on the debug tab related to the loader cache.
+        -- Additionally gathers stats about all package.loaders
+        loader = true,
+        -- Track each new require in the Lazy profiling tab
+        require = true,
+    },
 }
