@@ -10,7 +10,7 @@ return {
         keymap = {
             preset = 'none',
             ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-            ['<C-e>'] = { 'hide' },
+            ['<C-e>'] = { 'hide', 'fallback' },
             ['<CR>'] = { 'accept', 'fallback' },
 
             ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
@@ -24,7 +24,7 @@ return {
             ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
         },
         appearance = {
-            use_nvim_cmp_as_default = true,
+            use_nvim_cmp_as_default = false,
             nerd_font_variant = 'normal'
         },
         sources = {
@@ -52,7 +52,9 @@ return {
                 },
             },
             list = {
-                selection = 'auto_insert',
+                selection = function(ctx)
+                    return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect'
+                end,
             },
             menu = {
                 border = 'rounded',
@@ -62,6 +64,7 @@ return {
             },
             documentation = {
                 auto_show = true,
+                treesitter_highlighting = true,
                 window = { border = 'rounded' },
             },
             ghost_text = {
