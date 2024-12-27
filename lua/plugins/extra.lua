@@ -506,5 +506,10 @@ return {
         opts = {
             log_file = vim.fn.expand('$HOME/Documents/log.csv'),
         }
-    }
+    },
+    {
+        'm4xshen/hardtime.nvim',
+        event = 'VeryLazy',
+        opts = {}
+    },
 }
