@@ -247,10 +247,6 @@ return {
         event = { 'BufRead Cargo.toml' },
         opts = {
             completion = {
-                cmp = {
-                    enabled = true,
-                    use_custom_kind = true,
-                },
                 crates = {
                     enabled = true,
                     max_results = 8, -- The maximum number of search results to display
