@@ -368,18 +368,8 @@ return {
         },
     },
     {
-        '0x00-ketsu/autosave.nvim',
-        event = { 'InsertLeave' },
-        opts = {
-            prompt = {
-                enable = false
-            }
-        }
-    },
-    {
         'sphamba/smear-cursor.nvim',
-        enabled = false,
-        -- lazy = false,
+        lazy = false,
         opts = {
             smear_between_buffers = true,
             smear_between_neighbor_lines = true,
@@ -503,10 +493,5 @@ return {
         opts = {
             log_file = vim.fn.expand('$HOME/Documents/log.csv'),
         }
-    },
-    {
-        'm4xshen/hardtime.nvim',
-        event = 'VeryLazy',
-        opts = {}
     },
 }

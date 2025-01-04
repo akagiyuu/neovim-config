@@ -36,6 +36,9 @@ return {
                 'ripgrep'
             },
             providers = {
+                lsp = {
+                    -- async = true, -- Whether we should wait for the provider to return before showing the completions
+                },
                 ripgrep = {
                     module = 'blink-ripgrep',
                     name = 'Ripgrep',

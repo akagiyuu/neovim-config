@@ -105,6 +105,7 @@ local servers = {
     cssmodules_ls = {},
     emmet_language_server = {
         filetypes = {
+            'templ',
             'css',
             'eruby',
             'html',
@@ -173,7 +174,8 @@ local servers = {
     },
     gopls = {},
     ocamllsp = {},
-    sqls = {}
+    sqls = {},
+    nushell = {}
 }
 
 return {
