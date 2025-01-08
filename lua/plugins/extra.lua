@@ -487,11 +487,4 @@ return {
             -- scroll = { enabled = true },
         },
     },
-    {
-        'ptdewey/pendulum-nvim',
-        event = 'VeryLazy',
-        opts = {
-            log_file = vim.fn.expand('$HOME/Documents/log.csv'),
-        }
-    },
 }
