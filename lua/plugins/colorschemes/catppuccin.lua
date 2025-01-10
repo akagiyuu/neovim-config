@@ -59,7 +59,10 @@ return {
             treesitter = true,
             ufo = true,
             rainbow_delimiters = true,
-            fzf = true,
+            telescope = {
+                enabled = true,
+                style = 'nvchad'
+            },
             which_key = true
         },
         color_overrides = {
