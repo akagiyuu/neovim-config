@@ -118,7 +118,7 @@ local servers = {
             'pug',
             'typescriptreact',
             'vue',
-            'rust'
+            -- 'rust'
         },
     },
     html = {},
@@ -175,7 +175,7 @@ local servers = {
     gopls = {},
     ocamllsp = {},
     sqls = {},
-    nushell = {}
+    dartls = {}
 }
 
 return {

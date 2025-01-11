@@ -25,7 +25,7 @@ return {
         },
         appearance = {
             use_nvim_cmp_as_default = false,
-            nerd_font_variant = 'normal'
+            nerd_font_variant = 'mono'
         },
         sources = {
             default = {
@@ -37,7 +37,7 @@ return {
             },
             providers = {
                 lsp = {
-                    -- async = true, -- Whether we should wait for the provider to return before showing the completions
+                    async = true,
                 },
                 ripgrep = {
                     module = 'blink-ripgrep',
@@ -55,15 +55,14 @@ return {
                 },
             },
             list = {
-                selection = function(ctx)
-                    return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect'
-                end,
+                selection = {
+                    preselect = function(ctx) return ctx.mode ~= 'cmdline' end,
+                    auto_insert = function(ctx) return ctx.mode ~= 'cmdline' end
+                }
             },
             menu = {
                 border = 'rounded',
-                draw = {
-                    treesitter = { 'lsp' },
-                },
+                draw = { treesitter = { 'lsp' } },
             },
             documentation = {
                 auto_show = true,
@@ -79,5 +78,4 @@ return {
             window = { border = 'rounded' }
         }
     },
-    opts_extend = { 'sources.default' }
 }
