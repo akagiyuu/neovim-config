@@ -4,14 +4,6 @@ return {
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         'nvim-telescope/telescope-file-browser.nvim',
         'Marskey/telescope-sg',
-        {
-            'prochri/telescope-all-recent.nvim',
-            enabled = false,
-            config = true,
-            dependencies = {
-                'kkharji/sqlite.lua'
-            }
-        },
         'debugloop/telescope-undo.nvim',
     },
     cmd = 'Telescope',
@@ -56,7 +48,7 @@ return {
             },
             winblend = vim.g.neovide and 60 or 0,
             dynamic_preview_title = true,
-            file_ignore_patterns = { '__pycache__/', 'node_modules/', '%.lock', 'obj/', 'bin/', 'target/' },
+            file_ignore_patterns = { '__pycache__/', 'node_modules/' },
 
             mappings = {
                 i = {
@@ -70,6 +62,9 @@ return {
         extensions = {
             file_browser = {
                 grouped = true,
+                no_ignore = true,
+                follow_symlinks = true,
+                git_status = false,
             },
             extensions = { undo = {}, }
         },
