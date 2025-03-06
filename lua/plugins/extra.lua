@@ -12,10 +12,6 @@ return {
         },
     },
     {
-        'stevearc/dressing.nvim',
-        opts = { input = { title_pos = 'center' } }
-    },
-    {
         'rcarriga/nvim-notify',
         keys = {
             {
@@ -334,7 +330,7 @@ return {
         opts = {
             runner_ui = {
                 testcases_use_single_file = true,
-                interface = 'split',
+                -- interface = 'split',
             }
         }
     },
@@ -429,18 +425,15 @@ return {
     },
     {
         'vyfor/cord.nvim',
-        build = './build || .\\build',
+        build = ':Cord update',
         event = 'VeryLazy',
         opts = {
-            display = {
-                show_time = true,            -- Display start timestamp
-                show_repository = true,      -- Display 'View repository' button linked to repository url, if any
-                show_cursor_position = true, -- Display line and column number of cursor's position
-                swap_fields = false,         -- If enabled, workspace is displayed first
-                swap_icons = false,          -- If enabled, editor is displayed on the main image
-                workspace_blacklist = {},    -- List of workspace names that will hide rich presence
-            },
-        },                                   -- calls require('cord').setup()
+            text = {
+                editing = function(opts)
+                    return string.format('Editing %s:%s:%s', opts.filename, opts.cursor_line, opts.cursor_char)
+                end
+            }
+        },
     },
     {
         'marcussimonsen/let-it-snow.nvim',
@@ -466,6 +459,34 @@ return {
         'folke/snacks.nvim',
         priority = 1000,
         lazy = false,
+        keys = {
+            { '<leader><space>', function() Snacks.picker.smart() end,                desc = 'Smart Find Files' },
+            { '<leader>/',       function() Snacks.picker.grep() end,                 desc = 'Grep' },
+            { '<leader>:',       function() Snacks.picker.command_history() end,      desc = 'Command History' },
+            { '<leader>e',       function() Snacks.explorer() end,                    desc = 'File Explorer' },
+            { '<leader>fb',      function() Snacks.picker.buffers() end,              desc = 'Buffers' },
+            { '<leader>ff',      function() Snacks.picker.files() end,                desc = 'Find Files' },
+            { '<leader>fl',      function() Snacks.picker.lazy() end,                 desc = 'Search for Plugin Spec' },
+            { '<leader>fr',      function() Snacks.picker.resume() end,               desc = 'Resume' },
+            { '<leader>fu',      function() Snacks.picker.undo() end,                 desc = 'Undo History' },
+
+            -- git
+            { '<leader>gb',      function() Snacks.picker.git_branches() end,         desc = 'Git Branches' },
+            { '<leader>gl',      function() Snacks.picker.git_log() end,              desc = 'Git Log' },
+            { '<leader>gL',      function() Snacks.picker.git_log_line() end,         desc = 'Git Log Line' },
+            { '<leader>gs',      function() Snacks.picker.git_status() end,           desc = 'Git Status' },
+            { '<leader>gS',      function() Snacks.picker.git_stash() end,            desc = 'Git Stash' },
+            { '<leader>gd',      function() Snacks.picker.git_diff() end,             desc = 'Git Diff (Hunks)' },
+            { '<leader>gf',      function() Snacks.picker.git_log_file() end,         desc = 'Git Log File' },
+
+            -- LSP
+            { 'gd',              function() Snacks.picker.lsp_definitions() end,      desc = 'Goto Definition' },
+            { 'gD',              function() Snacks.picker.lsp_declarations() end,     desc = 'Goto Declaration' },
+            { 'gr',              function() Snacks.picker.lsp_references() end,       nowait = true,                  desc = 'References' },
+            { 'gI',              function() Snacks.picker.lsp_implementations() end,  desc = 'Goto Implementation' },
+            { 'gy',              function() Snacks.picker.lsp_type_definitions() end, desc = 'Goto T[y]pe Definition' },
+            { '<leader>ss',      function() Snacks.picker.lsp_symbols() end,          desc = 'LSP Symbols' },
+        },
         opts = {
             bigfile = { enabled = true },
             indent = {
@@ -478,14 +499,11 @@ return {
                     underline = true, -- underline the start of the scope
                 },
             },
-            input = { enabled = true },
-            -- notifier = {
-            --     enabled = true,
-            --     style = 'fancy',
-            --     history = true,
-            -- },
+            image = { enabled = true },
+            input = { enabled = true, },
             quickfile = { enabled = true },
-            -- scroll = { enabled = true },
+            scroll = { enabled = true },
+            picker = { enabled = true }
         },
     },
 }

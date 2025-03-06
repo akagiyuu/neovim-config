@@ -1,23 +1,6 @@
 local on_attach = function(client, bufnr)
-    local lsp_util = require('util.lsp');
-    -- lsp_util.code_lens_attach(client, bufnr)
     require('util.lsp').inlay_hint_attach(client, bufnr)
 
-    vim.keymap.set('n', '<leader>lf', '<cmd>Lspsaga finder<CR>', {
-        buffer = bufnr
-    })
-    vim.keymap.set('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>', {
-        buffer = bufnr
-    })
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {
-        buffer = bufnr
-    })
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {
-        buffer = bufnr
-    })
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {
-        buffer = bufnr
-    })
     vim.keymap.set({ 'n', 'v' }, '<leader>fm', require('util.lsp').format, {
         buffer = bufnr
     })
@@ -30,73 +13,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'K', require('util.lsp').hover, {
         buffer = bufnr
     })
-    vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', {
-        buffer = bufnr
-    })
-    vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', {
-        buffer = bufnr
-    })
-    if client.name == 'eslint' then
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            command = 'EslintFixAll',
-        })
-    end
-    if client.name == 'sqls' then
-        require('sqls').on_attach(client, bufnr)
-    end
 end
-
-local capabilities = {
-    offsetEncoding = { 'utf-16' },
-    textDocument = {
-        foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-        },
-
-        completion = {
-            dynamicRegistration = false,
-            completionItem = {
-                snippetSupport = true,
-                commitCharactersSupport = true,
-                deprecatedSupport = true,
-                preselectSupport = true,
-                tagSupport = {
-                    valueSet = {
-                        1, -- Deprecated
-                    }
-                },
-                insertReplaceSupport = true,
-                resolveSupport = {
-                    properties = {
-                        'documentation',
-                        'detail',
-                        'additionalTextEdits',
-                    },
-                },
-                insertTextModeSupport = {
-                    valueSet = {
-                        1, -- asIs
-                        2, -- adjustIndentation
-                    }
-                },
-                labelDetailsSupport = true,
-            },
-            contextSupport = true,
-            insertTextMode = 1,
-            completionList = {
-                itemDefaults = {
-                    'commitCharacters',
-                    'editRange',
-                    'insertTextFormat',
-                    'insertTextMode',
-                    'data',
-                }
-            }
-        },
-    },
-}
 
 local servers = {
     clangd = {},
@@ -127,7 +44,6 @@ local servers = {
     bashls = {},
     dockerls = {},
     svelte = {},
-    eslint = {},
     vtsls = {},
     tinymist = {
         settings = {
@@ -174,8 +90,8 @@ local servers = {
     },
     gopls = {},
     ocamllsp = {},
-    sqls = {},
-    dartls = {}
+    dartls = {},
+    move_analyzer = {}
 }
 
 return {
@@ -183,6 +99,7 @@ return {
         'neovim/nvim-lspconfig',
         lazy = false,
         config = function(_, opts)
+            local capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
             for server, server_opts in pairs(servers) do
                 server_opts.capabilities = capabilities
                 require('lspconfig')[server].setup(server_opts)
@@ -232,7 +149,8 @@ return {
     {
         'dmmulroy/ts-error-translator.nvim',
         ft = { 'typescript', 'typescriptreact' }
-    }
+    },
+    { 'mfussenegger/nvim-jdtls' }
     -- {
     --     'pmizio/typescript-tools.nvim',
     --     lazy = false,

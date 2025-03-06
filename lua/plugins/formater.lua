@@ -19,10 +19,21 @@ return {
             ['*'] = { 'injected' }
         },
         formatters = {
+            typstyle = {
+                prepend_args = {
+                    '--tab-width',
+                    '4',
+                }
+            },
             prettier = {
                 prepend_args = {
                     '--tab-width',
                     '4',
+                }
+            },
+            ['google-java-format'] = {
+                prepend_args = {
+                    '-a'
                 }
             }
         }
