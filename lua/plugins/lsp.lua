@@ -1,6 +1,9 @@
 local on_attach = function(client, bufnr)
     require('util.lsp').inlay_hint_attach(client, bufnr)
 
+    vim.keymap.set('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>', {
+        buffer = bufnr
+    })
     vim.keymap.set({ 'n', 'v' }, '<leader>fm', require('util.lsp').format, {
         buffer = bufnr
     })

@@ -350,7 +350,7 @@ return {
     },
     {
         'sphamba/smear-cursor.nvim',
-        enabled = false,
+        enabled = true,
         lazy = false,
         opts = {
             smear_between_buffers = true,
