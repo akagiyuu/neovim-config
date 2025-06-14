@@ -313,8 +313,8 @@ return {
         'xeluxee/competitest.nvim',
         cmd = { 'CompetiTest' },
         opts = {
+            testcases_use_single_file = true,
             runner_ui = {
-                testcases_use_single_file = true,
                 -- interface = 'split',
             }
         }
@@ -454,6 +454,7 @@ return {
             { '<leader>fl',      function() Snacks.picker.lazy() end,                 desc = 'Search for Plugin Spec' },
             { '<leader>fr',      function() Snacks.picker.resume() end,               desc = 'Resume' },
             { '<leader>fu',      function() Snacks.picker.undo() end,                 desc = 'Undo History' },
+            { '<leader>fd',      function() Snacks.picker.diagnostics() end,           desc = 'Diagnostic' },
 
             -- git
             { '<leader>gb',      function() Snacks.picker.git_branches() end,         desc = 'Git Branches' },
