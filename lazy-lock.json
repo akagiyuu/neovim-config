@@ -1,7 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "blink-ripgrep.nvim": { "branch": "main", "commit": "3b146c70869c3f42c623341ad8befe9a073087a6" },
-  "blink.cmp": { "branch": "main", "commit": "86239578da58dff5ca43c3ebc992f184ee64354f" },
+  "blink.cmp": { "branch": "main", "commit": "0fc23d278ef32b89aa9f3f18f3125ef403e23bae" },
   "catppuccin": { "branch": "main", "commit": "a0c769bc7cd04bbbf258b3d5f01e2bdce744108d" },
   "codesnap.nvim": { "branch": "main", "commit": "be6d6b9a3b5e6999edbda76b16dace03d9bfcd3d" },
   "competitest.nvim": { "branch": "master", "commit": "b42c06ca308906f07912ba9aff015ac2c0831f85" },
