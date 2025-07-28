@@ -3,7 +3,7 @@ local _lsp = {}
 _lsp.format = function()
     require('conform').format {
         async = true,
-        lsp_fallback = true
+        lsp_format = 'fallback',
     }
 end
 _lsp.hover = function()
