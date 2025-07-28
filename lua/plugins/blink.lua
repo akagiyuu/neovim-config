@@ -5,6 +5,7 @@ return {
         'mikavilpas/blink-ripgrep.nvim',
     },
     event = { 'InsertEnter', 'CmdlineEnter' },
+    build = 'cargo build --release',
     opts = {
         appearance = {
             use_nvim_cmp_as_default = false,

@@ -14,9 +14,7 @@ return {
             javascript = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
             java = { 'google-java-format' },
             fish = { 'fish_indent' },
-            ['_'] = { 'trim_whitespace' },
             typst = { 'typstyle' },
-            ['*'] = { 'injected' }
         },
         formatters = {
             typstyle = {
