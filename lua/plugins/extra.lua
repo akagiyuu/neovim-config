@@ -286,6 +286,7 @@ return {
     },
     {
         'felpafel/inlay-hint.nvim',
+        enabled = false,
         event = 'LspAttach',
         opts = {
             display_callback = function(line_hints, options, bufnr)
@@ -320,14 +321,14 @@ return {
                         local label = hint.label
                         local kind = hint.kind
                         local node = kind == 1
-                        and vim.treesitter.get_node({
-                            bufnr = bufnr,
-                            pos = {
-                                hint.position.line,
-                                hint.position.character - 1,
-                            },
-                        })
-                        or nil
+                            and vim.treesitter.get_node {
+                                bufnr = bufnr,
+                                pos = {
+                                    hint.position.line,
+                                    hint.position.character - 1,
+                                },
+                            }
+                            or nil
                         local node_text = node and vim.treesitter.get_node_text(node, bufnr, {}) or ''
                         local text = ''
                         if type(label) == 'string' then
@@ -525,7 +526,7 @@ return {
             { '<leader>fl',      function() Snacks.picker.lazy() end,                 desc = 'Search for Plugin Spec' },
             { '<leader>fr',      function() Snacks.picker.resume() end,               desc = 'Resume' },
             { '<leader>fu',      function() Snacks.picker.undo() end,                 desc = 'Undo History' },
-            { '<leader>fd',      function() Snacks.picker.diagnostics() end,           desc = 'Diagnostic' },
+            { '<leader>fd',      function() Snacks.picker.diagnostics() end,          desc = 'Diagnostic' },
 
             -- git
             { '<leader>gb',      function() Snacks.picker.git_branches() end,         desc = 'Git Branches' },
