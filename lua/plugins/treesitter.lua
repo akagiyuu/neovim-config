@@ -24,7 +24,9 @@ return {
         build = ':TSUpdate',
         lazy = false,
         opts = {
-            highlight = { enable = true },
+            highlight = {
+                enable = true
+            },
             indent = { enable = true },
         },
         main = 'nvim-treesitter.configs',

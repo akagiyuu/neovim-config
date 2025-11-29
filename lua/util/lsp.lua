@@ -20,7 +20,7 @@ end
 
 _lsp.code_lens_attach = function(client, bufnr)
     local status_ok, codelens_supported = pcall(function()
-        return client.supports_method('textDocument/codeLens')
+        return client:supports_method('textDocument/codeLens')
     end)
     if not status_ok or not codelens_supported then
         return
@@ -48,7 +48,7 @@ _lsp.code_lens_attach = function(client, bufnr)
 end
 
 _lsp.inlay_hint_attach = function(client, bufnr)
-    if client.supports_method('textDocument/inlayHint') then
+    if client:supports_method('textDocument/inlayHint') then
         vim.lsp.inlay_hint.enable(true)
     end
 end

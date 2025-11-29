@@ -5,6 +5,7 @@ return {
     lazy = false,
     enabled = true,
     priority = 1000,
+    tag = 'v1.10.0',
     default_integrations = true,
     opts = {
         flavour = 'mocha',
