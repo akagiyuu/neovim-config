@@ -39,7 +39,7 @@ return {
                         symbols = { added = ' ', modified = ' ', removed = ' ' },
                     }
                 },
-                lualine_c = { 'filename' },
+                lualine_c = {},
                 lualine_x = { 'diagnostics' },
                 lualine_y = { 'filetype' },
                 lualine_z = { 'progress', 'location' }
@@ -47,7 +47,7 @@ return {
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = { 'filename' },
+                lualine_c = {},
                 lualine_x = { 'location' },
                 lualine_y = {},
                 lualine_z = {}

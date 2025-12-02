@@ -1,19 +1,7 @@
 local on_attach = function(client, bufnr)
     require('util.lsp').inlay_hint_attach(client, bufnr)
 
-    vim.keymap.set('n', '[d', function() vim.diagnostic.jump { count = 1 } end, { buffer = bufnr })
-    vim.keymap.set('n', ']d', function() vim.diagnostic.jump { count = -1 } end, { buffer = bufnr })
-
-    vim.keymap.set('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>', {
-        buffer = bufnr
-    })
     vim.keymap.set({ 'n', 'v' }, '<leader>fm', require('util.lsp').format, {
-        buffer = bufnr
-    })
-    vim.keymap.set({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>', {
-        buffer = bufnr
-    })
-    vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', {
         buffer = bufnr
     })
     vim.keymap.set('n', 'K', require('util.lsp').hover, {
@@ -97,18 +85,18 @@ local servers = {
     gopls = {},
     ocamllsp = {},
     dartls = {},
-    move_analyzer = {}
 }
 
 return {
     {
         'neovim/nvim-lspconfig',
         lazy = false,
-        config = function(_, opts)
+        config = function()
             local capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
             for server, server_opts in pairs(servers) do
                 server_opts.capabilities = capabilities
-                require('lspconfig')[server].setup(server_opts)
+                vim.lsp.config(server, server_opts)
+                vim.lsp.enable(server)
             end
 
             vim.api.nvim_create_autocmd('LspAttach', {
@@ -122,8 +110,6 @@ return {
                     on_attach(client, bufnr)
                 end,
             })
-
-            require('lspconfig.ui.windows').default_options.border = 'rounded'
         end
 
     },
@@ -134,7 +120,6 @@ return {
             vim.g.rustaceanvim = {
                 tools = { inlay_hints = { auto = false }, },
                 server = {
-                    capabilities = capabilities,
                     on_attach = on_attach,
                     settings = {
                         ['rust-analyzer'] = {

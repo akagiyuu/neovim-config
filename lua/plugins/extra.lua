@@ -148,13 +148,7 @@ return {
     {
         'danymat/neogen',
         cmd = 'Neogen',
-        opts = {
-            snippet_engine = 'luasnip',
-            enabled = true,
-            languages = {
-                cs = { template = { annotation_convention = 'xmldoc', } },
-            }
-        },
+        opts = {},
     },
     {
         'ThePrimeagen/harpoon',
@@ -198,7 +192,7 @@ return {
         opts = {
             mac_window_bar = true,
             title = '',
-            code_font_family = 'Monaspace Radon',
+            code_font_family = 'JetBrains Mono',
             watermark = '',
         }
     },
@@ -212,12 +206,14 @@ return {
     },
     {
         'rachartier/tiny-inline-diagnostic.nvim',
-        event = 'VeryLazy', -- Or `LspAttach`
-        priority = 1000,    -- needs to be loaded in first
+        event = 'VeryLazy',
+        priority = 1000,
         opts = {
             preset = 'powerline',
             options = {
-                multilines = true,
+                show_source = { enabled = true },
+                multilines = { enabled = true },
+                add_messages = { display_count = true },
                 multiple_diag_under_cursor = true,
                 show_all_diags_on_cursorline = true,
             }
@@ -261,6 +257,36 @@ return {
     {
         'nvimdev/lspsaga.nvim',
         event = 'LspAttach',
+        keys = {
+            {
+                '<leader>ld',
+                '<cmd>Lspsaga show_line_diagnostics<CR>'
+            },
+            {
+                '[d',
+                '<cmd>Lspsaga diagnostic_jump_next<CR>'
+            },
+            {
+                ']d',
+                '<cmd>Lspsaga diagnostic_jump_prev<CR>'
+            },
+            {
+                '<leader>lf',
+                '<cmd>Lspsaga finder<CR>'
+            },
+            {
+                '<leader>ca',
+                mode = {
+                    'n',
+                    'v',
+                },
+                '<cmd>Lspsaga code_action<CR>'
+            },
+            {
+                '<leader>rn',
+                '<cmd>Lspsaga rename<CR>'
+            },
+        },
         opts = {
             lightbulb = { virtual_text = false },
             border = 'rounded',
@@ -283,83 +309,6 @@ return {
             opts.ui.kind['Folder'] = { '', 'NONE' }
             require('lspsaga').setup(opts)
         end
-    },
-    {
-        'felpafel/inlay-hint.nvim',
-        enabled = false,
-        event = 'LspAttach',
-        opts = {
-            display_callback = function(line_hints, options, bufnr)
-                if options.virt_text_pos == 'inline' then
-                    local lhint = {}
-                    for _, hint in pairs(line_hints) do
-                        local text = ''
-                        local label = hint.label
-                        if type(label) == 'string' then
-                            text = label
-                        else
-                            for _, part in ipairs(label) do
-                                text = text .. part.value
-                            end
-                        end
-                        if hint.paddingLeft then
-                            text = ' ' .. text
-                        end
-                        if hint.paddingRight then
-                            text = text .. ' '
-                        end
-                        lhint[#lhint + 1] = { text = text, col = hint.position.character }
-                    end
-                    return lhint
-                elseif options.virt_text_pos == 'eol' or options.virt_text_pos == 'right_align' then
-                    local k1 = {}
-                    local k2 = {}
-                    table.sort(line_hints, function(a, b)
-                        return a.position.character < b.position.character
-                    end)
-                    for _, hint in pairs(line_hints) do
-                        local label = hint.label
-                        local kind = hint.kind
-                        local node = kind == 1
-                            and vim.treesitter.get_node {
-                                bufnr = bufnr,
-                                pos = {
-                                    hint.position.line,
-                                    hint.position.character - 1,
-                                },
-                            }
-                            or nil
-                        local node_text = node and vim.treesitter.get_node_text(node, bufnr, {}) or ''
-                        local text = ''
-                        if type(label) == 'string' then
-                            text = label
-                        else
-                            for _, part in ipairs(label) do
-                                text = text .. part.value
-                            end
-                        end
-                        if kind == 1 then
-                            k1[#k1 + 1] = text:gsub(':%s*', node_text .. ': ')
-                        else
-                            k2[#k2 + 1] = text:gsub(':$', '')
-                        end
-                    end
-                    local text = ''
-                    if #k2 > 0 then
-                        text = '<- (' .. table.concat(k2, ',') .. ')'
-                    end
-                    if #text > 0 then
-                        text = text .. ' '
-                    end
-                    if #k1 > 0 then
-                        text = text .. '=> ' .. table.concat(k1, ', ')
-                    end
-
-                    return text
-                end
-                return nil
-            end,
-        }
     },
     {
         'kevinhwang91/nvim-ufo',
@@ -428,10 +377,22 @@ return {
             smear_between_buffers = true,
             smear_between_neighbor_lines = true,
             scroll_buffer_space = true,
-            legacy_computing_symbols_support = true,
+            legacy_computing_symbols_support = false,
+            -- cursor_color = '#ffffff',
+            -- gradient_exponent = 0,
+            -- particles_enabled = true,
+            -- particle_spread = 1,
+            -- particles_per_second = 100,
+            -- particles_per_length = 50,
+            -- particle_max_lifetime = 1500,
+            -- particle_max_initial_velocity = 10,
+            -- particle_velocity_from_cursor = 0,
+            -- particle_random_velocity = 300,
+            -- particle_damping = 0.1,
+            -- particle_gravity = 50,
         },
     },
-    { 'kevinhwang91/nvim-bqf', ft = 'qf' },
+    { 'kevinhwang91/nvim-bqf',    ft = 'qf' },
     {
         'ThePrimeagen/refactoring.nvim',
         keys = {
@@ -485,6 +446,13 @@ return {
         build = ':Cord update',
         event = 'VeryLazy',
         opts = {
+            display = {
+                theme = 'atom',
+                flavor = 'dark',
+                view = 'full',
+                swap_fields = false,
+                swap_icons = false,
+            },
             text = {
                 editing = function(opts)
                     return string.format('Editing %s:%s:%s', opts.filename, opts.cursor_line, opts.cursor_char)
@@ -564,4 +532,60 @@ return {
             picker = { enabled = true }
         },
     },
+    {
+        'chrisgrieser/nvim-lsp-endhints',
+        event = 'LspAttach',
+        opts = {},
+    },
+    {
+        'zeioth/garbage-day.nvim',
+        event = 'VeryLazy',
+        opts = {}
+    },
+    {
+        'yorickpeterse/nvim-tree-pairs',
+        lazy = false,
+        opts = {}
+    },
+    {
+        'Darazaki/indent-o-matic',
+        lazy = false,
+        opts = {}
+    },
+    {
+        'kawre/neotab.nvim',
+        event = 'InsertEnter',
+        opts = {}
+    },
+    {
+        'b0o/incline.nvim',
+        event = 'VeryLazy',
+        config = function()
+            local helpers = require 'incline.helpers'
+            local devicons = require 'nvim-web-devicons'
+            require('incline').setup {
+                window = {
+                    padding = 0,
+                    margin = { horizontal = 0 },
+                },
+                render = function(props)
+                    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+                    if filename == '' then
+                        filename = '[No Name]'
+                    end
+                    local ft_icon, ft_color = devicons.get_icon_color(filename)
+                    local modified = vim.bo[props.buf].modified
+                    return {
+                        ft_icon and { ' ', ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or
+                        '',
+                        ' ',
+                        { filename, gui = modified and 'bold,italic' or 'bold' },
+                        ' ',
+                        guibg = '#44406e',
+                    }
+                end,
+            }
+        end,
+    },
+    { 'ravibrock/spellwarn.nvim', event = 'VeryLazy', opts = {} }
 }
